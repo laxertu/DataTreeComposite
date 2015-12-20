@@ -1,8 +1,8 @@
 <?php
-namespace MessageComposite;
+namespace MessageComposite\examples;
 
 
-class SearchMessage extends Message
+class SearchMessage extends \MessageComposite\Message
 {
 
     /** @var  DateSearchParam */

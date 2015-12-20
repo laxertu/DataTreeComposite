@@ -1,8 +1,8 @@
 <?php
-namespace MessageComposite;
+namespace MessageComposite\examples;
 
 
-class BoardParam extends MessageElement
+class BoardParam extends \MessageComposite\Message
 {
 
     protected $name = 'board';

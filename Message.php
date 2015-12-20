@@ -72,7 +72,7 @@ abstract class Message {
     private function getFormatter()
     {
         if(is_null($this->formatter)) {
-            $this->formatter = new XMLFormatter();
+            $this->formatter = new Formatter\XMLFormatter();
         }
         return $this->formatter;
     }

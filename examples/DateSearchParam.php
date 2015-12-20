@@ -1,8 +1,8 @@
 <?php
-namespace MessageComposite;
+namespace MessageComposite\examples;
 
 
-class DateSearchParam extends MessageElement
+class DateSearchParam extends \MessageComposite\MessageElement
 {
 
     protected $name = 'date';

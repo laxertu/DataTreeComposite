@@ -1,12 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: luca
- * Date: 20/12/15
- * Time: 14:14
- */
-
-namespace MessageComposite;
+namespace MessageComposite\Formatter;
+use MessageComposite\Message;
+use MessageComposite\MessageElement;
 
 
 class XMLFormatter implements Formatter

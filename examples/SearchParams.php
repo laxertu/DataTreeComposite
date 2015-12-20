@@ -1,8 +1,9 @@
 <?php
-namespace MessageComposite;
+namespace MessageComposite\examples;
 
 
-class SearchParams extends Message
+
+class SearchParams extends \MessageComposite\Message
 {
 
     protected $name = 'SearchParams';
@@ -32,8 +33,8 @@ class SearchParams extends Message
     protected function prepare()
     {
 
-        $this->addElement(new MessageElement('dateFrom', $this->dateFrom));
-        $this->addElement(new MessageElement('dateTo', $this->dateTo));
+        $this->addElement(new \MessageComposite\MessageElement('dateFrom', $this->dateFrom));
+        $this->addElement(new \MessageComposite\MessageElement('dateTo', $this->dateTo));
 
         foreach($this->boards as $board) {
             $this->addElement($board);

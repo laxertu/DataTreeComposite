@@ -1,5 +1,7 @@
 <?php
-namespace MessageComposite;
+namespace MessageComposite\Formatter;
+use MessageComposite\Message;
+use MessageComposite\MessageElement;
 
 
 interface Formatter
