@@ -12,29 +12,6 @@ $autoload = function ($nombre_clase) {
 
 spl_autoload_register($autoload);
 
-
-
-
-
-
-
-
-
-$pedido = new PedidoPizza(123, 2);
-echo json_encode($pedido);
-
-
-//echo $pedido->getBody();
-
-
-
-
-
-
-exit;
-
-
-
 //$msg = new SearchMessage();
 
 //$msg->setDateFrom('2015-02-03');
