@@ -32,8 +32,8 @@ class SearchParams extends Message
     protected function prepare()
     {
 
-        $this->addElement(new DateSearchParam($this->dateFrom));
-        $this->addElement(new DateSearchParam($this->dateTo));
+        $this->addElement(new MessageElement('dateFrom', $this->dateFrom));
+        $this->addElement(new MessageElement('dateTo', $this->dateTo));
 
         foreach($this->boards as $board) {
             $this->addElement($board);
