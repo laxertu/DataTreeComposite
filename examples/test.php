@@ -11,7 +11,16 @@ $autoload = function ($className) {
     include '../'.$path;
 };
 
+
+
+function output($x) {
+
+    echo "\n\n".$x."\n\n";
+
+}
+
 spl_autoload_register($autoload);
+
 
 $msg = new SearchMessage();
 
@@ -23,6 +32,8 @@ $msg->addBoard('bri');
 
 output($msg->getBody());
 
+//print_r($msg);
+
 
 #-----------
 $sp = new SearchParams();
@@ -30,10 +41,3 @@ $sp->setDateFrom('123');
 $sp->setDateTo('456');
 
 output($sp->getBody());
-
-
-function output($x) {
-
-    echo $x."\n\n";
-
-}

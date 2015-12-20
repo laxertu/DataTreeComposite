@@ -2,7 +2,7 @@
 namespace MessageComposite\examples;
 
 
-class BoardParam extends \MessageComposite\Message
+class BoardParam extends \MessageComposite\MessageElement
 {
 
     protected $name = 'board';
