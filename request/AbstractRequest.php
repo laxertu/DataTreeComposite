@@ -2,7 +2,7 @@
 namespace MessageComposite\request;
 use MessageComposite\Message;
 
-class AbstractRequest
+abstract class AbstractRequest
 {
 
     private $url;
