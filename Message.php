@@ -25,12 +25,12 @@ abstract class Message {
         return $this->isLeaf;
     }
 
-    public function getName()
+    public final function getName()
     {
         return $this->name;
     }
 
-    public function getAttributes()
+    public final function getAttributes()
     {
         return $this->attrs;
     }

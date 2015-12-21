@@ -14,11 +14,6 @@ class MessageElement extends Message
         $this->value = $value;
     }
 
-    public function getName()
-    {
-        return $this->name;
-    }
-
     public function getValue()
     {
         return $this->value;
