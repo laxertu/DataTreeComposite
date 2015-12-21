@@ -1,7 +1,12 @@
 <?php
 namespace MessageComposite;
 
-
+/**
+ * Leaf classes.
+ *
+ * Class MessageElement
+ * @package MessageComposite
+ */
 class MessageElement extends Message
 {
 

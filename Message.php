@@ -18,6 +18,12 @@ abstract class Message {
     /** @var  Formatter */
     private $formatter;
 
+    /**
+     * Classes that inherits from MessageElement have this property setted to true. A formatter
+     * may need it to build content in some different way
+     *
+     * @var bool
+     */
     protected $isLeaf = false;
 
     public final function isLeaf()
@@ -25,16 +31,30 @@ abstract class Message {
         return $this->isLeaf;
     }
 
+    /**
+     * Returns node name
+     *
+     * @return string
+     * @todo default to concrete class name
+     */
     public final function getName()
     {
         return $this->name;
     }
 
+    /**
+     * Return an associative array in a key => value form with attributes
+     *
+     * @return array
+     */
     public final function getAttributes()
     {
         return $this->attrs;
     }
 
+    /**
+     * Child classes that needs some special bahaviour before getting content can implement this method
+     */
     protected function prepare() {}
 
     protected function addElement(Message $element)
@@ -42,7 +62,11 @@ abstract class Message {
         $this->elements[]=$element;
     }
 
-
+    /**
+     * Returns a MessageElement object with message plain text content (without head and foot)
+     *
+     * @return MessageElement
+     */
     protected function getBody()
     {
         $this->prepare();
@@ -55,6 +79,11 @@ abstract class Message {
         return new MessageElement($this->name, $content);
     }
 
+    /**
+     * Returns full message content
+     *
+     * @return string
+     */
     public final function getContent()
     {
         $formatter = $this->getFormatter();
