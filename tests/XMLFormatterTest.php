@@ -14,9 +14,9 @@ class XMLFormatterTest extends BaseTest
     {
 
         $sut = new MessageElement('a', 'b');
-        $expected = 'b';
+        $expected = '<a>b</a>';
 
-        $this->assertEquals($expected, $sut->getBody());
+        $this->assertEquals($expected, $sut->getContent());
 
 
     }

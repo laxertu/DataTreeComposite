@@ -30,7 +30,7 @@ $msg->setDateTo('2015-02-04');
 $msg->addBoard('nin');
 $msg->addBoard('bri');
 
-output($msg->getBody());
+output($msg->getContent());
 
 //print_r($msg);
 
@@ -40,4 +40,4 @@ $sp = new SearchParams();
 $sp->setDateFrom('123');
 $sp->setDateTo('456');
 
-output($sp->getBody());
+output($sp->getContent());

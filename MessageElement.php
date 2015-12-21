@@ -24,7 +24,7 @@ class MessageElement extends Message
         return $this->value;
     }
 
-    protected function getContent()
+    protected function getBody()
     {
         return $this;
     }

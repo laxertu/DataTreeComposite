@@ -43,30 +43,22 @@ abstract class Message {
     }
 
 
-    protected function getContent($first = true)
+    protected function getBody()
     {
         $this->prepare();
-        $formatter = $this->getFormatter();
         $content = '';
 
-        if($first) {
-            $content = $formatter->buildHead($this);
-        }
-
         foreach($this->elements as $element) {
-            $content.= $formatter->buildContent($element->getContent(false));
-        }
-
-        if($first) {
-            $content.=$formatter->buildFoot($this);
+            $content.= $element->getContent();
         }
 
         return new MessageElement($this->name, $content);
     }
 
-    public final function getBody()
+    public final function getContent()
     {
-        return $this->getContent()->getValue();
+        $formatter = $this->getFormatter();
+        return $formatter->buildHead($this).$this->getBody()->getValue().$formatter->buildFoot($this);
     }
 
     private function getFormatter()
