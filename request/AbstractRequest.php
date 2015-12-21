@@ -5,7 +5,7 @@ use MessageComposite\Message;
 abstract class AbstractRequest
 {
 
-    private $url;
+    protected $url;
 
     /** @var Message */
     private $msg;
@@ -24,6 +24,11 @@ abstract class AbstractRequest
     public final function getUrl()
     {
         return $this->url;
+    }
+
+    public final function setUrl($url)
+    {
+        $this->url = $url;
     }
 
     protected function prepare(){}
