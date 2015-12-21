@@ -10,6 +10,11 @@ class AbstractRequest
     /** @var Message */
     private $msg;
 
+    public final function __construct(Message $msg)
+    {
+        $this->msg = $msg;
+    }
+
     public final function getContent()
     {
         $this->prepare();
