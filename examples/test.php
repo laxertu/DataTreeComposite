@@ -11,7 +11,7 @@ $autoload = function ($className) {
     include '../'.$path;
 };
 
-
+spl_autoload_register($autoload);
 
 function output($x) {
 
@@ -19,18 +19,7 @@ function output($x) {
 
 }
 
-spl_autoload_register($autoload);
-
-
-$msg = new SearchMessage();
-
-$msg->setDateFrom('2015-02-03');
-$msg->setDateTo('2015-02-04');
-
-$msg->addBoard('nin');
-$msg->addBoard('bri');
-$credentials = new MessageComposite\examples\auth_protocol\Credentials();
-$p = new MessageComposite\examples\auth_protocol\ProtocolMessage($credentials, $msg);
-
-output($p->getContent());
+$module = new MessageComposite\examples\auth_protocol\SystemSearchModule();
+output($module->doSearch());
+output($module->doSearch());
 

@@ -5,14 +5,19 @@ use MessageComposite\MessageElement;
 
 class AuthNode extends Message
 {
-
-
+    protected  $name = 'Auth';
+    private    $usr, $pwd;
 
     public function __construct($usr, $pwd)
     {
-        $this->name = 'Auth';
-        $this->addElement(new MessageElement('usr', $usr));
-        $this->addElement(new MessageElement('pwd', $pwd));
+        $this->usr = $usr;
+        $this->pwd = $pwd;
+    }
+
+    protected function prepare()
+    {
+        $this->addElement(new MessageElement('usr', $this->usr));
+        $this->addElement(new MessageElement('pwd', $this->pwd));
 
     }
 

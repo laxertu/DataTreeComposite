@@ -1,9 +1,8 @@
 <?php
 namespace MessageComposite\examples;
+use MessageComposite\Message;
 
-
-
-class SearchParams extends \MessageComposite\Message
+class SearchParams extends Message
 {
 
     protected $name = 'SearchParams';

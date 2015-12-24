@@ -1,18 +1,14 @@
 <?php
 namespace MessageComposite\examples;
+use MessageComposite\examples\auth_protocol\ApiMethodBase;
 
 
-class SearchMessage extends \MessageComposite\Message
+class SearchMessage extends ApiMethodBase
 {
 
     /** @var  DateSearchParam */
     private $searchParams;
-
-    public function __construct()
-    {
-        $this->name = 'Search';
-
-    }
+    protected $name = 'Search';
 
     public function setDateFrom($date)
     {

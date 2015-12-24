@@ -58,11 +58,17 @@ abstract class Message {
     }
 
     /**
-     * Child classes that needs some special bahaviour before getting content can implement this method
+     * Child classes that needs some special behaviour before getting content can implement this method.
+     *
+     *
+     * This method is declared as protected as often we want to give control about how a message is structured to
+     * message itself. If you want more flexibility you have to extend GenericMessage. See examples
+     *
+     * @see GenericMessage
      */
     protected function prepare() {}
 
-    public function addElement(Message $element)
+    protected function addElement(Message $element)
     {
         $this->elements[]=$element;
     }
@@ -72,7 +78,7 @@ abstract class Message {
      *
      * @return MessageElement
      */
-    protected function getBody()
+    public function getBody()
     {
         $this->prepare();
         $content = '';
