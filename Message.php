@@ -42,6 +42,11 @@ abstract class Message {
         return $this->name;
     }
 
+    public final function setName($name)
+    {
+        $this->name = $name;
+    }
+
     /**
      * Return an associative array in a key => value form with attributes
      *
@@ -57,7 +62,7 @@ abstract class Message {
      */
     protected function prepare() {}
 
-    protected function addElement(Message $element)
+    public function addElement(Message $element)
     {
         $this->elements[]=$element;
     }

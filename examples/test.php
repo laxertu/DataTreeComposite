@@ -29,15 +29,8 @@ $msg->setDateTo('2015-02-04');
 
 $msg->addBoard('nin');
 $msg->addBoard('bri');
+$credentials = new MessageComposite\examples\auth_protocol\Credentials();
+$p = new MessageComposite\examples\auth_protocol\ProtocolMessage($credentials, $msg);
 
-output($msg->getContent());
+output($p->getContent());
 
-//print_r($msg);
-
-
-#-----------
-$sp = new SearchParams();
-$sp->setDateFrom('123');
-$sp->setDateTo('456');
-
-output($sp->getContent());
