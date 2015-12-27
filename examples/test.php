@@ -25,11 +25,11 @@ $message->addBoard('nin');
 $message->addBoard('bri');
 
 $formatter = new MessageComposite\Formatter\XMLFormatter();
-output($message->getContent($formatter));
+output($formatter->buildContent($message));
 
 //print_r($message);
 
 $module = new MessageComposite\examples\auth_protocol\SystemSearchModule();
+//output($formatter->buildContent($));
 output($module->doSearch());
-//output($module->doSearch());
 

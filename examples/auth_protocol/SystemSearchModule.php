@@ -21,7 +21,7 @@ class SystemSearchModule implements SystemSearchModuleInterface
 
         $protocolMessage = new ProtocolMessage($credentials, $searchMessage);
         $formatter = new XMLFormatter();
-        return $protocolMessage->getContent($formatter);
+        return $formatter->buildContent($protocolMessage);
 
     }
 }

@@ -28,13 +28,17 @@ class ProtocolMessage extends MessageDecoratorBase
 
     public function getContent(Formatter $formatter)
     {
-        //return $this->authNode->getContent($formatter).$this->message->getContent($formatter);
-
-        $content = $this->authNode->getContent($formatter).$this->message->getBody($formatter);
+        $content = $this->getBody($formatter);
         $message = new MessageElement($this->message->getName(), $content);
         $message->setAttributes($this->message->getAttributes());
 
         return $message->getContent($formatter);
+    }
+
+    public function getBody(Formatter $formatter)
+    {
+        return $this->authNode->getContent($formatter).$this->message->getBody($formatter);
+
     }
 
 }
