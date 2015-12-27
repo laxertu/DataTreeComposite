@@ -9,7 +9,8 @@ use MessageComposite\Formatter\XMLFormatter;
  * Class Message
  * @package MessageComposite
  */
-abstract class Message {
+abstract class Message implements MessageInterface
+{
 
     /** @var Message[] */
     private $elements = [];
@@ -33,14 +34,14 @@ abstract class Message {
         $this->name = $name;
     }
 
-    /**
-     * Return an associative array in a key => value form with attributes
-     *
-     * @return array
-     */
     public final function getAttributes()
     {
         return $this->attrs;
+    }
+
+    public final function setAttributes($attributes)
+    {
+        $this->attrs = $attributes;
     }
 
     /**
@@ -54,16 +55,11 @@ abstract class Message {
      */
     protected function prepare() {}
 
-    protected function addElement(Message $element)
+    protected function addElement(MessageInterface $element)
     {
         $this->elements[]=$element;
     }
 
-    /**
-     * Returns a MessageElement object with message plain text content (without head and foot)
-     *
-     * @return MessageElement
-     */
     public function getBody(Formatter $formatter)
     {
         $this->prepare();

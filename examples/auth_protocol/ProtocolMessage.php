@@ -1,9 +1,9 @@
 <?php
 namespace MessageComposite\examples\auth_protocol;
 use MessageComposite\Formatter\Formatter;
-use MessageComposite\GenericMessage;
 use MessageComposite\Message;
 use MessageComposite\MessageElement;
+use MessageComposite\MessageInterface;
 
 /**
  * An example of use of Message class to implement an auth based protocol.
@@ -13,9 +13,9 @@ use MessageComposite\MessageElement;
  * Class ProtocolMessage
  * @package MessageComposite\examples\auth_protocol
  */
-class ProtocolMessage
+class ProtocolMessage implements MessageInterface
 {
-    /** @var  ApiMethodBase */
+    /** @var  Message */
     private $message;
 
     /** @var  AuthNode */
@@ -30,18 +30,11 @@ class ProtocolMessage
 
     public function getContent(Formatter $formatter)
     {
-        /*
-        $message = new GenericMessage();
-        $message->setName($this->message->getName());
-        $message->addElement($this->authNode);
-        $message->addElement($this->message->getBody()->getValue());
 
-        return $message->getContent();
-        */
+        $content = $this->authNode->getContent($formatter).$this->message->getBody($formatter);
+        $message = new MessageElement($this->message->getName(), $content);
 
-        //return $message->getContent($formatter);
-        $message = new GenericMessage($this->message->getName());
-        $message->addElement($this->authNode);
+        return $message->getContent($formatter);
 
     }
 
@@ -55,4 +48,27 @@ class ProtocolMessage
     {
         return $this->message->getAttributes();
     }
+
+    /** Sets message name */
+    public function setName($name)
+    {
+        return $this->message->setName($name);
+    }
+
+    public function setAttributes($attributes)
+    {
+        return $this->message->setAttributes($attributes);
+    }
+
+    /**
+     * Returns message plain text content (without head and foot)
+     *
+     * @return String
+     */
+    public function getBody(Formatter $formatter)
+    {
+        return $this->message->getBody($formatter);
+    }
+
+
 }

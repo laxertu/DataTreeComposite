@@ -1,5 +1,6 @@
 <?php
 namespace MessageComposite;
+use MessageComposite\Formatter\Formatter;
 
 /**
  * Leaf classes.
@@ -19,7 +20,7 @@ class MessageElement extends Message
     }
 
 
-    public function getBody()
+    public function getBody(Formatter $formatter)
     {
         return $this->value;
     }

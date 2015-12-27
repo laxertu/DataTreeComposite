@@ -14,13 +14,15 @@ class SystemSearchModule implements SystemSearchModuleInterface
 
 
         $credentials = new Credentials();
-        $searchMessage = new SearchMessage($credentials);
+        $searchMessage = new SearchMessage();
 
         $searchMessage->setDateFrom('2015-01-02');
         $searchMessage->addBoard('SA');
         $searchMessage->addBoard('AD');
 
-        return $searchMessage->getContent(new XMLFormatter());
+        //return $searchMessage->getContent(new XMLFormatter());
+        $protocolMessage = new ProtocolMessage($credentials, $searchMessage);
+        return $protocolMessage->getContent(new XMLFormatter());
 
     }
 }

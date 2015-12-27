@@ -1,7 +1,6 @@
 <?php
 namespace MessageComposite\Formatter;
 use MessageComposite\Message;
-use MessageComposite\MessageElement;
 
 
 class XMLFormatter implements Formatter
