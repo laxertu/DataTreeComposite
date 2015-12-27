@@ -19,8 +19,8 @@ class SystemSearchModule implements SystemSearchModuleInterface
         $searchMessage->addBoard('SA');
         $searchMessage->addBoard('AD');
 
-        //return $searchMessage->getContent(new XMLFormatter());
         $protocolMessage = new ProtocolMessage($credentials, $searchMessage);
+
         $formatter = new XMLFormatter();
         return $formatter->buildContent($protocolMessage);
 

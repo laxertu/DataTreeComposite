@@ -10,13 +10,6 @@ class SearchMessage extends Message
     private $searchParams;
     protected $name = 'Search';
 
-    public function __construct()
-    {
-        $this->attrs['timestamp'] = time();
-        $this->attrs['country'] = 'ES';
-
-    }
-
     public function setDateFrom($date)
     {
         $params = $this->getSearchParams();
@@ -47,6 +40,8 @@ class SearchMessage extends Message
     protected function prepare()
     {
         //parent::prepare();
+        $this->attrs['timestamp'] = time();
+        $this->attrs['country'] = 'ES';
 
         $this->addElement($this->searchParams);
     }

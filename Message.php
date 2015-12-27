@@ -19,6 +19,13 @@ abstract class Message implements MessageInterface
     protected $attrs = [];
 
     /**
+     * prevents prepare() method to be called twice
+     *
+     * @var bool
+     */
+    private $havePrepared = false;
+
+    /**
      * Returns node name
      *
      * @return string
@@ -26,22 +33,34 @@ abstract class Message implements MessageInterface
      */
     public final function getName()
     {
+        $this->prepareMessage();
         return $this->name;
     }
 
     public final function setName($name)
     {
+        $this->prepareMessage();
         $this->name = $name;
     }
 
     public final function getAttributes()
     {
+        $this->prepareMessage();
         return $this->attrs;
     }
 
     public final function setAttributes($attributes)
     {
         $this->attrs = $attributes;
+    }
+
+    private function prepareMessage()
+    {
+        if(!$this->havePrepared) {
+            $this->prepare();
+            $this->havePrepared = true;
+        }
+
     }
 
     /**
@@ -62,24 +81,14 @@ abstract class Message implements MessageInterface
 
     public function getBody(Formatter $formatter)
     {
-        $this->prepare();
+        $this->prepareMessage();
         $content = '';
 
         foreach($this->elements as $element) {
-            $content.= $element->getContent($formatter);
+            $content.= $formatter->buildContent($element);
         }
 
         return $content;
-    }
-
-    /**
-     * Returns full message content
-     *
-     * @return string
-     */
-    public final function getContent(Formatter $formatter)
-    {
-        return $formatter->buildContent($this);
     }
 
 } 

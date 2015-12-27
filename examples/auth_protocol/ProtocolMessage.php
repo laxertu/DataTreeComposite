@@ -3,8 +3,6 @@ namespace MessageComposite\examples\auth_protocol;
 use MessageComposite\Formatter\Formatter;
 use MessageComposite\Message;
 use MessageComposite\MessageDecoratorBase;
-use MessageComposite\MessageElement;
-use MessageComposite\MessageInterface;
 
 /**
  * An example of use of Message class to implement an auth based protocol.
@@ -24,6 +22,11 @@ class ProtocolMessage extends MessageDecoratorBase
     {
         parent::__construct($message);
         $this->authNode = new AuthNode($credentials->getUsr(), $credentials->getPwd());
+    }
+
+    public function getBody(Formatter $formatter)
+    {
+        return $formatter->buildContent($this->authNode).$this->message->getBody($formatter);
     }
 
 }
