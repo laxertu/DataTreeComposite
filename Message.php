@@ -18,19 +18,6 @@ abstract class Message {
     protected $attrs = [];
 
     /**
-     * Classes that inherits from MessageElement have this property setted to true. A formatter
-     * may need it to build content in some different way
-     *
-     * @var bool
-     */
-    protected $isLeaf = false;
-
-    public final function isLeaf()
-    {
-        return $this->isLeaf;
-    }
-
-    /**
      * Returns node name
      *
      * @return string

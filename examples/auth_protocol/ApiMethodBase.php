@@ -8,10 +8,14 @@ class ApiMethodBase extends Message
     /** @var  AuthNode */
     private $authNode;
 
-
-    public function setAuthNode(AuthNode $node)
+    public function __construct(Credentials $credentials)
     {
-        $this->authNode = $node;
+        $this->authNode = new AuthNode($credentials->getUsr(), $credentials->getPwd());
+    }
+
+    protected function prepare()
+    {
+        $this->addElement($this->authNode);
     }
 
 } 

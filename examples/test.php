@@ -19,15 +19,17 @@ function output($x) {
 
 }
 
-$message = new SearchMessage();
+$message = new SearchMessage(new MessageComposite\examples\auth_protocol\Credentials());
 $message->setDateFrom('2015-01-02');
+$message->addBoard('nin');
+$message->addBoard('bri');
 
 
 output($message->getContent(new MessageComposite\Formatter\XMLFormatter()));
 
 //print_r($message);
 
-//$module = new MessageComposite\examples\auth_protocol\SystemSearchModule();
-//output($module->doSearch());
+$module = new MessageComposite\examples\auth_protocol\SystemSearchModule();
+output($module->doSearch());
 //output($module->doSearch());
 

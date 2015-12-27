@@ -5,6 +5,7 @@ namespace MessageComposite\examples\auth_protocol;
 use MessageComposite\examples\SearchMessage;
 use MessageComposite\examples\SearchParams;
 use MessageComposite\Formatter\JsonFormatter;
+use MessageComposite\Formatter\XMLFormatter;
 
 class SystemSearchModule implements SystemSearchModuleInterface
 {
@@ -13,14 +14,13 @@ class SystemSearchModule implements SystemSearchModuleInterface
 
 
         $credentials = new Credentials();
-        $searchMessage = new SearchMessage();
-        //$searchMessage->setFormatter(new JsonFormatter());
+        $searchMessage = new SearchMessage($credentials);
+
         $searchMessage->setDateFrom('2015-01-02');
         $searchMessage->addBoard('SA');
         $searchMessage->addBoard('AD');
 
-        $message = new ProtocolMessage($credentials, $searchMessage);
-        return $message->getContent();
+        return $searchMessage->getContent(new XMLFormatter());
 
     }
 }

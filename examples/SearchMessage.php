@@ -1,9 +1,10 @@
 <?php
 namespace MessageComposite\examples;
+use MessageComposite\examples\auth_protocol\ApiMethodBase;
 use MessageComposite\Message;
 
 
-class SearchMessage extends Message
+class SearchMessage extends ApiMethodBase
 {
 
     /** @var  DateSearchParam */
@@ -39,6 +40,8 @@ class SearchMessage extends Message
 
     protected function prepare()
     {
+        parent::prepare();
+
         $this->addElement($this->searchParams);
         $this->attrs['timestamp'] = time();
         $this->attrs['country'] = 'ES';

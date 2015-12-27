@@ -1,6 +1,8 @@
 <?php
 namespace MessageComposite\examples\auth_protocol;
+use MessageComposite\Formatter\Formatter;
 use MessageComposite\GenericMessage;
+use MessageComposite\Message;
 use MessageComposite\MessageElement;
 
 /**
@@ -19,24 +21,30 @@ class ProtocolMessage
     /** @var  AuthNode */
     private $authNode;
 
-    public final function __construct(Credentials $credentials, ApiMethodBase $message)
+    public final function __construct(Credentials $credentials, Message $message)
     {
         $this->authNode = new AuthNode($credentials->getUsr(), $credentials->getPwd());
         $this->message = $message;
     }
 
 
-    public function getContent()
+    public function getContent(Formatter $formatter)
     {
-
+        /*
         $message = new GenericMessage();
         $message->setName($this->message->getName());
         $message->addElement($this->authNode);
         $message->addElement($this->message->getBody()->getValue());
 
         return $message->getContent();
+        */
+
+        //return $message->getContent($formatter);
+        $message = new GenericMessage($this->message->getName());
+        $message->addElement($this->authNode);
 
     }
+
 
     public function getName()
     {

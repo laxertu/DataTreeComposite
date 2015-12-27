@@ -11,7 +11,6 @@ class MessageElement extends Message
 {
 
     protected $name, $value;
-    protected $isLeaf = true;
 
     public function __construct($name, $value)
     {
