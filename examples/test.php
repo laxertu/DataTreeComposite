@@ -25,7 +25,7 @@ $message->addBoard('nin');
 $message->addBoard('bri');
 
 $formatter = new MessageComposite\Formatter\XMLFormatter();
-output($formatter->buildContent($message));
+output($message->getContent($formatter));
 
 //print_r($message);
 

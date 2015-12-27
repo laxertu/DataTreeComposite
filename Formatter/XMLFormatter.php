@@ -33,11 +33,5 @@ class XMLFormatter implements Formatter
         return $tag;
     }
 
-    public function buildContent(MessageInterface $messageElement)
-    {
-        return $this->buildHead($messageElement).$messageElement->getBody($this).$this->buildFoot($messageElement);
-    }
-
-
 
 }
