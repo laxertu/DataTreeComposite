@@ -19,13 +19,6 @@ abstract class Message implements MessageInterface
     protected $attrs = [];
 
     /**
-     * prevents prepare() method to be called twice
-     *
-     * @var bool
-     */
-    private $havePrepared = false;
-
-    /**
      * Returns node name
      *
      * @return string
@@ -70,14 +63,21 @@ abstract class Message implements MessageInterface
 
     public function getBody(Formatter $formatter)
     {
-        $this->prepare();
         $content = '';
+        $this->prepare();
 
         foreach($this->elements as $element) {
-            $content.= $formatter->buildContent($element);
+            $content.= $element->getContent($formatter);
         }
 
         return $content;
+    }
+
+    public final function getContent(Formatter $formatter)
+    {
+
+        return $formatter->buildHead($this).$this->getBody($formatter).$formatter->buildFoot($this);
+
     }
 
 } 

@@ -41,6 +41,11 @@ abstract class MessageDecoratorBase implements MessageInterface
      *
      * @return String
      */
+    public function getContent(Formatter $formatter)
+    {
+        return $this->message->getContent($formatter);
+    }
+
     public function getBody(Formatter $formatter)
     {
         return $this->message->getBody($formatter);

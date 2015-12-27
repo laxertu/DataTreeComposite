@@ -25,11 +25,19 @@ interface MessageInterface
     public function setAttributes($attributes);
 
     /**
-     * Returns message plain text content (without head and foot)
+     * Returns full message plain text content (with head and foot)
      *
      * @return String
      */
 
+    public function getContent(Formatter $formatter);
+
+
+    /**
+     * Returns message plain text content (without head and foot)
+     *
+     * @return String
+     */
     public function getBody(Formatter $formatter);
 
 }

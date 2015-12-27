@@ -19,13 +19,13 @@ function output($x) {
 
 }
 
-$message = new SearchMessage(new MessageComposite\examples\auth_protocol\Credentials());
+$message = new SearchMessage();
 $message->setDateFrom('2015-01-02');
 $message->addBoard('nin');
 $message->addBoard('bri');
 
 $formatter = new MessageComposite\Formatter\XMLFormatter();
-output($formatter->buildContent($message));
+output($message->getContent($formatter));
 
 //print_r($message);
 
