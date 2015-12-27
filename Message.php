@@ -33,19 +33,16 @@ abstract class Message implements MessageInterface
      */
     public final function getName()
     {
-        $this->prepareMessage();
         return $this->name;
     }
 
     public final function setName($name)
     {
-        $this->prepareMessage();
         $this->name = $name;
     }
 
     public final function getAttributes()
     {
-        $this->prepareMessage();
         return $this->attrs;
     }
 
@@ -54,14 +51,6 @@ abstract class Message implements MessageInterface
         $this->attrs = $attributes;
     }
 
-    private function prepareMessage()
-    {
-        if(!$this->havePrepared) {
-            $this->prepare();
-            $this->havePrepared = true;
-        }
-
-    }
 
     /**
      * Child classes that needs some special behaviour before getting content can implement this method.
@@ -81,7 +70,7 @@ abstract class Message implements MessageInterface
 
     public function getBody(Formatter $formatter)
     {
-        $this->prepareMessage();
+        $this->prepare();
         $content = '';
 
         foreach($this->elements as $element) {
