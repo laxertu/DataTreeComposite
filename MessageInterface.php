@@ -32,11 +32,4 @@ interface MessageInterface
 
     public function getBody(Formatter $formatter);
 
-    /**
-     * Returns full message content
-     *
-     * @return string
-     */
-    public function getContent(Formatter $formatter);
-
 }

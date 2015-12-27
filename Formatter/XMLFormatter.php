@@ -1,11 +1,11 @@
 <?php
 namespace MessageComposite\Formatter;
-use MessageComposite\Message;
+use MessageComposite\MessageInterface;
 
 
 class XMLFormatter implements Formatter
 {
-    private function buildHead(Message $message)
+    private function buildHead(MessageInterface $message)
     {
         $arr = [];
         $content = $message->getName();
@@ -26,14 +26,14 @@ class XMLFormatter implements Formatter
         return $tag;
     }
 
-    private function buildFoot(Message $message)
+    private function buildFoot(MessageInterface $message)
     {
 
         $tag = '</'.$message->getName().'>';
         return $tag;
     }
 
-    public function buildContent(Message $messageElement)
+    public function buildContent(MessageInterface $messageElement)
     {
         return $this->buildHead($messageElement).$messageElement->getBody($this).$this->buildFoot($messageElement);
     }

@@ -3,7 +3,6 @@ namespace MessageComposite\examples\auth_protocol;
 
 
 use MessageComposite\examples\SearchMessage;
-use MessageComposite\examples\SearchParams;
 use MessageComposite\Formatter\JsonFormatter;
 use MessageComposite\Formatter\XMLFormatter;
 
@@ -22,7 +21,8 @@ class SystemSearchModule implements SystemSearchModuleInterface
 
         //return $searchMessage->getContent(new XMLFormatter());
         $protocolMessage = new ProtocolMessage($credentials, $searchMessage);
-        return $protocolMessage->getContent(new XMLFormatter());
+        $formatter = new XMLFormatter();
+        return $formatter->buildContent($protocolMessage);
 
     }
 }

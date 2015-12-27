@@ -15,8 +15,6 @@ abstract class MessageDecoratorBase implements MessageInterface
     }
 
 
-    abstract public function getContent(Formatter $formatter);
-
     public function getName()
     {
         return $this->message->getName();

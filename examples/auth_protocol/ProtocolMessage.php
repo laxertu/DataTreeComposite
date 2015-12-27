@@ -26,15 +26,4 @@ class ProtocolMessage extends MessageDecoratorBase
         $this->authNode = new AuthNode($credentials->getUsr(), $credentials->getPwd());
     }
 
-
-    public function getContent(Formatter $formatter)
-    {
-
-        $content = $this->authNode->getContent($formatter).$this->message->getBody($formatter);
-        $message = new MessageElement($this->message->getName(), $content);
-
-        return $message->getContent($formatter);
-
-    }
-
 }

@@ -24,8 +24,8 @@ $message->setDateFrom('2015-01-02');
 $message->addBoard('nin');
 $message->addBoard('bri');
 
-
-output($message->getContent(new MessageComposite\Formatter\XMLFormatter()));
+$formatter = new MessageComposite\Formatter\XMLFormatter();
+output($formatter->buildContent($message));
 
 //print_r($message);
 
