@@ -19,7 +19,15 @@ function output($x) {
 
 }
 
-$module = new MessageComposite\examples\auth_protocol\SystemSearchModule();
-output($module->doSearch());
-output($module->doSearch());
+$message = new SearchMessage();
+$message->setDateFrom('2015-01-02');
+
+
+output($message->getContent(new MessageComposite\Formatter\XMLFormatter()));
+
+//print_r($message);
+
+//$module = new MessageComposite\examples\auth_protocol\SystemSearchModule();
+//output($module->doSearch());
+//output($module->doSearch());
 

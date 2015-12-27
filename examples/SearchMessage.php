@@ -1,9 +1,9 @@
 <?php
 namespace MessageComposite\examples;
-use MessageComposite\examples\auth_protocol\ApiMethodBase;
+use MessageComposite\Message;
 
 
-class SearchMessage extends ApiMethodBase
+class SearchMessage extends Message
 {
 
     /** @var  DateSearchParam */

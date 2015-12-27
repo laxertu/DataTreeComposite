@@ -1,5 +1,7 @@
 <?php
 namespace MessageComposite;
+use MessageComposite\Formatter\Formatter;
+use MessageComposite\Formatter\XMLFormatter;
 
 /**
  * Composite implementation
@@ -14,9 +16,6 @@ abstract class Message {
 
     protected $name = '';
     protected $attrs = [];
-
-    /** @var  Formatter */
-    private $formatter;
 
     /**
      * Classes that inherits from MessageElement have this property setted to true. A formatter
@@ -78,16 +77,16 @@ abstract class Message {
      *
      * @return MessageElement
      */
-    public function getBody()
+    public function getBody(Formatter $formatter)
     {
         $this->prepare();
         $content = '';
 
         foreach($this->elements as $element) {
-            $content.= $element->getContent();
+            $content.= $element->getContent($formatter);
         }
 
-        return new MessageElement($this->name, $content);
+        return $content;
     }
 
     /**
@@ -95,18 +94,9 @@ abstract class Message {
      *
      * @return string
      */
-    public final function getContent()
+    public final function getContent(Formatter $formatter)
     {
-        $formatter = $this->getFormatter();
-        return $formatter->buildHead($this).$this->getBody()->getValue().$formatter->buildFoot($this);
-    }
-
-    private function getFormatter()
-    {
-        if(is_null($this->formatter)) {
-            $this->formatter = new Formatter\XMLFormatter();
-        }
-        return $this->formatter;
+        return $formatter->buildContent($this);
     }
 
 } 

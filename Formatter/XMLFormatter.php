@@ -34,16 +34,9 @@ class XMLFormatter implements Formatter
         return $tag;
     }
 
-    public function buildContent(MessageElement $messageElement)
+    public function buildContent(Message $messageElement)
     {
-
-        if($messageElement->isLeaf()) {
-
-            return '<'.$messageElement->getName().'>'.$messageElement->getValue().'</'.$messageElement->getName().'>';
-        } else {
-
-            return $messageElement->getValue();
-        }
+        return $this->buildHead($messageElement).$messageElement->getBody($this).$this->buildFoot($messageElement);
     }
 
 

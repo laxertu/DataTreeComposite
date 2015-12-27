@@ -1,9 +1,6 @@
 <?php
 namespace MessageComposite\examples\auth_protocol;
-
-
 use MessageComposite\GenericMessage;
-use MessageComposite\examples\auth_protocol\ApiMethodBase;
 use MessageComposite\MessageElement;
 
 /**
@@ -32,8 +29,10 @@ class ProtocolMessage
     public function getContent()
     {
 
-        $this->message->setAuthNode($this->authNode);
-        $message = new MessageElement($this->message->getName(), $this->message->getBody()->getValue());
+        $message = new GenericMessage();
+        $message->setName($this->message->getName());
+        $message->addElement($this->authNode);
+        $message->addElement($this->message->getBody()->getValue());
 
         return $message->getContent();
 
