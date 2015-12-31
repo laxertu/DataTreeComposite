@@ -8,7 +8,6 @@ class SearchMessage extends Message
 
     /** @var  DateSearchParam */
     private $searchParams;
-    protected $name = 'Search';
 
     public function setDateFrom($date)
     {
@@ -39,7 +38,6 @@ class SearchMessage extends Message
 
     protected function prepare()
     {
-        //parent::prepare();
         $this->attrs['timestamp'] = time();
         $this->attrs['country'] = 'ES';
 

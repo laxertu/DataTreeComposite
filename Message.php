@@ -22,10 +22,13 @@ abstract class Message implements MessageInterface
      * Returns node name
      *
      * @return string
-     * @todo default to concrete class name
      */
     public final function getName()
     {
+        if(!$this->name) {
+            $this->name = end(explode('\\', get_class($this)));
+        }
+
         return $this->name;
     }
 
