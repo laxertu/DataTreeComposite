@@ -5,7 +5,7 @@ use MessageComposite\MessageInterface;
 
 interface Formatter
 {
-    public function buildHead(MessageInterface $message);
-    public function buildBody(MessageInterface $message);
-    public function buildFoot(MessageInterface $message);
-} 
+
+    public function buildContent(MessageInterface $message);
+
+}

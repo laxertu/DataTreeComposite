@@ -12,13 +12,14 @@ class GenericMessageTest extends \PHPUnit_Framework_TestCase
     {
         $sut = new GenericMessage('a');
 
-        $contentBefore = $sut->getContent(new XMLFormatter());
+        $formatter = new XMLFormatter();
+        $contentBefore = $formatter->buildContent($sut);
 
         $child = new MessageElement('b', 'c');
         $sut->setElement($child, 0);
         $sut->removeElement(0);
 
-        $contentAfter = $sut->getContent(new XMLFormatter());
+        $contentAfter = $formatter->buildContent($sut);
 
         $this->assertEquals($contentBefore, $contentAfter);
     }
@@ -34,7 +35,8 @@ class GenericMessageTest extends \PHPUnit_Framework_TestCase
         $sut->setElement($child, 0);
         $sut->setElement($child, 1);
 
-        $xml = $sut->getContent(new XMLFormatter());
+        $formatter = new XMLFormatter();
+        $xml = $formatter->buildContent($sut);
 
         $this->assertEquals(1, $collector->getNumNodeOccurrences($xml, $sut));
         $this->assertEquals(2, $collector->getNumNodeOccurrences($xml, $child));

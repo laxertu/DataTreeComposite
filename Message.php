@@ -103,17 +103,10 @@ abstract class Message implements MessageInterface
         $this->prepare();
 
         foreach($this->elements as $element) {
-            $content.= $element->getContent($formatter);
+            $content.= $formatter->buildContent($element);
         }
 
         return $content;
-    }
-
-    public final function getContent(Formatter $formatter)
-    {
-
-        return $formatter->buildHead($this).$formatter->buildBody($this).$formatter->buildFoot($this);
-
     }
 
 } 

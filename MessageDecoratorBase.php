@@ -36,16 +36,6 @@ abstract class MessageDecoratorBase implements MessageInterface
         return $this->message->setAttributes($attributes);
     }
 
-    /**
-     * Returns message plain text content (without head and foot)
-     *
-     * @return String
-     */
-    public function getContent(Formatter $formatter)
-    {
-        return $this->message->getContent($formatter);
-    }
-
     public function getBody(Formatter $formatter)
     {
         return $this->message->getBody($formatter);

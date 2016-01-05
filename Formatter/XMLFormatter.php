@@ -5,7 +5,13 @@ use MessageComposite\MessageInterface;
 
 class XMLFormatter implements Formatter
 {
-    public function buildHead(MessageInterface $message)
+
+    public function buildContent(MessageInterface $message)
+    {
+        return $this->buildHead($message).$message->getBody($this).$this->buildFoot($message);
+    }
+
+    private function buildHead(MessageInterface $message)
     {
         $arr = [];
         $content = $message->getName();
@@ -26,13 +32,8 @@ class XMLFormatter implements Formatter
         return $tag;
     }
 
-    public function buildBody(MessageInterface $message)
-    {
-        return $message->getBody($this);
-    }
 
-
-    public function buildFoot(MessageInterface $message)
+    private function buildFoot(MessageInterface $message)
     {
 
         $tag = ($message->getBody($this)) ? '</'.$message->getName().'>' : '';

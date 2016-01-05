@@ -12,7 +12,8 @@ class JsonFormatterTest extends \PHPUnit_Framework_TestCase
     public function testElement()
     {
         $el = new MessageElement('a', 'b');
-        $obtained = $el->getContent(new JsonFormatter());
+        $sut = new JsonFormatter();
+        $obtained = $sut->buildContent($el);
 
         #obtained is a valid json string
         $this->assertFalse(is_null(json_decode($obtained)));
@@ -26,7 +27,8 @@ class JsonFormatterTest extends \PHPUnit_Framework_TestCase
 
         $msg->setElement($child, 0);
         //$msg->setElement($child, 1);
-        $obtained = $msg->getContent(new JsonFormatter());
+        $sut = new JsonFormatter();
+        $obtained = $sut->buildContent($msg);
 
         #obtained is a valid json string
         $this->assertFalse(is_null(json_decode($obtained)));

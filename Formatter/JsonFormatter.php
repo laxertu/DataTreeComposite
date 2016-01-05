@@ -7,22 +7,24 @@ use MessageComposite\MessageInterface;
 
 class JsonFormatter implements Formatter
 {
-    public function buildHead(MessageInterface $message)
+    private function buildHead(MessageInterface $message)
     {
         return '{"'.$message->getName().'":';
     }
 
-    public function buildBody(MessageInterface $message)
+    public function buildContent(MessageInterface $message)
     {
         if($message instanceof MessageElement) {
-            return '"'.$message->getBody($this).'"';
+            $body = '"'.$message->getBody($this).'"';
         } else {
-            return $message->getBody($this);
+            $body = $message->getBody($this);
         }
+
+        return $this->buildHead($message).$body.$this->buildFoot();
     }
 
 
-    public function buildFoot(MessageInterface $message)
+    private function buildFoot()
     {
         return '}';
     }
