@@ -5,15 +5,14 @@ namespace MessageComposite;
  *
  * Class GenericMessage
  * @package MessageComposite
+ * @see MessageComposite\tests\GenericMessageTest
  */
 class GenericMessage extends Message
 {
 
-    public function __construct($name = '')
+    public function __construct($name)
     {
-        if($name) {
-            $this->name = $name;
-        }
+        $this->name = $name;
     }
 
     public function setElement(MessageInterface $element, $pos)

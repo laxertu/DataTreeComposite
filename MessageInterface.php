@@ -7,6 +7,7 @@ interface MessageInterface
 
     /** Returns Message name */
     public function getName();
+
     /** Sets message name */
     public function setName($name);
 

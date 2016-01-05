@@ -15,6 +15,9 @@ abstract class Message implements MessageInterface
     /** @var Message[] */
     private $elements = [];
 
+    /** @var  Message */
+    protected $parent;
+
     protected $name = '';
     protected $attrs = [];
 
@@ -47,6 +50,15 @@ abstract class Message implements MessageInterface
         $this->attrs = $attributes;
     }
 
+    public final function getPathWithSeparator($separator = '/')
+    {
+
+        if($this->parent) {
+            return $this->parent->getPathWithSeparator($separator).'/'.$this->getName();
+        } else {
+            return '/'.$this->getName();
+        }
+    }
 
     /**
      * Child classes that needs some special behaviour before getting content can implement this method.
@@ -63,9 +75,15 @@ abstract class Message implements MessageInterface
      *
      * @param MessageInterface $element
      */
-    protected function setElement(MessageInterface $element, $pos)
+    protected function setElement(Message $element, $pos)
     {
+        $element->setParent($this);
         $this->elements[$pos] = $element;
+    }
+
+    private function setParent(Message $parent)
+    {
+        $this->parent = $parent;
     }
 
     /**
