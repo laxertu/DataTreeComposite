@@ -6,7 +6,7 @@ use MessageComposite\Formatter\Formatter;
 abstract class MessageDecoratorBase implements MessageInterface
 {
 
-    /** @var  Message */
+    /** @var  MessageInterface */
     protected $message;
 
     public function __construct(MessageInterface $message)
