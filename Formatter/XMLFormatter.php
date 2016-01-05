@@ -21,7 +21,7 @@ class XMLFormatter implements Formatter
             $content.=' '.$attrsXML;
 
         }
-        $tag = '<'.$content.'>';
+        $tag = ($message->getBody($this)) ? '<'.$content.'>' : '<'.$content.' />';
 
         return $tag;
     }
@@ -29,7 +29,7 @@ class XMLFormatter implements Formatter
     public function buildFoot(MessageInterface $message)
     {
 
-        $tag = '</'.$message->getName().'>';
+        $tag = ($message->getBody($this)) ? '</'.$message->getName().'>' : '';
         return $tag;
     }
 
