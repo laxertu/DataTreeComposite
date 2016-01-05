@@ -51,17 +51,32 @@ abstract class Message implements MessageInterface
     /**
      * Child classes that needs some special behaviour before getting content can implement this method.
      *
-     *
-     * This method is declared as protected as often we want to give control about how a message is structured to
-     * message itself. If you want more flexibility you have to extend GenericMessage. See examples
-     *
      * @see GenericMessage
      */
     protected function prepare() {}
 
-    protected function addElement(MessageInterface $element)
+    /**
+     * Sets $element as $pos child, it overwrites existent if any
+     *
+     * This method is declared as protected as often we want to give control about how a message is structured to
+     * message itself. If you want more flexibility you have to extend GenericMessage. See examples
+     *
+     * @param MessageInterface $element
+     */
+    protected function setElement(MessageInterface $element, $pos)
     {
-        $this->elements[]=$element;
+        $this->elements[$pos] = $element;
+    }
+
+    /**
+     * This method is declared as protected as often we want to give control about how a message is structured to
+     * message itself. If you want more flexibility you have to extend GenericMessage. See examples
+     *
+     * @param MessageInterface $element
+     */
+    protected function removeElement($pos)
+    {
+        unset($this->elements[$pos]);
     }
 
     public function getBody(Formatter $formatter)

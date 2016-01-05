@@ -1,13 +1,12 @@
 <?php
-namespace MessageComposite\tests;
-include('BaseTest.php');
+namespace MessageComposite\tests\formatters;
 
 
 use MessageComposite\Formatter\XMLFormatter;
 use \MessageComposite\MessageElement;
 
 
-class XMLFormatterTest extends BaseTest
+class XMLFormatterTest extends \PHPUnit_Framework_TestCase
 {
 
 
@@ -19,7 +18,7 @@ class XMLFormatterTest extends BaseTest
 
         $sut = new XMLFormatter();
 
-        $this->assertEquals($expected, $sut->buildContent($el));
+        $this->assertEquals($expected, $el->getContent($sut));
 
 
     }

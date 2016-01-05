@@ -1,0 +1,10 @@
+<phpunit bootstrap="boot.php">
+    <testsuites>
+        <testsuite name="generic">
+            <directory>generic</directory>
+        </testsuite>
+        <testsuite name="formatters">
+            <directory>formatters</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

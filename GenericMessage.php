@@ -9,9 +9,22 @@ namespace MessageComposite;
 class GenericMessage extends Message
 {
 
-    public function addElement(Message $element)
+    public function __construct($name = '')
     {
-        return parent::addElement($element);
+        if($name) {
+            $this->name = $name;
+        }
     }
+
+    public function setElement(MessageInterface $element, $pos)
+    {
+        return parent::setElement($element, $pos);
+    }
+
+    public function removeElement($pos)
+    {
+        return parent::removeElement($pos);
+    }
+
 
 } 

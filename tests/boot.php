@@ -13,6 +13,6 @@ $autoload = function ($className) {
 };
 
 spl_autoload_register($autoload);
-//spl_autoload_register('__autoload');
+
 
 
