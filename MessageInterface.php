@@ -2,6 +2,12 @@
 namespace MessageComposite;
 use MessageComposite\Formatter\Formatter;
 
+/**
+ * Contract that a Message have to respect for be used by formatters
+ *
+ * Interface MessageInterface
+ * @package MessageComposite
+ */
 interface MessageInterface
 {
 
