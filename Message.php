@@ -112,7 +112,7 @@ abstract class Message implements MessageInterface
     public final function getContent(Formatter $formatter)
     {
 
-        return $formatter->buildHead($this).$this->getBody($formatter).$formatter->buildFoot($this);
+        return $formatter->buildHead($this).$formatter->buildBody($this).$formatter->buildFoot($this);
 
     }
 
