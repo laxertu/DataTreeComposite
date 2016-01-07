@@ -1,7 +1,7 @@
 <?php
 namespace MessageComposite;
 /**
- * This class is intended for those who wants a 100% composite implementation. It only opens addElement method to clients
+ * This class is intended for those who wants a 100% composite implementation. It only opens setter methods to clients
  *
  * Class GenericMessage
  * @package MessageComposite
