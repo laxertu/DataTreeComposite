@@ -1,6 +1,5 @@
 <?php
-namespace MessageComposite\tests;
-
+namespace MessageComposite\tests\formatters;
 
 use MessageComposite\Formatter\JsonFormatter;
 use MessageComposite\GenericMessage;
@@ -22,11 +21,13 @@ class JsonFormatterTest extends \PHPUnit_Framework_TestCase
 
     public function testNestedElements()
     {
-        $msg = new GenericMessage('a');
-        $child = new MessageElement('b', 'c');
+        $msg = new GenericMessage('widget');
+        $child1 = new MessageElement('width', '2');
+        $child2 = new MessageElement('height', '3');
 
-        $msg->setElement($child, 0);
-        //$msg->setElement($child, 1);
+        $msg->setElement($child1, 0);
+        $msg->setElement($child2, 1);
+
         $sut = new JsonFormatter();
         $obtained = $sut->buildContent($msg);
 

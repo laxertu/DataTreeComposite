@@ -16,6 +16,7 @@ class XMLFormatterTest extends \PHPUnit_Framework_TestCase
         $expected = '<a>b</a>';
 
         $sut = new XMLFormatter();
+
         $this->assertEquals($expected, $sut->buildContent($el));
     }
 

@@ -37,6 +37,15 @@ interface MessageInterface
      *
      * @return String
      */
-    public function getBody(Formatter $formatter);
+    public function getBody();
+
+    public function isLeaf();
+
+    /**
+     * @return MessageInterface[]
+     */
+    public function getChildren();
+
+    public function getParent();
 
 }

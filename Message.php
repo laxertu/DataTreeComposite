@@ -22,6 +22,13 @@ abstract class Message implements MessageInterface
     protected $attrs = [];
 
     /**
+     * Message raw content, used by MessageElement
+     *
+     * @var null
+     */
+    protected $value = null;
+
+    /**
      * Returns node name
      *
      * @return string
@@ -86,6 +93,11 @@ abstract class Message implements MessageInterface
         $this->parent = $parent;
     }
 
+    public final function getParent()
+    {
+        return $this->parent;
+    }
+
     /**
      * This method is declared as protected as often we want to give control about how a message is structured to
      * message itself. If you want more flexibility you have to extend GenericMessage. See examples
@@ -97,16 +109,25 @@ abstract class Message implements MessageInterface
         unset($this->elements[$pos]);
     }
 
-    public function getBody(Formatter $formatter)
+    /**
+     * Gets raw content if setted
+     *
+     * @return null|String
+     */
+    public final function getBody()
     {
-        $content = '';
+        return $this->value;
+    }
+
+    public final function isLeaf()
+    {
+        return ($this->value !== null);
+    }
+
+    public final function getChildren()
+    {
         $this->prepare();
-
-        foreach($this->elements as $element) {
-            $content.= $formatter->buildContent($element);
-        }
-
-        return $content;
+        return $this->elements;
     }
 
 } 

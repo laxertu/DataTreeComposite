@@ -18,11 +18,4 @@ class MessageElement extends Message
         $this->name  = $name;
         $this->value = $value;
     }
-
-
-    public function getBody(Formatter $formatter)
-    {
-        return $this->value;
-    }
-
 } 
