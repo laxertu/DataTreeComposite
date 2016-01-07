@@ -21,8 +21,8 @@ class JsonFormatter extends  AbstractFormatter
         $body = $this->buildBody($message);
         $content = $this->buildHead($message).$body;
 
-        # entire message and composites' children are surrounded by {}
-        if($message->getChildren() || !$message->getParent()) {
+        # entire message is surrounded by {}
+        if(!$message->getParent()) {
             $content = '{'.$content.'}';
         }
         return $content;
@@ -45,6 +45,7 @@ class JsonFormatter extends  AbstractFormatter
 
         }
 
+        #composites' children are surrounded by {}
         if($message->getChildren()) {
             $content = '{'.$content.'}';
         }
