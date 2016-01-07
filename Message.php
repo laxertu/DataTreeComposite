@@ -1,7 +1,5 @@
 <?php
 namespace MessageComposite;
-use MessageComposite\Formatter\Formatter;
-use MessageComposite\Formatter\XMLFormatter;
 
 /**
  * Composite implementation
