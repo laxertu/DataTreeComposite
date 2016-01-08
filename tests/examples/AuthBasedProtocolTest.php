@@ -14,12 +14,18 @@ class AuthBasedProtocolTest extends \PHPUnit_Framework_TestCase
 
     public function testSimple()
     {
-        $gm = new GenericMessage('Head');
-        $sut = new ProtocolMessage(new Credentials(), $gm);
         $formatter = new XMLFormatter();
-        $xml = $formatter->buildContent($sut);
+        $gm = new GenericMessage('Head');
 
-        $this->assertEquals('<Head><Auth><Usr>USR</Usr><Pwd>PWD</Pwd></Auth></Head>', $xml);
+        $otherNode = new GenericMessage('other');
+        $gm->setElement($otherNode, 0);
+
+
+        $sut = new ProtocolMessage(new Credentials(), $gm);
+
+        $xml = $formatter->buildContent($sut);
+        $this->assertEquals('<Head><Auth><Usr>USR</Usr><Pwd>PWD</Pwd></Auth><other /></Head>', $xml);
+
     }
 
 } 
