@@ -14,10 +14,10 @@ abstract class Message implements MessageInterface
     private $elements = [];
 
     /** @var  Message */
-    protected $parent;
+    private $parent;
 
-    protected $name = '';
-    protected $attrs = [];
+    private $name = '';
+    private $attrs = [];
 
     /**
      * Message raw content, used by MessageElement

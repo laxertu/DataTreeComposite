@@ -12,7 +12,7 @@ class GenericMessage extends Message
 
     public function __construct($name)
     {
-        $this->name = $name;
+        $this->setName($name);
     }
 
     public function setElement(Message $element, $pos)
