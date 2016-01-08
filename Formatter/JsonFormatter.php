@@ -31,12 +31,8 @@ class JsonFormatter extends  AbstractFormatter
             $content = $this->buildLeafMessageBody($message->getBody());
 
         } else {
-            $content = [];
-            foreach($message->getChildren() as $child) {
-                $content[]= $this->buildContent($child);
-            }
-            #composites' children are surrounded by {}
-            $content = '{'.implode(',', $content).'}';
+
+            $content = $this->buildCompositeMessageBody($message->getChildren());
 
         }
 
@@ -57,5 +53,22 @@ class JsonFormatter extends  AbstractFormatter
         }
 
         return $body;
+    }
+
+
+    /**
+     * @param MessageInterface[] $message
+     * @return array|string
+     */
+    private function buildCompositeMessageBody(array $children)
+    {
+        $content = [];
+        foreach($children as $child) {
+            $content[]= $this->buildContent($child);
+        }
+        #composites' children are surrounded by {}
+        $content = '{'.implode(',', $content).'}';
+
+        return $content;
     }
 } 
