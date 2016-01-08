@@ -13,7 +13,7 @@ class MessageElement extends Message
 
     protected $name, $value;
 
-    public function __construct($name, $value = '')
+    public final function __construct($name, $value = '')
     {
         if(!is_null($value)) {
             $this->name  = $name;
