@@ -15,7 +15,11 @@ class MessageElement extends Message
 
     public function __construct($name, $value = '')
     {
-        $this->name  = $name;
-        $this->value = $value;
+        if(!is_null($value)) {
+            $this->name  = $name;
+            $this->value = $value;
+        } else {
+            throw new \InvalidArgumentException('Value cannot be NULL');
+        }
     }
 } 
