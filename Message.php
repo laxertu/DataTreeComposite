@@ -72,7 +72,8 @@ abstract class Message implements MessageInterface
      */
     protected function prepare() {}
 
-    /**
+    /**php
+     * exi
      * Sets $element as $pos child, it overwrites existent if any
      *
      * This method is declared as protected as often we want to give control about how a message is structured to
@@ -82,8 +83,12 @@ abstract class Message implements MessageInterface
      */
     protected function setElement(Message $element, $pos)
     {
-        $element->setParent($this);
-        $this->elements[$pos] = $element;
+        if(is_int($pos) && ($pos >= 0)) {
+            $element->setParent($this);
+            $this->elements[$pos] = $element;
+        } else {
+            throw new \InvalidArgumentException('Pos have to be a positive integer');
+        }
     }
 
     private function setParent(Message $parent)

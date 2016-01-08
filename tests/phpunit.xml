@@ -6,5 +6,8 @@
         <testsuite name="formatters">
             <directory>formatters</directory>
         </testsuite>
+        <testsuite name="examples">
+            <directory>examples</directory>
+        </testsuite>
     </testsuites>
 </phpunit>

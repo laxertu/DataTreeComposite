@@ -1,9 +1,8 @@
 <?php
 namespace MessageComposite;
-use MessageComposite\Formatter\Formatter;
 
 /**
- * Contract that a Message have to respect for be used by formatters
+ * Contract that a Message have to respect
  *
  * Interface MessageInterface
  * @package MessageComposite

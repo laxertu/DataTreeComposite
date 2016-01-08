@@ -47,4 +47,9 @@ abstract class MessageDecoratorBase implements MessageInterface
         return $this->message->isLeaf();
     }
 
+    public function getParent()
+    {
+        return $this->message->getParent();
+    }
+
 } 
