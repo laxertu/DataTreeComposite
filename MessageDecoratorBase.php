@@ -1,7 +1,5 @@
 <?php
 namespace MessageComposite;
-use MessageComposite\Formatter\Formatter;
-
 
 abstract class MessageDecoratorBase implements MessageInterface
 {
@@ -14,39 +12,38 @@ abstract class MessageDecoratorBase implements MessageInterface
         $this->message = $message;
     }
 
-
-    public final function getName()
+    public function getName()
     {
         return $this->message->getName();
     }
 
-    public final function getAttributes()
+    public function getAttributes()
     {
         return $this->message->getAttributes();
     }
 
     /** Sets message name */
-    public final function setName($name)
+    public function setName($name)
     {
         return $this->message->setName($name);
     }
 
-    public final function setAttributes($attributes)
+    public function setAttributes($attributes)
     {
         return $this->message->setAttributes($attributes);
     }
 
-    public final function getBody()
+    public function getBody()
     {
         return $this->message->getBody();
     }
 
-    public final function getChildren()
+    public function getChildren()
     {
         return $this->message->getChildren();
     }
 
-    public final function isLeaf() {
+    public function isLeaf() {
         return $this->message->isLeaf();
     }
 

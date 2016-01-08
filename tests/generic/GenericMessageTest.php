@@ -52,7 +52,7 @@ class GenericMessageTest extends \PHPUnit_Framework_TestCase
         $child = new MessageElement('b', 'c');
         $sut->setElement($child, 0);
 
-        $this->assertEquals('/a/b', $child->getPathWithSeparator('/'));
+        $this->assertEquals('-a-b', $child->getPathWithSeparator('-'));
 
     }
 

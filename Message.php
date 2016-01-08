@@ -59,9 +59,9 @@ abstract class Message implements MessageInterface
     {
 
         if($this->parent) {
-            return $this->parent->getPathWithSeparator($separator).'/'.$this->getName();
+            return $this->parent->getPathWithSeparator($separator).$separator.$this->getName();
         } else {
-            return '/'.$this->getName();
+            return $separator.$this->getName();
         }
     }
 

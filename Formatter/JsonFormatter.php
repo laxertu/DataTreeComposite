@@ -33,8 +33,8 @@ class JsonFormatter extends  AbstractFormatter
 
         # a simple value
         if($message->isLeaf()) {
-            /** @todo treat numbers */
-            $content = '"'.$message->getBody().'"';
+
+            $content = $this->buildLeafMessageBody($message->getBody());
 
         } else {
             $content = [];
@@ -51,5 +51,21 @@ class JsonFormatter extends  AbstractFormatter
         }
 
         return $content;
+    }
+
+    /**
+     * We want to allow clients declaring a message with a valid Json string as content.
+     *
+     * @param $body
+     * @return string
+     */
+    private function buildLeafMessageBody($body)
+    {
+        #numbers and valid json strings comes without enclosure
+        if((@json_decode($body) === null) && !is_numeric($body)){
+            $body = '"'.$body.'"';
+        }
+
+        return $body;
     }
 } 
