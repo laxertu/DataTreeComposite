@@ -13,6 +13,7 @@ use MessageComposite\MessageInterface;
  *
  * Class ProtocolMessage
  * @package MessageComposite\examples\auth_based_protocol
+ * @see MessageComposite\tests\examples\AuthBasedProtocolTest
  */
 class ProtocolMessage extends MessageDecoratorBase
 {
