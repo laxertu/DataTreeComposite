@@ -88,13 +88,10 @@ abstract class Message implements MessageInterface
 
     /**
      * Child classes that needs some special behaviour before getting content can implement this method.
-     *
-     * @see GenericMessage
      */
     protected function prepare() {}
 
-    /**php
-     * exi
+    /**
      * Sets $element as $pos child, it overwrites existent if any
      *
      * This method is declared as protected as often we want to give control about how a message is structured to
