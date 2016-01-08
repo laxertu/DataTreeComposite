@@ -80,6 +80,8 @@ abstract class Message implements MessageInterface
      * message itself. If you want more flexibility you have to extend GenericMessage. See examples
      *
      * @param MessageInterface $element
+     * @throws \InvalidArgumentException
+     * @throws \Exception
      */
     protected function setElement(Message $element, $pos)
     {
