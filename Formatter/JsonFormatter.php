@@ -10,16 +10,10 @@ use MessageComposite\MessageInterface;
 class JsonFormatter extends  AbstractFormatter
 {
 
-    private function buildHead(MessageInterface $message)
-    {
-        return '"'.$message->getName().'":';
-    }
-
     public function buildContent(MessageInterface $message)
     {
 
-        $body = $this->buildBody($message);
-        $content = $this->buildHead($message).$body;
+        $content = '"'.$message->getName().'":'.$this->buildBody($message);
 
         # entire message is surrounded by {}
         if(!$message->getParent()) {
@@ -41,13 +35,9 @@ class JsonFormatter extends  AbstractFormatter
             foreach($message->getChildren() as $child) {
                 $content[]= $this->buildContent($child);
             }
-            $content = implode(',', $content);
+            #composites' children are surrounded by {}
+            $content = '{'.implode(',', $content).'}';
 
-        }
-
-        #composites' children are surrounded by {}
-        if($message->getChildren()) {
-            $content = '{'.$content.'}';
         }
 
         return $content;
