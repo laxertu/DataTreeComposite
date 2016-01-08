@@ -83,11 +83,16 @@ abstract class Message implements MessageInterface
      */
     protected function setElement(Message $element, $pos)
     {
-        if(is_int($pos) && ($pos >= 0)) {
+        if(!is_int($pos) || ($pos < 0)) {
+
+            throw new \InvalidArgumentException('Pos have to be a positive integer');
+
+        } elseif($this->getValue()){
+
+            throw new \Exception('Cannot set a child if Message has a value');
+        } else {
             $element->setParent($this);
             $this->elements[$pos] = $element;
-        } else {
-            throw new \InvalidArgumentException('Pos have to be a positive integer');
         }
     }
 
@@ -117,7 +122,7 @@ abstract class Message implements MessageInterface
      *
      * @return null|String
      */
-    public final function getBody()
+    public final function getValue()
     {
         return $this->value;
     }
@@ -129,7 +134,6 @@ abstract class Message implements MessageInterface
 
     public final function getChildren()
     {
-        $this->prepare();
         return $this->elements;
     }
 

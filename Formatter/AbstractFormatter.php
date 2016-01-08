@@ -16,7 +16,7 @@ abstract class AbstractFormatter implements Formatter
      */
     protected function hasInnerContent(MessageInterface $message)
     {
-        return $message->getBody() || $message->getChildren();
+        return $message->getValue() || $message->getChildren();
     }
 
 } 

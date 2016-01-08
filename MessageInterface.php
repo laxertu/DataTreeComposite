@@ -32,11 +32,11 @@ interface MessageInterface
 
 
     /**
-     * Returns message plain text content (without head and foot)
+     * Returns message value if any
      *
      * @return String
      */
-    public function getBody();
+    public function getValue();
 
     public function isLeaf();
 

@@ -28,7 +28,7 @@ class JsonFormatter extends  AbstractFormatter
         # a simple value
         if($message->isLeaf()) {
 
-            $content = $this->buildLeafMessageBody($message->getBody());
+            $content = $this->buildLeafMessageBody($message->getValue());
 
         } else {
 

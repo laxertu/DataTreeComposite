@@ -33,9 +33,9 @@ abstract class MessageDecoratorBase implements MessageInterface
         return $this->message->setAttributes($attributes);
     }
 
-    public function getBody()
+    public function getValue()
     {
-        return $this->message->getBody();
+        return $this->message->getValue();
     }
 
     public function getChildren()

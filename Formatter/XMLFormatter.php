@@ -42,7 +42,7 @@ class XMLFormatter extends AbstractFormatter
 
         if($message->isLeaf()) {
 
-            $content = $message->getBody();
+            $content = $message->getValue();
 
         } else {
             $content = '';
