@@ -1,6 +1,5 @@
 <?php
 namespace MessageComposite;
-use MessageComposite\Formatter\Formatter;
 
 /**
  * Leaf classes.
@@ -11,15 +10,18 @@ use MessageComposite\Formatter\Formatter;
 class MessageElement extends Message
 {
 
-    protected $value;
-
+    /**
+     * @param $name
+     * @param string $value
+     * @throws \InvalidArgumentException
+     */
     public final function __construct($name, $value = '')
     {
-        if(!is_null($value)) {
+        try {
             $this->setName($name);
-            $this->value = $value;
-        } else {
-            throw new \InvalidArgumentException('Value cannot be NULL');
+            $this->setValue($value);
+        }catch (\InvalidArgumentException $e) {
+            throw $e;
         }
     }
 

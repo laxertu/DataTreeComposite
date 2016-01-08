@@ -24,7 +24,7 @@ abstract class Message implements MessageInterface
      *
      * @var null
      */
-    protected $value = null;
+    private $value = null;
 
     /**
      * Returns node name
@@ -43,6 +43,27 @@ abstract class Message implements MessageInterface
     public final function setName($name)
     {
         $this->name = $name;
+    }
+
+    /**
+     * Sets a Message raw value
+     *
+     * @param $value
+     * @throws \InvalidArgumentException
+     * @throws \Exception
+     */
+    protected final function setValue($value)
+    {
+        if($this->getChildren()) {
+            throw new \Exception('Cannot set value of a composite Message');
+        }
+
+        #default to empty string as a null value means a Leaf Message
+        if(is_null($value)) {
+            $value = '';
+        }
+
+        $this->value = $value;
     }
 
     public final function getAttributes()
