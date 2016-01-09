@@ -4,6 +4,7 @@ namespace MessageComposite\tests\formatters;
 use MessageComposite\Formatter\JsonFormatter;
 use MessageComposite\GenericMessage;
 use MessageComposite\MessageElement;
+use MessageComposite\MessageListOfValues;
 
 class JsonFormatterTest extends \PHPUnit_Framework_TestCase
 {
@@ -57,5 +58,29 @@ class JsonFormatterTest extends \PHPUnit_Framework_TestCase
         $parsed = json_decode($obtained);
         $this->assertEquals('2', $parsed->pack->width);
     }
+
+
+    public function testListOfElements()
+    {
+        $list = new MessageListOfValues('val');
+        $sut = new JsonFormatter();
+
+        $list->setValues([1]);
+        $xml = $sut->buildContent($list);
+        $this->assertEquals('{"val":1}', $xml);
+        /*
+        $list->setValues([1, 2]);
+        $xml = $sut->buildContent($list);
+        $this->assertEquals('{"val":[1,2]}', $xml);
+
+        $message = new GenericMessage('ListOfVals');
+        $message->setElement($list, 0);
+
+        $xml = $sut->buildContent($message);
+        $this->assertEquals('{"ListOfVals":["val":1,"val":2]}', $xml);
+        */
+
+    }
+
 
 } 

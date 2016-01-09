@@ -19,4 +19,9 @@ abstract class AbstractFormatter implements Formatter
         return $message->getValue() || $message->getChildren();
     }
 
+    protected function isASimpleValue(MessageInterface $message)
+    {
+        return ($message->getName() === '');
+    }
+
 } 

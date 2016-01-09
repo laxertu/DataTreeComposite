@@ -13,12 +13,20 @@ class JsonFormatter extends  AbstractFormatter
     public function buildContent(MessageInterface $message)
     {
 
-        $content = '"'.$message->getName().'":'.$this->buildBody($message);
+        if($message->getName() === '') {
 
-        # entire message is surrounded by {}
-        if(!$message->getParent()) {
-            $content = '{'.$content.'}';
+            $content = $this->buildBody($message);
+
+        } else {
+
+            $content = '"'.$message->getName().'":'.$this->buildBody($message);
+
+            # entire message is surrounded by {}
+            if(!$message->getParent()) {
+                $content = '{'.$content.'}';
+            }
         }
+
         return $content;
     }
 

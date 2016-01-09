@@ -16,15 +16,22 @@ abstract class Message implements MessageInterface
     /** @var  Message */
     private $parent;
 
-    private $name = '';
-    private $attrs = [];
-
     /**
-     * Message raw content, used by MessageElement
+     * "Special" values are:
+     *
+     * NULL - means that class name will be used as node name
+     * ''   - means that message has no node name @see MessageListOfValues
      *
      * @var null
      */
+    private $name = null;
+    /**
+     * Message raw content as array, null for composites.
+     *
+     * @var null | array
+     */
     private $value = null;
+    private $attrs = [];
 
     /**
      * Returns node name
@@ -33,13 +40,17 @@ abstract class Message implements MessageInterface
      */
     public final function getName()
     {
-        if(!$this->name) {
+        if(is_null($this->name)) {
             $this->name = end(explode('\\', get_class($this)));
         }
 
         return $this->name;
     }
 
+    /**
+     * Sets message name. See attribute documentation
+     * @param $name
+     */
     public final function setName($name)
     {
         $this->name = $name;
@@ -52,7 +63,7 @@ abstract class Message implements MessageInterface
      * @throws \InvalidArgumentException
      * @throws \Exception
      */
-    protected final function setValue($value)
+    protected final function setValue($value = '')
     {
         if($this->getChildren()) {
             throw new \Exception('Cannot set value of a composite Message');

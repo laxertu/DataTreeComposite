@@ -12,7 +12,13 @@ class XMLFormatter extends AbstractFormatter
 
     public function buildContent(MessageInterface $message)
     {
-        return $this->buildHead($message).$this->buildBody($message).$this->buildFoot($message);
+        # a nameless message, e.g. a list of values
+        if($message->getName() === '') {
+            $content = $this->buildBody($message);
+        } else {
+            $content = $this->buildHead($message).$this->buildBody($message).$this->buildFoot($message);
+        }
+        return $content;
     }
 
     private function buildHead(MessageInterface $message)
@@ -58,8 +64,7 @@ class XMLFormatter extends AbstractFormatter
 
     private function buildFoot(MessageInterface $message)
     {
-
-        $tag = ($this->hasInnerContent($message)) ? '</'.$message->getName().'>' : '';
+        $tag = ($this->hasInnerContent($message) && $message->getName()) ? '</'.$message->getName().'>' : '';
         return $tag;
     }
 
