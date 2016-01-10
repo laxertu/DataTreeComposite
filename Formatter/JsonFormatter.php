@@ -47,16 +47,35 @@ class JsonFormatter extends  AbstractFormatter
      */
     private function buildLeafMessageBody($messageValue)
     {
-        $body = $messageValue;
         if(is_array($messageValue)) {
-            $body = '['.implode(',', $messageValue).']';
+
+            $body = $this->formatArrayValue($messageValue);
+
         } else {
-            #numbers and valid json strings comes without enclosure
-            if((@json_decode($messageValue) === null) && !is_numeric($body)){
-                $body = '"'.$body.'"';
-            }
+            $body = $this->formatStringValue($messageValue);
         }
 
+        return $body;
+    }
+
+    private function formatStringValue($value)
+    {
+        #numbers and valid json strings comes without enclosure
+        if((@json_decode($value) === null) && !is_numeric($value)){
+            $value = '"'.$value.'"';
+        }
+
+        return $value;
+    }
+
+    private function formatArrayValue($messageValue)
+    {
+
+        foreach($messageValue as $index => $value) {
+            $messageValue[$index] = $this->formatStringValue($value);
+        }
+
+        $body = '['.implode(',', $messageValue).']';
         return $body;
     }
 

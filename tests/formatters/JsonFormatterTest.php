@@ -61,8 +61,8 @@ class JsonFormatterTest extends \PHPUnit_Framework_TestCase
 
     public function testListOfElements()
     {
-        $list = new MessageElement('val', [1]);
         $sut = new JsonFormatter();
+        $list = new MessageElement('val', [1]);
 
         $json = $sut->buildContent($list);
         $this->assertEquals('{"val":[1]}', $json);
@@ -70,6 +70,11 @@ class JsonFormatterTest extends \PHPUnit_Framework_TestCase
         $list = new MessageElement('val', [1, 2]);
         $json = $sut->buildContent($list);
         $this->assertEquals('{"val":[1,2]}', $json);
+
+        $list = new MessageElement('val', ['a']);
+        $json = $sut->buildContent($list);
+        $this->assertEquals('{"val":["a"]}', $json);
+
     }
 
 
