@@ -13,20 +13,12 @@ class JsonFormatter extends  AbstractFormatter
     public function buildContent(MessageInterface $message)
     {
 
-        if($message->getName() === '') {
+        $content = '"'.$message->getName().'":'.$this->buildBody($message);
 
-            $content = $this->buildBody($message);
-
-        } else {
-
-            $content = '"'.$message->getName().'":'.$this->buildBody($message);
-
-            # entire message is surrounded by {}
-            if(!$message->getParent()) {
-                $content = '{'.$content.'}';
-            }
+        # entire message is surrounded by {}
+        if(!$message->getParent()) {
+            $content = '{'.$content.'}';
         }
-
         return $content;
     }
 
@@ -53,15 +45,21 @@ class JsonFormatter extends  AbstractFormatter
      * @param $body
      * @return string
      */
-    private function buildLeafMessageBody($body)
+    private function buildLeafMessageBody($messageValue)
     {
-        #numbers and valid json strings comes without enclosure
-        if((@json_decode($body) === null) && !is_numeric($body)){
-            $body = '"'.$body.'"';
+        $body = $messageValue;
+        if(is_array($messageValue)) {
+            $body = '['.implode(',', $messageValue).']';
+        } else {
+            #numbers and valid json strings comes without enclosure
+            if((@json_decode($messageValue) === null) && !is_numeric($body)){
+                $body = '"'.$body.'"';
+            }
         }
 
         return $body;
     }
+
 
 
     /**

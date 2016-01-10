@@ -17,7 +17,6 @@ class JsonFormatterTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals('{"a":"b"}', $obtained);
     }
-
     public function testNumericElement()
     {
         $el = new MessageElement('a', 2);
@@ -27,25 +26,25 @@ class JsonFormatterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('{"a":2}', $obtained);
     }
 
-    public function testNestedElements()
-    {
-        $msg = new GenericMessage('pack');
-        $child1 = new MessageElement('width', '2');
-        $child2 = new MessageElement('height', '3');
+        public function testNestedElements()
+        {
+            $msg = new GenericMessage('pack');
+            $child1 = new MessageElement('width', '2');
+            $child2 = new MessageElement('height', '3');
 
-        $msg->setElement($child1, 0);
-        $msg->setElement($child2, 1);
+            $msg->setElement($child1, 0);
+            $msg->setElement($child2, 1);
 
-        $sut = new JsonFormatter();
-        $obtained = $sut->buildContent($msg);
+            $sut = new JsonFormatter();
+            $obtained = $sut->buildContent($msg);
 
-        $parsed = json_decode($obtained);
-        $this->assertEquals('2', $parsed->pack->width);
-    }
-
+            $parsed = json_decode($obtained);
+            $this->assertEquals('2', $parsed->pack->width);
+        }
     /**
      * Have to be possible declaring an element with Json string as content
      */
+
     public function testElementContentAsJsonString()
     {
 
@@ -62,24 +61,15 @@ class JsonFormatterTest extends \PHPUnit_Framework_TestCase
 
     public function testListOfElements()
     {
-        $list = new MessageListOfValues('val');
+        $list = new MessageElement('val', [1]);
         $sut = new JsonFormatter();
 
-        $list->setValues([1]);
-        $xml = $sut->buildContent($list);
-        $this->assertEquals('{"val":1}', $xml);
-        /*
-        $list->setValues([1, 2]);
-        $xml = $sut->buildContent($list);
-        $this->assertEquals('{"val":[1,2]}', $xml);
+        $json = $sut->buildContent($list);
+        $this->assertEquals('{"val":[1]}', $json);
 
-        $message = new GenericMessage('ListOfVals');
-        $message->setElement($list, 0);
-
-        $xml = $sut->buildContent($message);
-        $this->assertEquals('{"ListOfVals":["val":1,"val":2]}', $xml);
-        */
-
+        $list = new MessageElement('val', [1, 2]);
+        $json = $sut->buildContent($list);
+        $this->assertEquals('{"val":[1,2]}', $json);
     }
 
 

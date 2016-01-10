@@ -59,7 +59,7 @@ abstract class Message implements MessageInterface
     /**
      * Sets a Message raw value
      *
-     * @param $value
+     * @param $value String | array
      * @throws \InvalidArgumentException
      * @throws \Exception
      */

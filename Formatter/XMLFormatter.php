@@ -13,7 +13,7 @@ class XMLFormatter extends AbstractFormatter
     public function buildContent(MessageInterface $message)
     {
         # a nameless message, e.g. a list of values
-        if($message->getName() === '') {
+        if($message->getName() === '' || is_array($message->getValue())) {
             $content = $this->buildBody($message);
         } else {
             $content = $this->buildHead($message).$this->buildBody($message).$this->buildFoot($message);
@@ -46,12 +46,21 @@ class XMLFormatter extends AbstractFormatter
     private function buildBody(MessageInterface $message)
     {
 
+        $content = '';
         if($message->isLeaf()) {
 
-            $content = $message->getValue();
+            $rawContent = $message->getValue();
+            if(is_array($rawContent)) {
+                foreach($rawContent as $value) {
+                    $content .= $this->buildHead($message).$value.$this->buildFoot($message);
+                }
+            } else {
+                $content = $rawContent;
+            }
+
+
 
         } else {
-            $content = '';
             foreach($message->getChildren() as $child) {
                 $content .= $this->buildContent($child);
             }
