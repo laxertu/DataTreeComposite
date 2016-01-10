@@ -45,6 +45,10 @@ interface MessageInterface
      */
     public function getChildren();
 
+
+    /**
+     * @return MessageInterface
+     */
     public function getParent();
 
 }
