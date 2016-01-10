@@ -1,16 +1,22 @@
 <?php
 namespace MessageComposite\examples\GeoJSON;
-use MessageComposite\MessageDecoratorBase;
+use MessageComposite\GenericMessage;
+
+use MessageComposite\MessageElement;
+use MessageComposite\MessageInterface;
 
 /**
  * Class GeoJSONObject
  * @package MessageComposite\examples\GeoJSON
  * @link http://geojson.org/geojson-spec.html
- * @link http://www.utilities-online.info/xmltojson
  */
-class GeoJSONObject extends MessageDecoratorBase
+class GeoJSONObject extends GenericMessage
 {
 
+    const TYPE_GEOMETRY = 'Geometry';
+    const TYPE_FEATURE = 'Feature';
+    const TYPE_FEATURES_COLLECTION = 'FeatureCollection';
 
+    protected $type;
 
 } 
