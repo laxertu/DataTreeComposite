@@ -34,7 +34,7 @@ interface MessageInterface
     /**
      * Returns message value if any
      *
-     * @return String
+     * @return null|String|array
      */
     public function getValue();
 

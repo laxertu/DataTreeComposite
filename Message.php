@@ -151,7 +151,7 @@ abstract class Message implements MessageInterface
     /**
      * Gets raw content if setted
      *
-     * @return null|String
+     * @return null|String|array
      */
     public final function getValue()
     {
