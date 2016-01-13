@@ -26,9 +26,9 @@ abstract class Message implements MessageInterface
      */
     private $name = null;
     /**
-     * Message raw content as array, null for composites.
+     * Message raw content as array or raw text, null for composites.
      *
-     * @var null | array
+     * @var null | array | String
      */
     private $value = null;
     private $attrs = [];
@@ -108,11 +108,11 @@ abstract class Message implements MessageInterface
      * This method is declared as protected as often we want to give control about how a message is structured to
      * message itself. If you want more flexibility you have to extend GenericMessage. See examples
      *
-     * @param MessageInterface $element
+     * @param Message $element
      * @throws \InvalidArgumentException
      * @throws \Exception
      */
-    protected function setElement(MessageInterface $element, $pos)
+    protected function setElement(Message $element, $pos)
     {
         if(!is_int($pos) || ($pos < 0)) {
 
@@ -158,11 +158,9 @@ abstract class Message implements MessageInterface
         return $this->value;
     }
 
-    public final function isLeaf()
-    {
-        return ($this->value !== null);
-    }
-
+    /**
+     * @return Message[]|MessageInterface[]
+     */
     public final function getChildren()
     {
         return $this->elements;

@@ -38,8 +38,6 @@ interface MessageInterface
      */
     public function getValue();
 
-    public function isLeaf();
-
     /**
      * @return MessageInterface[]
      */
