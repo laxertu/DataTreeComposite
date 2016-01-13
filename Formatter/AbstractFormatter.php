@@ -21,7 +21,7 @@ abstract class AbstractFormatter implements FormatterInterface
 
     protected function isLeaf(MessageInterface $message)
     {
-        return !$message->getChildren();
+        return !is_null($message->getValue());
     }
 
 } 
