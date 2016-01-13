@@ -3,7 +3,7 @@ namespace MessageComposite\Formatter;
 use MessageComposite\MessageInterface;
 
 
-interface Formatter
+interface FormatterInterface
 {
 
     public function buildContent(MessageInterface $message);

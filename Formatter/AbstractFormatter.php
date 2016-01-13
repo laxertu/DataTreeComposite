@@ -4,7 +4,7 @@ namespace MessageComposite\Formatter;
 
 use MessageComposite\MessageInterface;
 
-abstract class AbstractFormatter implements Formatter
+abstract class AbstractFormatter implements FormatterInterface
 {
     abstract public function buildContent(MessageInterface $message);
 
