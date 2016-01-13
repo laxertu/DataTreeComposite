@@ -15,7 +15,7 @@ class GenericMessage extends Message
         $this->setName($name);
     }
 
-    public function setElement(Message $element, $pos)
+    public function setElement(MessageInterface $element, $pos)
     {
         return parent::setElement($element, $pos);
     }
