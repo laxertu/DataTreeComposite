@@ -25,7 +25,7 @@ class MessageElement extends Message
         }
     }
 
-    protected final function setElement(Message $element, $pos)
+    protected final function setElement(MessageInterface $element, $pos)
     {
         throw new \Exception('MessageElement objects does not have children');
     }
