@@ -43,6 +43,13 @@ interface MessageInterface
      */
     public function getChildren();
 
+    /**
+     * Sets a message's parent
+     *
+     * @param MessageInterface $parent
+     * @return mixed
+     */
+    public function setParent(MessageInterface $parent);
 
     /**
      * @return MessageInterface

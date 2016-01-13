@@ -36,6 +36,7 @@ class ProtocolMessage extends MessageDecoratorBase
         $authNode->setElement(new MessageElement('Pwd', $this->credentials->getPwd()), 1);
 
         $chidren = $this->message->getChildren();
+        $authNode->setParent($this->message);
         array_unshift($chidren, $authNode);
 
         return $chidren;

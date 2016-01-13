@@ -4,6 +4,7 @@ namespace MessageComposite\tests\examples;
 
 use MessageComposite\examples\auth_based_protocol\Credentials;
 use MessageComposite\examples\auth_based_protocol\ProtocolMessage;
+use MessageComposite\Formatter\JsonFormatter;
 use MessageComposite\Formatter\XMLFormatter;
 use MessageComposite\GenericMessage;
 
@@ -25,6 +26,11 @@ class AuthBasedProtocolTest extends \PHPUnit_Framework_TestCase
 
         $xml = $formatter->buildContent($sut);
         $this->assertEquals('<Head><Auth><Usr>USR</Usr><Pwd>PWD</Pwd></Auth><other /></Head>', $xml);
+
+        $formatter = new JsonFormatter();
+        $json = $formatter->buildContent($sut);
+
+        $this->assertEquals('{"Head":{"Auth":{"Usr":"USR","Pwd":"PWD"},"other":{}}}', $json);
 
     }
 

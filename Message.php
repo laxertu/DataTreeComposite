@@ -10,8 +10,6 @@ namespace MessageComposite;
 abstract class Message implements MessageInterface
 {
 
-    /** @var Message[] */
-    private $elements = [];
 
     /** @var  Message */
     private $parent;
@@ -25,6 +23,8 @@ abstract class Message implements MessageInterface
      * @var null
      */
     private $name = null;
+
+
     /**
      * Message raw content as array or raw text, null for composites.
      *
@@ -32,6 +32,10 @@ abstract class Message implements MessageInterface
      */
     private $value = null;
     private $attrs = [];
+
+
+    /** @var Message[] */
+    private $elements = [];
 
     /**
      * Returns node name
@@ -112,7 +116,7 @@ abstract class Message implements MessageInterface
      * @throws \InvalidArgumentException
      * @throws \Exception
      */
-    protected function setElement(Message $element, $pos)
+    protected function setElement(MessageInterface $element, $pos)
     {
         if(!is_int($pos) || ($pos < 0)) {
 
@@ -127,7 +131,7 @@ abstract class Message implements MessageInterface
         }
     }
 
-    private function setParent(Message $parent)
+    public final function setParent(MessageInterface $parent)
     {
         $this->parent = $parent;
     }
