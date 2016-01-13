@@ -112,7 +112,7 @@ abstract class Message implements MessageInterface
      * @throws \InvalidArgumentException
      * @throws \Exception
      */
-    protected function setElement(Message $element, $pos)
+    protected function setElement(MessageInterface $element, $pos)
     {
         if(!is_int($pos) || ($pos < 0)) {
 
