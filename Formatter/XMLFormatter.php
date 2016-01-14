@@ -12,7 +12,7 @@ class XMLFormatter extends AbstractFormatter
 
     public function buildContent(MessageInterface $message)
     {
-        if($this->haveToBuildHead($message)) {
+        if(!$this->haveToBuildHead($message)) {
             $content = $this->buildBody($message);
         } else {
             $content = $this->buildHead($message).$this->buildBody($message).$this->buildFoot($message);
@@ -28,7 +28,7 @@ class XMLFormatter extends AbstractFormatter
      */
     private function haveToBuildHead(MessageInterface $message)
     {
-        return ($message->getName() === '' || is_array($message->getValue()));
+        return $message->getName() !== '' && !is_array($message->getValue());
     }
 
     private function buildHead(MessageInterface $message)
