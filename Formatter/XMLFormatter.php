@@ -12,13 +12,23 @@ class XMLFormatter extends AbstractFormatter
 
     public function buildContent(MessageInterface $message)
     {
-        # a nameless message, e.g. a list of values
-        if($message->getName() === '' || is_array($message->getValue())) {
+        if($this->haveToBuildHead($message)) {
             $content = $this->buildBody($message);
         } else {
             $content = $this->buildHead($message).$this->buildBody($message).$this->buildFoot($message);
         }
         return $content;
+    }
+
+    /**
+     * Messages without name and list of values do not have head
+     *
+     * @param MessageInterface $message
+     * @return bool
+     */
+    private function haveToBuildHead(MessageInterface $message)
+    {
+        return ($message->getName() === '' || is_array($message->getValue()));
     }
 
     private function buildHead(MessageInterface $message)
@@ -73,7 +83,7 @@ class XMLFormatter extends AbstractFormatter
 
     private function buildFoot(MessageInterface $message)
     {
-        $tag = ($this->hasInnerContent($message) && $message->getName()) ? '</'.$message->getName().'>' : '';
+        $tag = ($this->hasInnerContent($message)) ? '</'.$message->getName().'>' : '';
         return $tag;
     }
 
