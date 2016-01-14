@@ -55,28 +55,39 @@ class XMLFormatter extends AbstractFormatter
 
     private function buildBody(MessageInterface $message)
     {
-
-        $content = '';
         if($this->isLeaf($message)) {
-
-            $rawContent = $message->getValue();
-            if(is_array($rawContent)) {
-                foreach($rawContent as $value) {
-                    $content .= $this->buildHead($message).$value.$this->buildFoot($message);
-                }
-            } else {
-                $content = $rawContent;
-            }
-
-
-
+            $content = $this->buildLeafContent($message);
         } else {
-            foreach($message->getChildren() as $child) {
-                $content .= $this->buildContent($child);
-            }
-
+            $content = $this->buildCompositeContent($message);
         }
 
+        return $content;
+    }
+
+    private function buildLeafContent(MessageInterface $message)
+    {
+
+        $content = '';
+
+        $rawContent = $message->getValue();
+
+        if(is_array($rawContent)) {
+            foreach($rawContent as $value) {
+                $content .= $this->buildHead($message).$value.$this->buildFoot($message);
+            }
+        } else {
+            $content = $rawContent;
+        }
+
+        return $content;
+    }
+
+    private function buildCompositeContent(MessageInterface $message)
+    {
+        $content = '';
+        foreach($message->getChildren() as $child) {
+            $content .= $this->buildContent($child);
+        }
         return $content;
     }
 
