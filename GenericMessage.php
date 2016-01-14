@@ -15,12 +15,12 @@ class GenericMessage extends Message
         $this->setName($name);
     }
 
-    public function setElement(MessageInterface $element, $pos)
+    public final function setElement(MessageInterface $element, $pos)
     {
         return parent::setElement($element, $pos);
     }
 
-    public function removeElement($pos)
+    public final function removeElement($pos)
     {
         return parent::removeElement($pos);
     }
