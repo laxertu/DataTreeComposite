@@ -18,7 +18,7 @@ abstract class Message implements MessageInterface
      * "Special" values are:
      *
      * NULL - means that class name will be used as node name
-     * ''   - means that message has no node name @see MessageListOfValues
+     * ''   - means that message has no node name
      *
      * @var null
      */
@@ -110,7 +110,7 @@ abstract class Message implements MessageInterface
      * Sets $element as $pos child, it overwrites existent if any
      *
      * This method is declared as protected as often we want to give control about how a message is structured to
-     * message itself. If you want more flexibility you have to extend GenericMessage. See examples
+     * message itself. If you want more flexibility you have to extend GenericMessage.
      *
      * @param Message $element
      * @throws \InvalidArgumentException
@@ -143,7 +143,7 @@ abstract class Message implements MessageInterface
 
     /**
      * This method is declared as protected as often we want to give control about how a message is structured to
-     * message itself. If you want more flexibility you have to extend GenericMessage. See examples
+     * message itself. If you want more flexibility you have to extend GenericMessage.
      *
      * @param MessageInterface $element
      */
