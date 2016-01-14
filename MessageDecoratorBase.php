@@ -22,7 +22,6 @@ abstract class MessageDecoratorBase implements MessageInterface
         return $this->message->getAttributes();
     }
 
-    /** Sets message name */
     public function setName($name)
     {
         return $this->message->setName($name);

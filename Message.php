@@ -64,7 +64,6 @@ abstract class Message implements MessageInterface
      * Sets a Message raw value
      *
      * @param $value String | array
-     * @throws \InvalidArgumentException
      * @throws \Exception
      */
     protected final function setValue($value = '')
@@ -153,8 +152,6 @@ abstract class Message implements MessageInterface
     }
 
     /**
-     * Gets raw content if setted
-     *
      * @return null|String|array
      */
     public final function getValue()
@@ -163,7 +160,7 @@ abstract class Message implements MessageInterface
     }
 
     /**
-     * @return Message[]|MessageInterface[]
+     * @return MessageInterface[]
      */
     public final function getChildren()
     {

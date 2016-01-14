@@ -10,14 +10,11 @@ namespace MessageComposite;
 interface MessageInterface
 {
 
-    /** Returns Message name */
     public function getName();
-
-    /** Sets message name */
     public function setName($name);
 
     /**
-     * Return an associative array in a key => value form with attributes
+     * Returns an associative array in a key => value form with attributes
      *
      * @return array
      */
@@ -32,9 +29,9 @@ interface MessageInterface
 
 
     /**
-     * Returns message value if any
+     * Message raw content as array or raw text, null for composites.
      *
-     * @return null|String|array
+     * @var null | array | String
      */
     public function getValue();
 
@@ -44,10 +41,7 @@ interface MessageInterface
     public function getChildren();
 
     /**
-     * Sets a message's parent
-     *
      * @param MessageInterface $parent
-     * @return mixed
      */
     public function setParent(MessageInterface $parent);
 
