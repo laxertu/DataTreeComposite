@@ -1,7 +1,7 @@
 <?php
 namespace MessageComposite\examples\GeoJSON;
-use MessageComposite\MessageElement;
 
+use MessageComposite\MessageElement;
 
 class Point extends GeoJSONObject
 {

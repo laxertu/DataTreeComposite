@@ -1,7 +1,6 @@
 <?php
 namespace MessageComposite\tests\examples;
 
-
 use MessageComposite\examples\GeoJSON\GeoJSONObject;
 use MessageComposite\examples\GeoJSON\Point;
 use MessageComposite\Formatter\JsonFormatter;
@@ -27,5 +26,4 @@ class GeoJSONPointTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(123, $obtained->ExampleObject->ExamplePoint->coordinates[0]);
 
     }
-
-} 
+}

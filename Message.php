@@ -42,9 +42,9 @@ abstract class Message implements MessageInterface
      *
      * @return string
      */
-    public final function getName()
+    final public function getName()
     {
-        if(is_null($this->name)) {
+        if (is_null($this->name)) {
             $this->name = end(explode('\\', get_class($this)));
         }
 
@@ -55,7 +55,7 @@ abstract class Message implements MessageInterface
      * Sets message name. See attribute documentation
      * @param $name
      */
-    public final function setName($name)
+    final public function setName($name)
     {
         $this->name = $name;
     }
@@ -66,34 +66,34 @@ abstract class Message implements MessageInterface
      * @param $value String | array
      * @throws \Exception
      */
-    protected final function setValue($value = '')
+    final protected function setValue($value = '')
     {
-        if($this->getChildren()) {
+        if ($this->getChildren()) {
             throw new \Exception('Cannot set value of a composite Message');
         }
 
         #default to empty string as a null value means a Leaf Message
-        if(is_null($value)) {
+        if (is_null($value)) {
             $value = '';
         }
 
         $this->value = $value;
     }
 
-    public final function getAttributes()
+    final public function getAttributes()
     {
         return $this->attrs;
     }
 
-    public final function setAttributes($attributes)
+    final public function setAttributes($attributes)
     {
         $this->attrs = $attributes;
     }
 
-    public final function getPathWithSeparator($separator = '/')
+    final public function getPathWithSeparator($separator = '/')
     {
 
-        if($this->parent) {
+        if ($this->parent) {
             return $this->parent->getPathWithSeparator($separator).$separator.$this->getName();
         } else {
             return $separator.$this->getName();
@@ -103,7 +103,9 @@ abstract class Message implements MessageInterface
     /**
      * Child classes that needs some special behaviour before getting content can implement this method.
      */
-    protected function prepare() {}
+    protected function prepare()
+    {
+    }
 
     /**
      * Sets $element as $pos child, it overwrites existent if any
@@ -117,11 +119,11 @@ abstract class Message implements MessageInterface
      */
     protected function setElement(MessageInterface $element, $pos)
     {
-        if(!is_int($pos) || ($pos < 0)) {
+        if (!is_int($pos) || ($pos < 0)) {
 
             throw new \InvalidArgumentException('Pos have to be a positive integer');
 
-        } elseif($this->getValue()){
+        } elseif ($this->getValue()) {
 
             throw new \Exception('Cannot set a child if Message has a value');
         } else {
@@ -130,12 +132,12 @@ abstract class Message implements MessageInterface
         }
     }
 
-    public final function setParent(MessageInterface $parent)
+    final public function setParent(MessageInterface $parent)
     {
         $this->parent = $parent;
     }
 
-    public final function getParent()
+    final public function getParent()
     {
         return $this->parent;
     }
@@ -154,7 +156,7 @@ abstract class Message implements MessageInterface
     /**
      * @return null|String|array
      */
-    public final function getValue()
+    final public function getValue()
     {
         return $this->value;
     }
@@ -162,9 +164,8 @@ abstract class Message implements MessageInterface
     /**
      * @return MessageInterface[]
      */
-    public final function getChildren()
+    final public function getChildren()
     {
         return $this->elements;
     }
-
-} 
+}

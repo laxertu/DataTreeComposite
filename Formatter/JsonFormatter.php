@@ -1,5 +1,6 @@
 <?php
 namespace MessageComposite\Formatter;
+
 use MessageComposite\MessageInterface;
 
 /**
@@ -7,7 +8,7 @@ use MessageComposite\MessageInterface;
  * @package MessageComposite\Formatter
  * @see MessageComposite\tests\formatters\JsonFormatterTest
  */
-class JsonFormatter extends  AbstractFormatter
+class JsonFormatter extends AbstractFormatter
 {
 
     public function buildContent(MessageInterface $message)
@@ -16,7 +17,7 @@ class JsonFormatter extends  AbstractFormatter
         $content = '"'.$message->getName().'":'.$this->buildBody($message);
 
         # entire message is surrounded by {}
-        if(!$message->getParent()) {
+        if (!$message->getParent()) {
             $content = '{'.$content.'}';
         }
         return $content;
@@ -26,7 +27,7 @@ class JsonFormatter extends  AbstractFormatter
     {
 
         # a simple value
-        if($this->isLeaf($message)) {
+        if ($this->isLeaf($message)) {
 
             $content = $this->buildLeafMessageBody($message->getValue());
 
@@ -47,7 +48,7 @@ class JsonFormatter extends  AbstractFormatter
      */
     private function buildLeafMessageBody($messageValue)
     {
-        if(is_array($messageValue)) {
+        if (is_array($messageValue)) {
 
             $body = $this->formatArrayValue($messageValue);
 
@@ -61,7 +62,7 @@ class JsonFormatter extends  AbstractFormatter
     private function formatStringValue($value)
     {
         #numbers and valid json strings comes without enclosure
-        if((@json_decode($value) === null) && !is_numeric($value)){
+        if ((@json_decode($value) === null) && !is_numeric($value)) {
             $value = '"'.$value.'"';
         }
 
@@ -71,7 +72,7 @@ class JsonFormatter extends  AbstractFormatter
     private function formatArrayValue($messageValue)
     {
 
-        foreach($messageValue as $index => $value) {
+        foreach ($messageValue as $index => $value) {
             $messageValue[$index] = $this->formatStringValue($value);
         }
 
@@ -88,7 +89,7 @@ class JsonFormatter extends  AbstractFormatter
     private function buildCompositeMessageBody(array $children)
     {
         $content = [];
-        foreach($children as $child) {
+        foreach ($children as $child) {
             $content[]= $this->buildContent($child);
         }
         #composites' children are surrounded by {}
@@ -96,4 +97,4 @@ class JsonFormatter extends  AbstractFormatter
 
         return $content;
     }
-} 
+}

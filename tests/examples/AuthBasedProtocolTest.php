@@ -1,17 +1,14 @@
 <?php
 namespace MessageComposite\tests\examples;
 
-
 use MessageComposite\examples\auth_based_protocol\Credentials;
 use MessageComposite\examples\auth_based_protocol\ProtocolMessage;
 use MessageComposite\Formatter\JsonFormatter;
 use MessageComposite\Formatter\XMLFormatter;
 use MessageComposite\GenericMessage;
 
-
 class AuthBasedProtocolTest extends \PHPUnit_Framework_TestCase
 {
-
 
     public function testSimple()
     {
@@ -33,5 +30,4 @@ class AuthBasedProtocolTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('{"Head":{"Auth":{"Usr":"USR","Pwd":"PWD"},"other":{}}}', $json);
 
     }
-
-} 
+}

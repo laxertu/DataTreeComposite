@@ -1,7 +1,6 @@
 <?php
 namespace MessageComposite\tests;
 
-
 use MessageComposite\MessageElement;
 
 class MessageElementTest extends \PHPUnit_Framework_TestCase
@@ -12,5 +11,4 @@ class MessageElementTest extends \PHPUnit_Framework_TestCase
         $sut = new MessageElement('a', null);
         $this->assertTrue($sut->getValue() === '');
     }
-
-} 
+}

@@ -49,5 +49,4 @@ interface MessageInterface
      * @return MessageInterface
      */
     public function getParent();
-
 }

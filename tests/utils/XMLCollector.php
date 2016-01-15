@@ -15,5 +15,4 @@ class XMLCollector
         return count($parsed->xpath($nodeName));
 
     }
-
-} 
+}

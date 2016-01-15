@@ -1,7 +1,6 @@
 <?php
 namespace MessageComposite\examples\auth_based_protocol;
 
-
 use MessageComposite\GenericMessage;
 use MessageComposite\MessageDecoratorBase;
 use MessageComposite\MessageElement;
@@ -41,5 +40,4 @@ class ProtocolMessage extends MessageDecoratorBase
 
         return $chidren;
     }
-
-} 
+}

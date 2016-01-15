@@ -1,5 +1,6 @@
 <?php
 namespace MessageComposite\Formatter;
+
 use MessageComposite\MessageInterface;
 
 /**
@@ -12,7 +13,7 @@ class XMLFormatter extends AbstractFormatter
 
     public function buildContent(MessageInterface $message)
     {
-        if(!$this->haveToBuildHead($message)) {
+        if (!$this->haveToBuildHead($message)) {
             $content = $this->buildBody($message);
         } else {
             $content = $this->buildHead($message).$this->buildBody($message).$this->buildFoot($message);
@@ -37,9 +38,8 @@ class XMLFormatter extends AbstractFormatter
         $content = $message->getName();
         $attibutes = $message->getAttributes();
 
-        if($attibutes) {
-            foreach($attibutes as $name => $value)
-            {
+        if ($attibutes) {
+            foreach ($attibutes as $name => $value) {
                 $arr[]=$name.'="'.$value.'"';
             }
 
@@ -55,7 +55,7 @@ class XMLFormatter extends AbstractFormatter
 
     private function buildBody(MessageInterface $message)
     {
-        if($this->isLeaf($message)) {
+        if ($this->isLeaf($message)) {
             $content = $this->buildLeafContent($message);
         } else {
             $content = $this->buildCompositeContent($message);
@@ -71,8 +71,8 @@ class XMLFormatter extends AbstractFormatter
 
         $rawContent = $message->getValue();
 
-        if(is_array($rawContent)) {
-            foreach($rawContent as $value) {
+        if (is_array($rawContent)) {
+            foreach ($rawContent as $value) {
                 $content .= $this->buildHead($message).$value.$this->buildFoot($message);
             }
         } else {
@@ -85,7 +85,7 @@ class XMLFormatter extends AbstractFormatter
     private function buildCompositeContent(MessageInterface $message)
     {
         $content = '';
-        foreach($message->getChildren() as $child) {
+        foreach ($message->getChildren() as $child) {
             $content .= $this->buildContent($child);
         }
         return $content;
@@ -97,6 +97,4 @@ class XMLFormatter extends AbstractFormatter
         $tag = ($this->hasInnerContent($message)) ? '</'.$message->getName().'>' : '';
         return $tag;
     }
-
-
 }

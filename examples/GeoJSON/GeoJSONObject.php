@@ -1,9 +1,7 @@
 <?php
 namespace MessageComposite\examples\GeoJSON;
-use MessageComposite\GenericMessage;
 
-use MessageComposite\MessageElement;
-use MessageComposite\MessageInterface;
+use MessageComposite\GenericMessage;
 
 /**
  * Class GeoJSONObject
@@ -18,5 +16,4 @@ class GeoJSONObject extends GenericMessage
     const TYPE_FEATURES_COLLECTION = 'FeatureCollection';
 
     protected $type;
-
-} 
+}

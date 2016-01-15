@@ -1,7 +1,6 @@
 <?php
 namespace MessageComposite\examples\auth_based_protocol;
 
-
 class Credentials
 {
 
@@ -17,5 +16,4 @@ class Credentials
     {
         return $this->pwd;
     }
-
-} 
+}

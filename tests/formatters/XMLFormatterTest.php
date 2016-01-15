@@ -1,12 +1,10 @@
 <?php
 namespace MessageComposite\tests\formatters;
 
-
 use MessageComposite\Formatter\XMLFormatter;
 use MessageComposite\GenericMessage;
 use \MessageComposite\MessageElement;
 use \MessageComposite\MessageListOfValues;
-
 
 class XMLFormatterTest extends \PHPUnit_Framework_TestCase
 {
@@ -80,5 +78,4 @@ class XMLFormatterTest extends \PHPUnit_Framework_TestCase
         $xml = $sut->buildContent($message);
         $this->assertEquals('<ListOfVals><val>1</val><val>2</val><param>param1</param></ListOfVals>', $xml);
     }
-
-} 
+}

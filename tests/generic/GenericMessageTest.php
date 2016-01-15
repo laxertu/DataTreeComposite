@@ -1,10 +1,10 @@
 <?php
 namespace MessageComposite\tests;
+
 use MessageComposite\Formatter\XMLFormatter;
 use MessageComposite\GenericMessage;
 use MessageComposite\MessageElement;
 use MessageComposite\tests\utils\XMLCollector;
-
 
 class GenericMessageTest extends \PHPUnit_Framework_TestCase
 {
@@ -55,5 +55,4 @@ class GenericMessageTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('-a-b', $child->getPathWithSeparator('-'));
 
     }
-
-} 
+}

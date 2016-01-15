@@ -1,7 +1,6 @@
 <?php
 namespace MessageComposite\Formatter;
 
-
 use MessageComposite\MessageInterface;
 
 abstract class AbstractFormatter implements FormatterInterface
@@ -23,5 +22,4 @@ abstract class AbstractFormatter implements FormatterInterface
     {
         return !is_null($message->getValue());
     }
-
-} 
+}
