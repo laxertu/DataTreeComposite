@@ -7,6 +7,8 @@ use MessageComposite\GenericMessage;
  * Class GeoJSONObject
  * @package MessageComposite\examples\GeoJSON
  * @link http://geojson.org/geojson-spec.html
+ *
+ * Here we want to be able to compose objects. Let's extend GenericMessage
  */
 class GeoJSONObject extends GenericMessage
 {
