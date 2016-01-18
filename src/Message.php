@@ -85,7 +85,7 @@ abstract class Message implements MessageInterface
         return $this->attrs;
     }
 
-    final public function setAttributes($attributes)
+    final public function setAttributes(array $attributes)
     {
         $this->attrs = $attributes;
     }
