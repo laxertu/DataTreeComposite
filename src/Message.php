@@ -100,12 +100,6 @@ abstract class Message implements MessageInterface
         }
     }
 
-    /**
-     * Child classes that needs some special behaviour before getting content can implement this method.
-     */
-    protected function prepare()
-    {
-    }
 
     /**
      * Sets $element as $pos child, it overwrites existent if any
