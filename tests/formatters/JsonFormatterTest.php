@@ -4,7 +4,6 @@ namespace MessageComposite\tests\formatters;
 use MessageComposite\Formatter\JsonFormatter;
 use MessageComposite\GenericMessage;
 use MessageComposite\MessageElement;
-use MessageComposite\MessageListOfValues;
 
 class JsonFormatterTest extends \PHPUnit_Framework_TestCase
 {
