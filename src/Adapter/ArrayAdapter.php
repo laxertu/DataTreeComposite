@@ -7,7 +7,7 @@ use MessageComposite\MessageInterface;
 /**
  * Class StdObjectAdapter
  * @package MessageComposite\Adapter
- * @see MessageComposite\tests\adapters\StdObjectAdapterTest
+ * @see MessageComposite\tests\adapters\ArrayAdapterTest
  */
 class ArrayAdapter
 {
