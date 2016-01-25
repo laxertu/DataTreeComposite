@@ -5,7 +5,7 @@ namespace MessageComposite\Adapter;
 use MessageComposite\MessageInterface;
 
 /**
- * Class StdObjectAdapter
+ * Class ArrayAdapter
  * @package MessageComposite\Adapter
  * @see MessageComposite\tests\adapters\ArrayAdapterTest
  */
