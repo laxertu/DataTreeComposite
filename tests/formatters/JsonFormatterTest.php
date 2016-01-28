@@ -1,9 +1,9 @@
 <?php
 namespace MessageComposite\tests\formatters;
 
-use MessageComposite\Formatter\JsonFormatter;
-use MessageComposite\GenericMessage;
-use MessageComposite\MessageElement;
+use MessageComposite\Formatter\json\JsonFormatter;
+use MessageComposite\xml\GenericMessage;
+use MessageComposite\xml\MessageElement;
 
 class JsonFormatterTest extends \PHPUnit_Framework_TestCase
 {

@@ -1,5 +1,5 @@
 <?php
-namespace MessageComposite;
+namespace MessageComposite\xml;
 
 /**
  * This class is intended for those who wants a 100% composite implementation. It just opens setter methods to clients

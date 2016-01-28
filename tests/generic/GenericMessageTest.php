@@ -1,9 +1,9 @@
 <?php
 namespace MessageComposite\tests;
 
-use MessageComposite\Formatter\XMLFormatter;
-use MessageComposite\GenericMessage;
-use MessageComposite\MessageElement;
+use MessageComposite\Formatter\xml\XMLFormatter;
+use MessageComposite\xml\GenericMessage;
+use MessageComposite\xml\MessageElement;
 use MessageComposite\tests\utils\XMLCollector;
 
 class GenericMessageTest extends \PHPUnit_Framework_TestCase

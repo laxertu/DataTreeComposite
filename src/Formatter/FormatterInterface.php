@@ -1,9 +1,9 @@
 <?php
 namespace MessageComposite\Formatter;
 
-use MessageComposite\MessageInterface;
+use MessageComposite\DataTreeInterface;
 
 interface FormatterInterface
 {
-    public function buildContent(MessageInterface $message);
+    public function buildContent(DataTreeInterface $message);
 }

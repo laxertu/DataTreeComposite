@@ -1,8 +1,8 @@
 <?php
 namespace MessageComposite\tests\adapters;
 use MessageComposite\Adapter\SoapVarAdapter;
-use MessageComposite\GenericMessage;
-use MessageComposite\MessageElement;
+use MessageComposite\xml\GenericMessage;
+use MessageComposite\xml\MessageElement;
 
 
 class SoapVarAdapterTest extends \PHPUnit_Framework_TestCase

@@ -3,9 +3,9 @@ namespace MessageComposite\tests\examples;
 
 use MessageComposite\examples\auth_based_protocol\Credentials;
 use MessageComposite\examples\auth_based_protocol\ProtocolMessage;
-use MessageComposite\Formatter\JsonFormatter;
-use MessageComposite\Formatter\XMLFormatter;
-use MessageComposite\GenericMessage;
+use MessageComposite\Formatter\json\JsonFormatter;
+use MessageComposite\Formatter\xml\XMLFormatter;
+use MessageComposite\xml\GenericMessage;
 
 class AuthBasedProtocolTest extends \PHPUnit_Framework_TestCase
 {

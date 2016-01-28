@@ -1,5 +1,7 @@
 <?php
-namespace MessageComposite;
+namespace MessageComposite\xml;
+
+use MessageComposite\DataTree;
 
 abstract class Message extends DataTree implements MessageInterface
 {

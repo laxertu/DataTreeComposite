@@ -23,10 +23,10 @@ interface DataTreeInterface
     /**
      * @param MessageInterface $parent
      */
-    public function setParent(MessageInterface $parent);
+    public function setParent(DataTreeInterface $parent);
 
     /**
      * @return MessageInterface
      */
     public function getParent();
-} 
+}

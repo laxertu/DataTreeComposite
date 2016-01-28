@@ -1,17 +1,19 @@
 <?php
-namespace MessageComposite\Formatter;
+namespace MessageComposite\Formatter\json;
 
-use MessageComposite\MessageInterface;
+use MessageComposite\DataTreeInterface;
+use MessageComposite\Formatter\AbstractFormatter;
+use MessageComposite\Formatter\FormatterInterface;
 
 /**
  * Class JsonFormatter
  * @package MessageComposite\Formatter
  * @see MessageComposite\tests\formatters\JsonFormatterTest
  */
-class JsonFormatter extends AbstractFormatter
+class JsonFormatter extends AbstractFormatter implements FormatterInterface
 {
 
-    public function buildContent(MessageInterface $message)
+    public function buildContent(DataTreeInterface $message)
     {
 
         $content = '"'.$message->getName().'":'.$this->buildBody($message);
@@ -23,7 +25,7 @@ class JsonFormatter extends AbstractFormatter
         return $content;
     }
 
-    private function buildBody(MessageInterface $message)
+    private function buildBody(DataTreeInterface $message)
     {
 
         # a simple value
@@ -83,7 +85,7 @@ class JsonFormatter extends AbstractFormatter
 
 
     /**
-     * @param MessageInterface[] $message
+     * @param DataTreeInterface[] $message
      * @return array|string
      */
     private function buildCompositeMessageBody(array $children)

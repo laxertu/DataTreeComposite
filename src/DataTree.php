@@ -105,7 +105,7 @@ abstract class DataTree
      * @throws \InvalidArgumentException
      * @throws \Exception
      */
-    protected function setElement(MessageInterface $element, $pos)
+    protected function setElement(DataTreeInterface $element, $pos)
     {
         if (!is_int($pos) || ($pos < 0)) {
 
@@ -120,7 +120,7 @@ abstract class DataTree
         }
     }
 
-    final public function setParent(MessageInterface $parent)
+    final public function setParent(DataTreeInterface $parent)
     {
         $this->parent = $parent;
     }
@@ -157,4 +157,4 @@ abstract class DataTree
         return $this->elements;
     }
 
-} 
+}

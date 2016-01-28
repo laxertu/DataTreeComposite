@@ -1,7 +1,7 @@
 <?php
 namespace MessageComposite\tests;
 
-use MessageComposite\MessageElement;
+use MessageComposite\xml\MessageElement;
 
 class MessageElementTest extends \PHPUnit_Framework_TestCase
 {

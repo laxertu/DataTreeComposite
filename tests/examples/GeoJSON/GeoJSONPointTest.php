@@ -3,7 +3,7 @@ namespace MessageComposite\tests\examples;
 
 use MessageComposite\examples\GeoJSON\GeoJSONObject;
 use MessageComposite\examples\GeoJSON\Point;
-use MessageComposite\Formatter\JsonFormatter;
+use MessageComposite\Formatter\json\JsonFormatter;
 
 class GeoJSONPointTest extends \PHPUnit_Framework_TestCase
 {

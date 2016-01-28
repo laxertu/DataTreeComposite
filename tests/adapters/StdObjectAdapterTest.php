@@ -3,8 +3,8 @@ namespace MessageComposite\tests\adapters;
 
 
 use MessageComposite\Adapter\StdObjectAdapter;
-use MessageComposite\GenericMessage;
-use MessageComposite\MessageElement;
+use MessageComposite\xml\GenericMessage;
+use MessageComposite\xml\MessageElement;
 
 class StdObjectAdapterTest extends \PHPUnit_Framework_TestCase
 {

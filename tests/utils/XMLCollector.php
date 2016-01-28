@@ -1,7 +1,7 @@
 <?php
 namespace MessageComposite\tests\utils;
 
-use MessageComposite\Message;
+use MessageComposite\xml\Message;
 
 class XMLCollector
 {

@@ -1,14 +1,16 @@
 <?php
-namespace MessageComposite\Formatter;
+namespace MessageComposite\Formatter\xml;
 
-use MessageComposite\MessageInterface;
+use MessageComposite\DataTreeInterface;
+use MessageComposite\xml\MessageInterface;
+use MessageComposite\Formatter\AbstractFormatter;
 
 /**
  * Class XMLFormatter
  * @package MessageComposite\Formatter
  * @see MessageComposite\tests\formatters\XMLFormatterTest
  */
-class XMLFormatter extends AbstractFormatter
+class XMLFormatter extends AbstractFormatter implements XMLFormatterInterface
 {
 
     public function buildContent(MessageInterface $message)

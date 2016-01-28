@@ -1,5 +1,5 @@
 <?php
-namespace MessageComposite;
+namespace MessageComposite\xml;
 
 /**
  * Leaf classes.

@@ -2,7 +2,7 @@
 namespace MessageComposite\Adapter;
 
 
-use MessageComposite\MessageInterface;
+use MessageComposite\xml\MessageInterface;
 
 /**
  * Class SoapVarAdapter

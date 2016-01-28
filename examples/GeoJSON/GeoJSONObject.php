@@ -1,7 +1,7 @@
 <?php
 namespace MessageComposite\examples\GeoJSON;
 
-use MessageComposite\GenericMessage;
+use MessageComposite\xml\GenericMessage;
 
 /**
  * Class GeoJSONObject

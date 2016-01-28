@@ -1,5 +1,7 @@
 <?php
-namespace MessageComposite;
+namespace MessageComposite\xml;
+
+use MessageComposite\DataTreeInterface;
 
 /**
  * Contract that a Message have to respect
@@ -23,5 +25,7 @@ interface MessageInterface extends DataTreeInterface
      * @return array
      */
     public function setAttributes(array $attributes);
+
+
 
 }

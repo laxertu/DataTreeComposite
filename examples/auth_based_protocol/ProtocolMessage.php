@@ -1,10 +1,10 @@
 <?php
 namespace MessageComposite\examples\auth_based_protocol;
 
-use MessageComposite\GenericMessage;
-use MessageComposite\MessageDecoratorBase;
-use MessageComposite\MessageElement;
-use MessageComposite\MessageInterface;
+use MessageComposite\xml\GenericMessage;
+use MessageComposite\xml\MessageDecoratorBase;
+use MessageComposite\xml\MessageElement;
+use MessageComposite\xml\MessageInterface;
 
 /**
  * Example usage of Decorator for implementation of a generic authentication based protocol.

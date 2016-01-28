@@ -1,5 +1,7 @@
 <?php
-namespace MessageComposite;
+namespace MessageComposite\xml;
+
+use MessageComposite\DataTreeInterface;
 
 abstract class MessageDecoratorBase implements MessageInterface
 {
@@ -42,7 +44,7 @@ abstract class MessageDecoratorBase implements MessageInterface
         return $this->message->getChildren();
     }
 
-    public function setParent(MessageInterface $message)
+    public function setParent(DataTreeInterface $message)
     {
         return $this->message->setParent($message);
     }
