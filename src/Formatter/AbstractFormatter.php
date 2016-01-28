@@ -15,7 +15,8 @@ abstract class AbstractFormatter implements FormatterInterface
      */
     protected function hasInnerContent(MessageInterface $message)
     {
-        return $message->getValue() || $message->getChildren();
+        $messageValue = $message->getValue();
+        return (!is_null($messageValue) && $messageValue !== '') || $message->getChildren();
     }
 
     protected function isLeaf(MessageInterface $message)

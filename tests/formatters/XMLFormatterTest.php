@@ -51,4 +51,14 @@ class XMLFormatterTest extends \PHPUnit_Framework_TestCase
         $xml = $sut->buildContent($message);
         $this->assertEquals('<ListOfVals><val>1</val><val>2</val><param>param1</param></ListOfVals>', $xml);
     }
+
+    public function testZero()
+    {
+        $el = new MessageElement('a', 0);
+        $sut = new XMLFormatter();
+
+        $xml = $sut->buildContent($el);
+        $this->assertEquals('<a>0</a>', $xml);
+
+    }
 }

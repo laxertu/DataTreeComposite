@@ -22,14 +22,14 @@ class XMLFormatter extends AbstractFormatter
     }
 
     /**
-     * Messages without name and list of values do not have head
+     * Lists of values do not have head
      *
      * @param MessageInterface $message
      * @return bool
      */
     private function haveToBuildHead(MessageInterface $message)
     {
-        return $message->getName() !== '' && !is_array($message->getValue());
+        return !is_array($message->getValue());
     }
 
     private function buildHead(MessageInterface $message)
