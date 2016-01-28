@@ -44,11 +44,6 @@ abstract class MessageDecoratorBase implements MessageInterface
         return $this->message->getChildren();
     }
 
-    public function setParent(DataTreeInterface $message)
-    {
-        return $this->message->setParent($message);
-    }
-
     public function getParent()
     {
         return $this->message->getParent();

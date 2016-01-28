@@ -21,11 +21,6 @@ interface DataTreeInterface
     public function getChildren();
 
     /**
-     * @param MessageInterface $parent
-     */
-    public function setParent(DataTreeInterface $parent);
-
-    /**
      * @return MessageInterface
      */
     public function getParent();
