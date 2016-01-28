@@ -7,11 +7,8 @@ namespace MessageComposite;
  * Interface MessageInterface
  * @package MessageComposite
  */
-interface MessageInterface
+interface MessageInterface extends DataTreeInterface
 {
-
-    public function getName();
-    public function setName($name);
 
     /**
      * Returns an associative array in a key => value form with attributes
@@ -27,26 +24,4 @@ interface MessageInterface
      */
     public function setAttributes(array $attributes);
 
-
-    /**
-     * Message raw content as array or raw text, null for composites.
-     *
-     * @var null | array | String
-     */
-    public function getValue();
-
-    /**
-     * @return MessageInterface[]
-     */
-    public function getChildren();
-
-    /**
-     * @param MessageInterface $parent
-     */
-    public function setParent(MessageInterface $parent);
-
-    /**
-     * @return MessageInterface
-     */
-    public function getParent();
 }
