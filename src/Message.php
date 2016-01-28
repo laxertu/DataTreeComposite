@@ -1,12 +1,6 @@
 <?php
 namespace MessageComposite;
 
-/**
- * Composite implementation
- *
- * Class Message
- * @package MessageComposite
- */
 abstract class Message extends DataTree implements MessageInterface
 {
     private $attrs = [];

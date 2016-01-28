@@ -2,6 +2,13 @@
 
 namespace MessageComposite;
 
+/**
+ * Composite implementation
+ *
+ * Class Message
+ * @package MessageComposite
+ */
+
 abstract class DataTree
 {
 
