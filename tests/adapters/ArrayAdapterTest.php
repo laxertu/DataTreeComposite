@@ -1,10 +1,10 @@
 <?php
-namespace MessageComposite\tests\adapters;
+namespace DataTree\tests\adapters;
 
 
-use MessageComposite\Adapter\ArrayAdapter;
-use MessageComposite\xml\GenericMessage;
-use MessageComposite\xml\MessageElement;
+use DataTree\Adapter\ArrayAdapter;
+use DataTree\xml\GenericMessage;
+use DataTree\xml\MessageElement;
 
 class ArrayAdapterTest extends \PHPUnit_Framework_TestCase
 {

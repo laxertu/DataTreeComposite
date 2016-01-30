@@ -1,14 +1,14 @@
 <?php
-namespace MessageComposite\Formatter\json;
+namespace DataTree\Formatter\json;
 
-use MessageComposite\Formatter\AbstractFormatter;
-use MessageComposite\Formatter\FormattableInterface;
-use MessageComposite\Formatter\FormatterInterface;
+use DataTree\Formatter\AbstractFormatter;
+use DataTree\Formatter\FormattableInterface;
+use DataTree\Formatter\FormatterInterface;
 
 /**
  * Class JsonFormatter
- * @package MessageComposite\Formatter
- * @see MessageComposite\tests\formatters\JsonFormatterTest
+ * @package DataTree\Formatter
+ * @see DataTree\tests\formatters\JsonFormatterTest
  */
 class JsonFormatter extends AbstractFormatter implements FormatterInterface
 {

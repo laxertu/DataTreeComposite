@@ -1,13 +1,13 @@
 <?php
 
-namespace MessageComposite;
-use MessageComposite\Formatter\FormattableInterface;
+namespace DataTree;
+use DataTree\Formatter\FormattableInterface;
 
 /**
  * Composite implementation
  *
  * Class Message
- * @package MessageComposite
+ * @package DataTree
  */
 
 abstract class DataTree implements FormattableInterface

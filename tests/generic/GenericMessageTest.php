@@ -1,10 +1,10 @@
 <?php
-namespace MessageComposite\tests;
+namespace DataTree\tests;
 
-use MessageComposite\Formatter\xml\XMLFormatter;
-use MessageComposite\xml\GenericMessage;
-use MessageComposite\xml\MessageElement;
-use MessageComposite\tests\utils\XMLCollector;
+use DataTree\Formatter\xml\XMLFormatter;
+use DataTree\xml\GenericMessage;
+use DataTree\xml\MessageElement;
+use DataTree\tests\utils\XMLCollector;
 
 class GenericMessageTest extends \PHPUnit_Framework_TestCase
 {

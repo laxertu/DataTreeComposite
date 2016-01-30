@@ -1,7 +1,7 @@
 <?php
-namespace MessageComposite\tests\examples;
+namespace DataTree\tests\examples;
 
-use MessageComposite\examples\GeoJSON\Position;
+use DataTree\examples\GeoJSON\Position;
 
 class PositionTest extends \PHPUnit_Framework_TestCase
 {

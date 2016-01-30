@@ -1,5 +1,5 @@
 <?php
-namespace MessageComposite\examples\auth_based_protocol;
+namespace DataTree\examples\auth_based_protocol;
 
 class Credentials
 {

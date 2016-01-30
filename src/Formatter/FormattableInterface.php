@@ -1,11 +1,11 @@
 <?php
-namespace MessageComposite\Formatter;
+namespace DataTree\Formatter;
 
 /**
  * Contract for formattable objects: basically, the basic getters.
  *
  * Interface FormattableInterface
- * @package MessageComposite\Formatter
+ * @package DataTree\Formatter
  */
 interface FormattableInterface
 {

@@ -1,10 +1,10 @@
 <?php
-namespace MessageComposite\tests\adapters;
+namespace DataTree\tests\adapters;
 
 
-use MessageComposite\Adapter\StdObjectAdapter;
-use MessageComposite\xml\GenericMessage;
-use MessageComposite\xml\MessageElement;
+use DataTree\Adapter\StdObjectAdapter;
+use DataTree\xml\GenericMessage;
+use DataTree\xml\MessageElement;
 
 class StdObjectAdapterTest extends \PHPUnit_Framework_TestCase
 {

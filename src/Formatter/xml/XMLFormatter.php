@@ -1,14 +1,14 @@
 <?php
-namespace MessageComposite\Formatter\xml;
+namespace DataTree\Formatter\xml;
 
-use MessageComposite\DataTreeInterface;
-use MessageComposite\xml\MessageInterface;
-use MessageComposite\Formatter\AbstractFormatter;
+use DataTree\DataTreeInterface;
+use DataTree\xml\MessageInterface;
+use DataTree\Formatter\AbstractFormatter;
 
 /**
  * Class XMLFormatter
- * @package MessageComposite\Formatter
- * @see MessageComposite\tests\formatters\XMLFormatterTest
+ * @package DataTree\Formatter
+ * @see DataTree\tests\formatters\XMLFormatterTest
  */
 class XMLFormatter extends AbstractFormatter implements XMLFormatterInterface
 {

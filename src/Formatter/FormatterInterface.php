@@ -1,5 +1,5 @@
 <?php
-namespace MessageComposite\Formatter;
+namespace DataTree\Formatter;
 
 
 interface FormatterInterface

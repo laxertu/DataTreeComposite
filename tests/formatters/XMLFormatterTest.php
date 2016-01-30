@@ -1,9 +1,9 @@
 <?php
-namespace MessageComposite\tests\formatters;
+namespace DataTree\tests\formatters;
 
-use MessageComposite\Formatter\xml\XMLFormatter;
-use MessageComposite\xml\GenericMessage;
-use MessageComposite\xml\MessageElement;
+use DataTree\Formatter\xml\XMLFormatter;
+use DataTree\xml\GenericMessage;
+use DataTree\xml\MessageElement;
 
 class XMLFormatterTest extends \PHPUnit_Framework_TestCase
 {

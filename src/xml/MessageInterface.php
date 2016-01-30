@@ -1,14 +1,14 @@
 <?php
-namespace MessageComposite\xml;
+namespace DataTree\xml;
 
-use MessageComposite\DataTreeInterface;
-use MessageComposite\Formatter\xml\XMLFormattableInterface;
+use DataTree\DataTreeInterface;
+use DataTree\Formatter\xml\XMLFormattableInterface;
 
 /**
  * Contract that a Message have to respect
  *
  * Interface MessageInterface
- * @package MessageComposite
+ * @package DataTree
  */
 interface MessageInterface extends DataTreeInterface
 {

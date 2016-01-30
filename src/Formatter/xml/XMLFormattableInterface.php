@@ -1,10 +1,10 @@
 <?php
-namespace MessageComposite\Formatter\xml;
-use MessageComposite\Formatter\FormattableInterface;
+namespace DataTree\Formatter\xml;
+use DataTree\Formatter\FormattableInterface;
 
 /**
  * Interface XMLFormattableInterface
- * @package MessageComposite\Formatter\xml
+ * @package DataTree\Formatter\xml
  */
 interface XMLFormattableInterface extends FormattableInterface
 {

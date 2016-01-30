@@ -1,8 +1,8 @@
 <?php
-namespace MessageComposite\Formatter;
+namespace DataTree\Formatter;
 
-use MessageComposite\DataTreeInterface;
-use MessageComposite\MessageInterface;
+use DataTree\DataTreeInterface;
+use DataTree\MessageInterface;
 
 abstract class AbstractFormatter
 {

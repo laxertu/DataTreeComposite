@@ -1,11 +1,11 @@
 <?php
-namespace MessageComposite;
+namespace DataTree;
 
 /**
  * This class is intended for those who wants a 100% composite implementation. It just opens setter methods to clients
  *
  * Class DataTree
- * @package MessageComposite
+ * @package DataTree
  */
 class OpenDataTree extends DataTree implements OpenDataTreeInterface
 {

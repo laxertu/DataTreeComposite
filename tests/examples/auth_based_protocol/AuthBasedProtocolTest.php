@@ -1,11 +1,11 @@
 <?php
-namespace MessageComposite\tests\examples;
+namespace DataTree\tests\examples;
 
-use MessageComposite\examples\auth_based_protocol\Credentials;
-use MessageComposite\examples\auth_based_protocol\ProtocolMessage;
-use MessageComposite\Formatter\json\JsonFormatter;
-use MessageComposite\Formatter\xml\XMLFormatter;
-use MessageComposite\xml\GenericMessage;
+use DataTree\examples\auth_based_protocol\Credentials;
+use DataTree\examples\auth_based_protocol\ProtocolMessage;
+use DataTree\Formatter\json\JsonFormatter;
+use DataTree\Formatter\xml\XMLFormatter;
+use DataTree\xml\GenericMessage;
 
 class AuthBasedProtocolTest extends \PHPUnit_Framework_TestCase
 {

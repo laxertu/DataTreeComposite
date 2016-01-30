@@ -1,14 +1,14 @@
 <?php
-namespace MessageComposite\Adapter;
+namespace DataTree\Adapter;
 
 
-use MessageComposite\Formatter\xml\XMLFormattableInterface;
-use MessageComposite\xml\MessageInterface;
+use DataTree\Formatter\xml\XMLFormattableInterface;
+use DataTree\xml\MessageInterface;
 
 /**
  * Class StdObjectAdapter
- * @package MessageComposite\Adapter
- * @see MessageComposite\tests\adapters\StdObjectAdapterTest
+ * @package DataTree\Adapter
+ * @see DataTree\tests\adapters\StdObjectAdapterTest
  */
 class StdObjectAdapter
 {

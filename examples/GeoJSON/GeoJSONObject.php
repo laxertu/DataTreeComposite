@@ -1,16 +1,16 @@
 <?php
-namespace MessageComposite\examples\GeoJSON;
+namespace DataTree\examples\GeoJSON;
 
-use MessageComposite\xml\GenericMessage;
+use DataTree\OpenDataTree;
 
 /**
  * Class GeoJSONObject
- * @package MessageComposite\examples\GeoJSON
+ * @package DataTree\examples\GeoJSON
  * @link http://geojson.org/geojson-spec.html
  *
  * Here we want to be able to compose objects. Let's extend GenericMessage
  */
-class GeoJSONObject extends GenericMessage
+class GeoJSONObject extends OpenDataTree
 {
 
     const TYPE_GEOMETRY = 'Geometry';

@@ -1,9 +1,9 @@
 <?php
-namespace MessageComposite\tests\examples;
+namespace DataTree\tests\examples;
 
-use MessageComposite\examples\GeoJSON\GeoJSONObject;
-use MessageComposite\examples\GeoJSON\Point;
-use MessageComposite\Formatter\json\JsonFormatter;
+use DataTree\examples\GeoJSON\GeoJSONObject;
+use DataTree\examples\GeoJSON\Point;
+use DataTree\Formatter\json\JsonFormatter;
 
 class GeoJSONPointTest extends \PHPUnit_Framework_TestCase
 {

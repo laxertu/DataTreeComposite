@@ -1,14 +1,14 @@
 <?php
-namespace MessageComposite\Adapter;
+namespace DataTree\Adapter;
 
 
-use MessageComposite\Formatter\xml\XMLFormattableInterface;
-use MessageComposite\xml\MessageInterface;
+use DataTree\Formatter\xml\XMLFormattableInterface;
+use DataTree\xml\MessageInterface;
 
 /**
  * Class SoapVarAdapter
- * @package MessageComposite\Adapter
- * @see MessageComposite\tests\adapters\SoapVarAdapterTest
+ * @package DataTree\Adapter
+ * @see DataTree\tests\adapters\SoapVarAdapterTest
  */
 class SoapVarAdapter
 {

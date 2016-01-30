@@ -1,18 +1,18 @@
 <?php
-namespace MessageComposite\examples\auth_based_protocol;
+namespace DataTree\examples\auth_based_protocol;
 
-use MessageComposite\xml\GenericMessage;
-use MessageComposite\xml\MessageDecoratorBase;
-use MessageComposite\xml\MessageElement;
-use MessageComposite\xml\MessageInterface;
+use DataTree\xml\GenericMessage;
+use DataTree\xml\MessageDecoratorBase;
+use DataTree\xml\MessageElement;
+use DataTree\xml\MessageInterface;
 
 /**
  * Example usage of Decorator for implementation of a generic authentication based protocol.
  * Here every message have an Auth node as first one
  *
  * Class ProtocolMessage
- * @package MessageComposite\examples\auth_based_protocol
- * @see MessageComposite\tests\examples\AuthBasedProtocolTest
+ * @package DataTree\examples\auth_based_protocol
+ * @see DataTree\tests\examples\AuthBasedProtocolTest
  */
 class ProtocolMessage extends MessageDecoratorBase
 {

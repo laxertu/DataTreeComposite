@@ -1,7 +1,7 @@
 <?php
-namespace MessageComposite\tests\utils;
+namespace DataTree\tests\utils;
 
-use MessageComposite\xml\Message;
+use DataTree\xml\Message;
 
 class XMLCollector
 {

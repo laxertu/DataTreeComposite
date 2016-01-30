@@ -1,5 +1,5 @@
 <?php
-namespace MessageComposite\Formatter\xml;
+namespace DataTree\Formatter\xml;
 
 interface XMLFormatterInterface
 {

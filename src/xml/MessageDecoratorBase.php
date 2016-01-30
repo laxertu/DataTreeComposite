@@ -1,8 +1,8 @@
 <?php
-namespace MessageComposite\xml;
-use MessageComposite\DataTreeInterface;
-use MessageComposite\Formatter\xml\XMLFormattableInterface;
-use MessageComposite\xml\MessageInterface;
+namespace DataTree\xml;
+use DataTree\DataTreeInterface;
+use DataTree\Formatter\xml\XMLFormattableInterface;
+use DataTree\xml\MessageInterface;
 
 abstract class MessageDecoratorBase implements MessageInterface, XMLFormattableInterface
 {

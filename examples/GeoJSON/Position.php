@@ -1,10 +1,10 @@
 <?php
-namespace MessageComposite\examples\GeoJSON;
+namespace DataTree\examples\GeoJSON;
 
 /**
  * Class Position
- * @package MessageComposite\examples\GeoJSON
- * @see MessageComposite\tests\examples\PositionTest
+ * @package DataTree\examples\GeoJSON
+ * @see DataTree\tests\examples\PositionTest
  */
 class Position extends GeoJSONObject
 {

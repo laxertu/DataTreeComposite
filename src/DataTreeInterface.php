@@ -1,11 +1,11 @@
 <?php
-namespace MessageComposite;
+namespace DataTree;
 
 /**
  * Contract for data trees. Provides only basic funcionalities: setting name, value and place into other tree.
  *
  * Interface DataTreeInterface
- * @package MessageComposite
+ * @package DataTree
  */
 interface DataTreeInterface
 {

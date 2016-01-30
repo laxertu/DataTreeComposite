@@ -1,14 +1,14 @@
 <?php
-namespace MessageComposite\xml;
-use MessageComposite\DataTree;
-use MessageComposite\DataTreeInterface;
-use MessageComposite\Formatter\xml\XMLFormattableInterface;
-use MessageComposite\OpenDataTree;
-use MessageComposite\OpenDataTreeInterface;
+namespace DataTree\xml;
+use DataTree\DataTree;
+use DataTree\DataTreeInterface;
+use DataTree\Formatter\xml\XMLFormattableInterface;
+use DataTree\OpenDataTree;
+use DataTree\OpenDataTreeInterface;
 
 /**
- * @package MessageComposite\xml
- * @see MessageComposite\tests\GenericMessageTest
+ * @package DataTree\xml
+ * @see DataTree\tests\GenericMessageTest
  */
 class GenericMessage extends Message
 {

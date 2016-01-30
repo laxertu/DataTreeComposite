@@ -1,8 +1,8 @@
 <?php
-namespace MessageComposite;
+namespace DataTree;
 
-use MessageComposite\Formatter\FormattableInterface;
-use MessageComposite\Formatter\xml\XMLFormattableInterface;
+use DataTree\Formatter\FormattableInterface;
+use DataTree\Formatter\xml\XMLFormattableInterface;
 
 interface OpenDataTreeInterface extends DataTreeInterface
 {

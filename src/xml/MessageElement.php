@@ -1,11 +1,11 @@
 <?php
-namespace MessageComposite\xml;
+namespace DataTree\xml;
 
 /**
  * Leaf classes.
  *
  * Class MessageElement
- * @package MessageComposite
+ * @package DataTree
  */
 class MessageElement extends Message
 {
