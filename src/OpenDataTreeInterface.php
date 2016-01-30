@@ -8,6 +8,6 @@ interface OpenDataTreeInterface extends DataTreeInterface
 {
     public function setChild(DataTreeInterface $element, $pos);
 
-    public function removeElement($pos);
+    public function removeChild($pos);
 
 }

@@ -137,7 +137,7 @@ abstract class DataTree implements FormattableInterface
      *
      * @param MessageInterface $element
      */
-    protected function removeElement($pos)
+    protected function removeChild($pos)
     {
         unset($this->elements[$pos]);
     }

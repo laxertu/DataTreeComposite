@@ -17,7 +17,7 @@ class GenericMessageTest extends \PHPUnit_Framework_TestCase
 
         $child = new MessageElement('b', 'c');
         $sut->setChild($child, 0);
-        $sut->removeElement(0);
+        $sut->removeChild(0);
 
         $contentAfter = $formatter->buildContent($sut);
 

@@ -21,8 +21,8 @@ class GenericDataTree extends DataTree
         return parent::setChild($element, $pos);
     }
 
-    final public function removeElement($pos)
+    final public function removeChild($pos)
     {
-        return parent::removeElement($pos);
+        return parent::removeChild($pos);
     }
 }

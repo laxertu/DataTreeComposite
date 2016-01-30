@@ -30,7 +30,7 @@ class DataTreeElement extends DataTree
         throw new \Exception('MessageElement objects does not have children');
     }
 
-    final protected function removeElement($pos)
+    final protected function removeChild($pos)
     {
         throw new \Exception('MessageElement objects does not have children');
     }

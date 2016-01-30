@@ -22,9 +22,9 @@ class GenericMessage extends Message
         return parent::setChild($element, $pos);
     }
 
-    public function removeElement($pos)
+    public function removeChild($pos)
     {
-        return parent::removeElement($pos);
+        return parent::removeChild($pos);
     }
 
 }

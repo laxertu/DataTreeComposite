@@ -60,9 +60,9 @@ abstract class MessageDecoratorBase implements MessageInterface, XMLFormattableI
         return $this->message->setChild($element, $pos);
     }
 
-    public function removeElement($pos)
+    public function removeChild($pos)
     {
-        return $this->message->removeElement($pos);
+        return $this->message->removeChild($pos);
     }
 
     /**
