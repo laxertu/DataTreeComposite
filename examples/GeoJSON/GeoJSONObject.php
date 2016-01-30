@@ -12,24 +12,14 @@ use DataTree\OpenDataTreeInterface;
  * @link http://geojson.org/geojson-spec.html
  *
  */
-abstract class GeoJSONObject
+abstract class GeoJSONObject extends DataTree
 {
     /** Type of Object, Point, LineString, etc */
     protected $type;
 
-    /** @var  OpenDataTree */
-    protected $dataTree;
-
-
     public final function __construct()
     {
-        $this->dataTree = new OpenDataTree('GeoJsonObject');
-        $this->dataTree->setChild(new DataTreeElement('type', $this->type), 0);
+        $this->setName('GeoJsonObject');
+        $this->setChild(new DataTreeElement('type', $this->type), 0);
     }
-
-    public final function getDataTree()
-    {
-        return $this->dataTree;
-    }
-
 }

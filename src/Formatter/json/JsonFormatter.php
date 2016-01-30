@@ -75,7 +75,7 @@ class JsonFormatter extends AbstractFormatter implements FormatterInterface
     {
 
         foreach ($messageValue as $index => $value) {
-            $messageValue[$index] = $this->formatStringValue($value);
+            $messageValue[$index] = $this->buildLeafMessageBody($value);
         }
 
         $body = '['.implode(',', $messageValue).']';
