@@ -1,9 +1,10 @@
 <?php
 namespace MessageComposite\xml;
-
 use MessageComposite\DataTreeInterface;
+use MessageComposite\Formatter\xml\XMLFormattableInterface;
+use MessageComposite\xml\MessageInterface;
 
-abstract class MessageDecoratorBase implements MessageInterface
+abstract class MessageDecoratorBase implements MessageInterface, XMLFormattableInterface
 {
 
     /** @var  MessageInterface */
@@ -53,4 +54,26 @@ abstract class MessageDecoratorBase implements MessageInterface
     {
         return $this->message->getParent();
     }
+
+    public function setElement(DataTreeInterface $element, $pos)
+    {
+        return $this->message->setElement($element, $pos);
+    }
+
+    public function removeElement($pos)
+    {
+        return $this->message->removeElement($pos);
+    }
+
+    /**
+     * Sets a Message raw value
+     *
+     * @param $value String | array
+     */
+    public function setValue($value = '')
+    {
+        return $this->setValue($value);
+    }
+
+
 }

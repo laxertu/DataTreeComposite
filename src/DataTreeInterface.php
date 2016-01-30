@@ -4,29 +4,19 @@ namespace MessageComposite;
 
 interface DataTreeInterface
 {
-
-    public function getName();
     public function setName($name);
 
     /**
-     * Message raw content as array or raw text, null for composites.
-     *
-     * @var null | array | String
-     */
-    public function getValue();
-
-    /**
-     * @return MessageInterface[]
-     */
-    public function getChildren();
-
-    /**
-     * @param MessageInterface $parent
+     * @param DataTreeInterface $parent
      */
     public function setParent(DataTreeInterface $parent);
 
+
     /**
-     * @return MessageInterface
+     * Sets a Message raw value
+     *
+     * @param $value String | array
      */
-    public function getParent();
+    public function setValue($value = '');
+
 }

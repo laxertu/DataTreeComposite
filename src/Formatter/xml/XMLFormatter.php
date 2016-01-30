@@ -13,7 +13,7 @@ use MessageComposite\Formatter\AbstractFormatter;
 class XMLFormatter extends AbstractFormatter implements XMLFormatterInterface
 {
 
-    public function buildContent(MessageInterface $message)
+    public function buildContent(XMLFormattableInterface $message)
     {
         if (!$this->haveToBuildHead($message)) {
             $content = $this->buildBody($message);
@@ -29,12 +29,12 @@ class XMLFormatter extends AbstractFormatter implements XMLFormatterInterface
      * @param MessageInterface $message
      * @return bool
      */
-    private function haveToBuildHead(MessageInterface $message)
+    private function haveToBuildHead(XMLFormattableInterface $message)
     {
         return !is_array($message->getValue());
     }
 
-    private function buildHead(MessageInterface $message)
+    private function buildHead(XMLFormattableInterface $message)
     {
         $arr = [];
         $content = $message->getName();
@@ -55,7 +55,7 @@ class XMLFormatter extends AbstractFormatter implements XMLFormatterInterface
     }
 
 
-    private function buildBody(MessageInterface $message)
+    private function buildBody(XMLFormattableInterface $message)
     {
         if ($this->isLeaf($message)) {
             $content = $this->buildLeafContent($message);
@@ -66,7 +66,7 @@ class XMLFormatter extends AbstractFormatter implements XMLFormatterInterface
         return $content;
     }
 
-    private function buildLeafContent(MessageInterface $message)
+    private function buildLeafContent(XMLFormattableInterface $message)
     {
 
         $content = '';
@@ -84,7 +84,7 @@ class XMLFormatter extends AbstractFormatter implements XMLFormatterInterface
         return $content;
     }
 
-    private function buildCompositeContent(MessageInterface $message)
+    private function buildCompositeContent(XMLFormattableInterface $message)
     {
         $content = '';
         foreach ($message->getChildren() as $child) {
@@ -94,7 +94,7 @@ class XMLFormatter extends AbstractFormatter implements XMLFormatterInterface
     }
 
 
-    private function buildFoot(MessageInterface $message)
+    private function buildFoot(XMLFormattableInterface $message)
     {
         $tag = ($this->hasInnerContent($message)) ? '</'.$message->getName().'>' : '';
         return $tag;

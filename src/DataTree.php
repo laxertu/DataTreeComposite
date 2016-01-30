@@ -1,6 +1,7 @@
 <?php
 
 namespace MessageComposite;
+use MessageComposite\Formatter\FormattableInterface;
 
 /**
  * Composite implementation
@@ -9,7 +10,7 @@ namespace MessageComposite;
  * @package MessageComposite
  */
 
-abstract class DataTree
+abstract class DataTree implements FormattableInterface
 {
 
 
@@ -66,12 +67,12 @@ abstract class DataTree
      * Sets a Message raw value
      *
      * @param $value String | array
-     * @throws \Exception
+     * @throws \InvalidArgumentException
      */
-    final protected function setValue($value = '')
+    final public function setValue($value = '')
     {
         if ($this->getChildren()) {
-            throw new \Exception('Cannot set value of a composite Message');
+            throw new \InvalidArgumentException('Cannot set value of a composite Message');
         }
 
         #default to empty string as a null value means a Leaf Message

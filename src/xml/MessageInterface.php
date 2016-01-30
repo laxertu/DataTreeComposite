@@ -2,6 +2,7 @@
 namespace MessageComposite\xml;
 
 use MessageComposite\DataTreeInterface;
+use MessageComposite\Formatter\xml\XMLFormattableInterface;
 
 /**
  * Contract that a Message have to respect
@@ -13,19 +14,11 @@ interface MessageInterface extends DataTreeInterface
 {
 
     /**
-     * Returns an associative array in a key => value form with attributes
-     *
-     * @return array
-     */
-    public function getAttributes();
-
-    /**
      * Sets an associative array in a key => value form with attributes
      *
      * @return array
      */
     public function setAttributes(array $attributes);
-
 
 
 }

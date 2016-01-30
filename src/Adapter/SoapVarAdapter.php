@@ -2,6 +2,7 @@
 namespace MessageComposite\Adapter;
 
 
+use MessageComposite\Formatter\xml\XMLFormattableInterface;
 use MessageComposite\xml\MessageInterface;
 
 /**
@@ -14,7 +15,7 @@ class SoapVarAdapter
 
     private $nodeName;
 
-    final public function toSoapVar(MessageInterface $message)
+    final public function toSoapVar(XMLFormattableInterface $message)
     {
         $stdObjectAdapter = new StdObjectAdapter();
         $soapVar = new \SoapVar($stdObjectAdapter->toStdObject($message), SOAP_ENC_OBJECT);

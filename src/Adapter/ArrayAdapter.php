@@ -2,6 +2,7 @@
 namespace MessageComposite\Adapter;
 
 
+use MessageComposite\Formatter\xml\XMLFormattableInterface;
 use MessageComposite\xml\MessageInterface;
 
 /**
@@ -11,7 +12,7 @@ use MessageComposite\xml\MessageInterface;
  */
 class ArrayAdapter
 {
-    final public function toArray(MessageInterface $message)
+    final public function toArray(XMLFormattableInterface $message)
     {
 
         $object = [];

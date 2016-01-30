@@ -2,6 +2,7 @@
 namespace MessageComposite\Adapter;
 
 
+use MessageComposite\Formatter\xml\XMLFormattableInterface;
 use MessageComposite\xml\MessageInterface;
 
 /**
@@ -11,7 +12,7 @@ use MessageComposite\xml\MessageInterface;
  */
 class StdObjectAdapter
 {
-    final public function toStdObject(MessageInterface $message)
+    final public function toStdObject(XMLFormattableInterface $message)
     {
 
         $object = new \StdClass();
