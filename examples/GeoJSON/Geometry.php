@@ -17,7 +17,7 @@ abstract class Geometry extends GeoJSONObject
             throw $e;
         }
         $this->coordinates = $coordinates;
-        $this->setChild(new DataTreeElement('coordinates', $coordinates), 1);
+        $this->dataTree->setChild(new DataTreeElement('coordinates', $coordinates), 1);
     }
 
     final public function getCoordinates()

@@ -2,6 +2,8 @@
 namespace DataTree\examples\GeoJSON;
 
 
+use DataTree\Formatter\FormattableInterface;
+
 class MultiPoint extends Geometry
 {
     private $pointCounter = 0;
@@ -17,6 +19,8 @@ class MultiPoint extends Geometry
 
     protected function validateCoordinates(array $coordinates)
     {
+
+
 
     }
 
