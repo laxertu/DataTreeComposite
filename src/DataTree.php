@@ -99,10 +99,10 @@ abstract class DataTree implements FormattableInterface
     /**
      * Sets $element as $pos child, it overwrites existent if any
      *
-     * This method is declared as protected as often we want to give control about how a message is structured to
-     * message itself. If you want more flexibility you have to extend GenericMessage.
+     * This method is declared as protected as often we want to give control about how a tree is structured to
+     * tree itself. If you want more flexibility you have to extend OpenDataTree.
      *
-     * @param Message $element
+     * @param DataTreeInterface $element
      * @throws \InvalidArgumentException
      * @throws \Exception
      */
@@ -114,7 +114,7 @@ abstract class DataTree implements FormattableInterface
 
         } elseif ($this->getValue()) {
 
-            throw new \Exception('Cannot set a child if Message has a value');
+            throw new \Exception('Cannot set a child if child has a value');
         } else {
             $element->setParent($this);
             $this->elements[$pos] = $element;
@@ -132,10 +132,10 @@ abstract class DataTree implements FormattableInterface
     }
 
     /**
-     * This method is declared as protected as often we want to give control about how a message is structured to
-     * message itself. If you want more flexibility you have to extend GenericMessage.
+     * This method is declared as protected as often we want to give control about how a tree is structured to
+     * tree itself. If you want more flexibility you have to extend OpenDataTree.
      *
-     * @param MessageInterface $element
+     * @param Integer $pos
      */
     protected function removeChild($pos)
     {
@@ -151,7 +151,7 @@ abstract class DataTree implements FormattableInterface
     }
 
     /**
-     * @return MessageInterface[]
+     * @return DataTreeInterface[]
      */
     final public function getChildren()
     {
