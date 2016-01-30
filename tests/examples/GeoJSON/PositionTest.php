@@ -10,24 +10,28 @@ class PositionTest extends \PHPUnit_Framework_TestCase
     {
         $this->setExpectedException('InvalidArgumentException');
         $sut = new Position();
+        $sut->setCoordinates([]);
     }
 
     public function testOneArgument()
     {
         $this->setExpectedException('InvalidArgumentException');
-        $sut = new Position([1]);
+        $sut = new Position();
+        $sut->setCoordinates([1]);
     }
 
     public function testNoNumericArgs()
     {
         $this->setExpectedException('InvalidArgumentException');
-        $sut = new Position([1, 'a']);
+        $sut = new Position();
+        $sut->setCoordinates([1, 'a']);
 
     }
 
     public function testOk()
     {
-        $sut = new Position([1, 2]);
+        $sut = new Position();
+        $sut->setCoordinates([1, 2]);
 
     }
 }

@@ -6,12 +6,9 @@ namespace DataTree\examples\GeoJSON;
  * @package DataTree\examples\GeoJSON
  * @see DataTree\tests\examples\PositionTest
  */
-class Position extends GeoJSONObject
+class Position extends Geometry
 {
-
-    private $coordinates = [];
-
-    public function __construct(array $coordinates = [])
+    protected function validateCoordinates(array $coordinates)
     {
         if (!$coordinates || !is_array($coordinates) || count($coordinates) < 2) {
             throw new \InvalidArgumentException('coordinates must be an array with 2 or more numeric elements');
@@ -22,12 +19,8 @@ class Position extends GeoJSONObject
                 throw new \InvalidArgumentException('coordinates must be an array with 2 or more numeric elements');
             }
         }
-
-        $this->coordinates = $coordinates;
     }
 
-    public function getCoordinates()
-    {
-        return $this->coordinates;
-    }
+
+
 }
