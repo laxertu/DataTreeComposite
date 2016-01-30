@@ -10,7 +10,7 @@ use DataTree\Formatter\FormattableInterface;
  * @package DataTree
  */
 
-abstract class DataTree implements FormattableInterface
+abstract class DataTree implements DataTreeInterface, FormattableInterface
 {
 
 
