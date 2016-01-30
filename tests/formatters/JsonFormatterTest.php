@@ -31,8 +31,8 @@ class JsonFormatterTest extends \PHPUnit_Framework_TestCase
         $child1 = new MessageElement('width', '2');
         $child2 = new MessageElement('height', '3');
 
-        $msg->setElement($child1, 0);
-        $msg->setElement($child2, 1);
+        $msg->setChild($child1, 0);
+        $msg->setChild($child2, 1);
 
         $sut = new JsonFormatter();
         $obtained = $sut->buildContent($msg);

@@ -16,9 +16,9 @@ class GenericDataTree extends DataTree
         $this->setName($name);
     }
 
-    final public function setElement(MessageInterface $element, $pos)
+    final public function setChild(MessageInterface $element, $pos)
     {
-        return parent::setElement($element, $pos);
+        return parent::setChild($element, $pos);
     }
 
     final public function removeElement($pos)

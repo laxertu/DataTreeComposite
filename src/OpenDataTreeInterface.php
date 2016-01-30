@@ -6,7 +6,7 @@ use MessageComposite\Formatter\xml\XMLFormattableInterface;
 
 interface OpenDataTreeInterface extends DataTreeInterface
 {
-    public function setElement(DataTreeInterface $element, $pos);
+    public function setChild(DataTreeInterface $element, $pos);
 
     public function removeElement($pos);
 

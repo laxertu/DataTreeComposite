@@ -16,7 +16,7 @@ class AuthBasedProtocolTest extends \PHPUnit_Framework_TestCase
         $gm = new GenericMessage('Head');
 
         $otherNode = new GenericMessage('other');
-        $gm->setElement($otherNode, 0);
+        $gm->setChild($otherNode, 0);
 
 
         $sut = new ProtocolMessage(new Credentials(), $gm);

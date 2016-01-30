@@ -1,7 +1,12 @@
 <?php
 namespace MessageComposite\Formatter;
 
-
+/**
+ * Contract for formattable objects: basically, the basic getters.
+ *
+ * Interface FormattableInterface
+ * @package MessageComposite\Formatter
+ */
 interface FormattableInterface
 {
 

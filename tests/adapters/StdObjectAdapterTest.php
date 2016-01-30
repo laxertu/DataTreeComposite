@@ -39,7 +39,7 @@ class StdObjectAdapterTest extends \PHPUnit_Framework_TestCase
     {
         $generic = new GenericMessage('a');
         $el = new MessageElement('b', 'c');
-        $generic->setElement($el, 0);
+        $generic->setChild($el, 0);
 
         $obtained = $this->sut->toStdObject($generic);
 
@@ -52,8 +52,8 @@ class StdObjectAdapterTest extends \PHPUnit_Framework_TestCase
     {
         $generic = new GenericMessage('a');
 
-        $generic->setElement(new MessageElement('b', 'c'), 0);
-        $generic->setElement(new MessageElement('d', 'e'), 1);
+        $generic->setChild(new MessageElement('b', 'c'), 0);
+        $generic->setChild(new MessageElement('d', 'e'), 1);
 
         $obtained = $this->sut->toStdObject($generic);
         $this->assertInstanceOf('StdClass', $obtained);

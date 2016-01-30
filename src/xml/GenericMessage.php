@@ -7,23 +7,19 @@ use MessageComposite\OpenDataTree;
 use MessageComposite\OpenDataTreeInterface;
 
 /**
- * Class GenericMessage
- *
- * just overrides some method for type enforcing purposes
- *
  * @package MessageComposite\xml
  * @see MessageComposite\tests\GenericMessageTest
  */
-class GenericMessage extends Message implements OpenDataTreeInterface
+class GenericMessage extends Message
 {
     public function __construct($name)
     {
         $this->setName($name);
     }
 
-    public function setElement(DataTreeInterface $element, $pos)
+    public function setChild(MessageInterface $element, $pos)
     {
-        return parent::setElement($element, $pos);
+        return parent::setChild($element, $pos);
     }
 
     public function removeElement($pos)

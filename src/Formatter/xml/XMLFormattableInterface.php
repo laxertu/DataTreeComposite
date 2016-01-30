@@ -2,6 +2,10 @@
 namespace MessageComposite\Formatter\xml;
 use MessageComposite\Formatter\FormattableInterface;
 
+/**
+ * Interface XMLFormattableInterface
+ * @package MessageComposite\Formatter\xml
+ */
 interface XMLFormattableInterface extends FormattableInterface
 {
     /**

@@ -14,9 +14,9 @@ class OpenDataTree extends DataTree implements OpenDataTreeInterface
         $this->setName($name);
     }
 
-    public function setElement(DataTreeInterface $element, $pos)
+    public function setChild(DataTreeInterface $element, $pos)
     {
-        return parent::setElement($element, $pos);
+        return parent::setChild($element, $pos);
     }
 
     public function removeElement($pos)

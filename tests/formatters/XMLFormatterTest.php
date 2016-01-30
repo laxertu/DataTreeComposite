@@ -41,13 +41,13 @@ class XMLFormatterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('<val>1</val><val>2</val>', $xml);
 
         $message = new GenericMessage('ListOfVals');
-        $message->setElement($list, 0);
+        $message->setChild($list, 0);
 
         $xml = $sut->buildContent($message);
         $this->assertEquals('<ListOfVals><val>1</val><val>2</val></ListOfVals>', $xml);
 
         $param = new MessageElement('param', 'param1');
-        $message->setElement($param, 1);
+        $message->setChild($param, 1);
         $xml = $sut->buildContent($message);
         $this->assertEquals('<ListOfVals><val>1</val><val>2</val><param>param1</param></ListOfVals>', $xml);
     }

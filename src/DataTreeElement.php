@@ -25,7 +25,7 @@ class DataTreeElement extends DataTree
         }
     }
 
-    final protected function setElement(MessageInterface $element, $pos)
+    final protected function setChild(MessageInterface $element, $pos)
     {
         throw new \Exception('MessageElement objects does not have children');
     }

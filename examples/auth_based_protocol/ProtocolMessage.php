@@ -31,8 +31,8 @@ class ProtocolMessage extends MessageDecoratorBase
     {
 
         $authNode = new GenericMessage('Auth');
-        $authNode->setElement(new MessageElement('Usr', $this->credentials->getUsr()), 0);
-        $authNode->setElement(new MessageElement('Pwd', $this->credentials->getPwd()), 1);
+        $authNode->setChild(new MessageElement('Usr', $this->credentials->getUsr()), 0);
+        $authNode->setChild(new MessageElement('Pwd', $this->credentials->getPwd()), 1);
 
         $chidren = $this->message->getChildren();
         $authNode->setParent($this->message);

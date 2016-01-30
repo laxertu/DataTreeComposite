@@ -106,7 +106,7 @@ abstract class DataTree implements FormattableInterface
      * @throws \InvalidArgumentException
      * @throws \Exception
      */
-    protected function setElement(DataTreeInterface $element, $pos)
+    protected function setChild(DataTreeInterface $element, $pos)
     {
         if (!is_int($pos) || ($pos < 0)) {
 

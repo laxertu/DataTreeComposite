@@ -18,7 +18,7 @@ class GeoJSONPointTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(123, $obtained->ExamplePoint->coordinates[0]);
 
         $object = new GeoJSONObject('ExampleObject');
-        $object->setElement($sut, 1);
+        $object->setChild($sut, 1);
         $json = $formatter->buildContent($object);
         $obtained = json_decode($json);
 

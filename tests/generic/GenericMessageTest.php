@@ -16,7 +16,7 @@ class GenericMessageTest extends \PHPUnit_Framework_TestCase
         $contentBefore = $formatter->buildContent($sut);
 
         $child = new MessageElement('b', 'c');
-        $sut->setElement($child, 0);
+        $sut->setChild($child, 0);
         $sut->removeElement(0);
 
         $contentAfter = $formatter->buildContent($sut);
@@ -25,15 +25,15 @@ class GenericMessageTest extends \PHPUnit_Framework_TestCase
     }
 
 
-    public function testSetElement()
+    public function testsetChild()
     {
         $collector = new XMLCollector();
 
         $sut = new GenericMessage('a');
 
         $child = new MessageElement('b', 'c');
-        $sut->setElement($child, 0);
-        $sut->setElement($child, 1);
+        $sut->setChild($child, 0);
+        $sut->setChild($child, 1);
 
         $formatter = new XMLFormatter();
         $xml = $formatter->buildContent($sut);
@@ -50,7 +50,7 @@ class GenericMessageTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('/a', $sut->getPathWithSeparator('/'));
 
         $child = new MessageElement('b', 'c');
-        $sut->setElement($child, 0);
+        $sut->setChild($child, 0);
 
         $this->assertEquals('-a-b', $child->getPathWithSeparator('-'));
 

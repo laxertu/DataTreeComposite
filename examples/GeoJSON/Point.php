@@ -9,13 +9,13 @@ class Point extends GeoJSONObject
 
     public function __construct($name, $coordinates)
     {
-        $this->setElement(new MessageElement('type', $this->type), 0);
+        $this->setChild(new MessageElement('type', $this->type), 0);
         $this->setName($name);
         $this->setCoordinates($coordinates);
     }
 
     public function setCoordinates($coordinates)
     {
-        $this->setElement(new MessageElement('coordinates', $coordinates), 1);
+        $this->setChild(new MessageElement('coordinates', $coordinates), 1);
     }
 }

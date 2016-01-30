@@ -18,6 +18,12 @@ abstract class AbstractFormatter
         return (!is_null($messageValue) && $messageValue !== '') || $message->getChildren();
     }
 
+    /**
+     * Tells if a tree is a leaf
+     *
+     * @param DataTreeInterface $message
+     * @return bool
+     */
     protected function isLeaf(DataTreeInterface $message)
     {
         return !is_null($message->getValue());
