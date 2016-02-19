@@ -15,7 +15,7 @@ class GenericMessage extends Message
         $this->setName($name);
     }
 
-    public function setChild(MessageInterface $element, $pos)
+    public function setChild(XMLFormattableInterface $element, $pos)
     {
         return parent::setChild($element, $pos);
     }
