@@ -20,12 +20,12 @@ interface FormattableInterface
     public function getValue();
 
     /**
-     * @return DataTreeInterface[]
+     * @return FormattableInterface[]
      */
     public function getChildren();
 
     /**
-     * @return DataTreeInterface
+     * @return FormattableInterface
      */
     public function getParent();
 }
