@@ -1,10 +1,11 @@
 <?php
 namespace DataTree\examples\auth_based_protocol;
 
+use DataTree\Formatter\xml\XMLFormattableInterface;
 use DataTree\xml\GenericMessage;
 use DataTree\xml\MessageDecoratorBase;
 use DataTree\xml\MessageElement;
-use DataTree\xml\MessageInterface;
+
 
 /**
  * Example usage of Decorator for implementation of a generic authentication based protocol.
@@ -20,7 +21,7 @@ class ProtocolMessage extends MessageDecoratorBase
     /** @var  Credentials */
     private $credentials;
 
-    public function __construct(Credentials $credentials, MessageInterface $messageInterface)
+    public function __construct(Credentials $credentials, XMLFormattableInterface $messageInterface)
     {
         $this->credentials = $credentials;
         $this->message = $messageInterface;

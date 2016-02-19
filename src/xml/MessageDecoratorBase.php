@@ -1,16 +1,16 @@
 <?php
 namespace DataTree\xml;
-use DataTree\DataTreeInterface;
+
 use DataTree\Formatter\xml\XMLFormattableInterface;
 use DataTree\xml\MessageInterface;
 
-abstract class MessageDecoratorBase implements MessageInterface, XMLFormattableInterface
+abstract class MessageDecoratorBase implements XMLFormattableInterface
 {
 
-    /** @var  MessageInterface */
+    /** @var  XMLFormattableInterface */
     protected $message;
 
-    public function __construct(MessageInterface $message)
+    public function __construct(XMLFormattableInterface $message)
     {
         $this->message = $message;
     }
@@ -25,15 +25,6 @@ abstract class MessageDecoratorBase implements MessageInterface, XMLFormattableI
         return $this->message->getAttributes();
     }
 
-    public function setName($name)
-    {
-        return $this->message->setName($name);
-    }
-
-    public function setAttributes(array $attributes)
-    {
-        return $this->message->setAttributes($attributes);
-    }
 
     public function getValue()
     {
@@ -45,35 +36,10 @@ abstract class MessageDecoratorBase implements MessageInterface, XMLFormattableI
         return $this->message->getChildren();
     }
 
-    public function setParent(DataTreeInterface $message)
-    {
-        return $this->message->setParent($message);
-    }
 
     public function getParent()
     {
         return $this->message->getParent();
     }
-
-    public function setChild(DataTreeInterface $element, $pos)
-    {
-        return $this->message->setChild($element, $pos);
-    }
-
-    public function removeChild($pos)
-    {
-        return $this->message->removeChild($pos);
-    }
-
-    /**
-     * Sets a Message raw value
-     *
-     * @param $value String | array
-     */
-    public function setValue($value = '')
-    {
-        return $this->setValue($value);
-    }
-
 
 }

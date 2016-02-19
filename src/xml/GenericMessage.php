@@ -1,10 +1,8 @@
 <?php
 namespace DataTree\xml;
 use DataTree\DataTree;
-use DataTree\DataTreeInterface;
 use DataTree\Formatter\xml\XMLFormattableInterface;
 use DataTree\OpenDataTree;
-use DataTree\OpenDataTreeInterface;
 
 /**
  * @package DataTree\xml

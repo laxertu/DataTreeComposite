@@ -1,8 +1,6 @@
 <?php
 namespace DataTree\Formatter;
 
-use DataTree\DataTreeInterface;
-use DataTree\MessageInterface;
 
 abstract class AbstractFormatter
 {
@@ -12,7 +10,7 @@ abstract class AbstractFormatter
      * @param MessageInterface $message
      * @return bool
      */
-    protected function hasInnerContent(DataTreeInterface $message)
+    protected function hasInnerContent(FormattableInterface $message)
     {
         $messageValue = $message->getValue();
         return (!is_null($messageValue) && $messageValue !== '') || $message->getChildren();
@@ -24,7 +22,7 @@ abstract class AbstractFormatter
      * @param DataTreeInterface $message
      * @return bool
      */
-    protected function isLeaf(DataTreeInterface $message)
+    protected function isLeaf(FormattableInterface $message)
     {
         return !is_null($message->getValue());
     }

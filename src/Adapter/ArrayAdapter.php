@@ -3,7 +3,6 @@ namespace DataTree\Adapter;
 
 
 use DataTree\Formatter\xml\XMLFormattableInterface;
-use DataTree\xml\MessageInterface;
 
 /**
  * Class ArrayAdapter
