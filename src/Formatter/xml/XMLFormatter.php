@@ -1,8 +1,6 @@
 <?php
 namespace DataTree\Formatter\xml;
 
-use DataTree\DataTreeInterface;
-use DataTree\xml\MessageInterface;
 use DataTree\Formatter\AbstractFormatter;
 
 /**
@@ -10,7 +8,7 @@ use DataTree\Formatter\AbstractFormatter;
  * @package DataTree\Formatter
  * @see DataTree\tests\formatters\XMLFormatterTest
  */
-class XMLFormatter extends AbstractFormatter implements XMLFormatterInterface
+class XMLFormatter extends AbstractFormatter
 {
 
     public function buildContent(XMLFormattableInterface $message)

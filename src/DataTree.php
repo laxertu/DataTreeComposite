@@ -6,7 +6,7 @@ use DataTree\Formatter\FormattableInterface;
 /**
  * Composite implementation
  *
- * Class Message
+ * Class DataTree
  * @package DataTree
  */
 
@@ -14,14 +14,14 @@ abstract class DataTree implements DataTreeInterface, FormattableInterface
 {
 
 
-    /** @var  Message */
+    /** @var  DataTree */
     private $parent;
 
     /**
      * "Special" values are:
      *
      * NULL - means that class name will be used as node name
-     * ''   - means that message has no node name
+     * ''   - means that DataTree has no node name
      *
      * @var null
      */
@@ -29,13 +29,13 @@ abstract class DataTree implements DataTreeInterface, FormattableInterface
 
 
     /**
-     * Message raw content as array or raw text, null for composites.
+     * DataTree raw content as array or raw text, null for composites.
      *
      * @var null | array | String
      */
     private $value = null;
 
-    /** @var Message[] */
+    /** @var DataTree[] */
     private $elements = [];
 
 
@@ -54,7 +54,7 @@ abstract class DataTree implements DataTreeInterface, FormattableInterface
     }
 
     /**
-     * Sets message name. See attribute documentation
+     * Sets DataTree name. See attribute documentation
      * @param $name
      */
     final public function setName($name)
@@ -64,7 +64,7 @@ abstract class DataTree implements DataTreeInterface, FormattableInterface
 
 
     /**
-     * Sets a Message raw value
+     * Sets a DataTree raw value
      *
      * @param $value String | array
      * @throws \InvalidArgumentException
@@ -72,10 +72,10 @@ abstract class DataTree implements DataTreeInterface, FormattableInterface
     final public function setValue($value = '')
     {
         if ($this->getChildren()) {
-            throw new \InvalidArgumentException('Cannot set value of a composite Message');
+            throw new \InvalidArgumentException('Cannot set value of a composite DataTree');
         }
 
-        #default to empty string as a null value means a Leaf Message
+        #default to empty string as a null value means a leaf DataTree
         if (is_null($value)) {
             $value = '';
         }

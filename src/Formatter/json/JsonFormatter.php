@@ -3,14 +3,13 @@ namespace DataTree\Formatter\json;
 
 use DataTree\Formatter\AbstractFormatter;
 use DataTree\Formatter\FormattableInterface;
-use DataTree\Formatter\FormatterInterface;
 
 /**
  * Class JsonFormatter
  * @package DataTree\Formatter
  * @see DataTree\tests\formatters\JsonFormatterTest
  */
-class JsonFormatter extends AbstractFormatter implements FormatterInterface
+class JsonFormatter extends AbstractFormatter
 {
 
     public function buildContent(FormattableInterface $message)
