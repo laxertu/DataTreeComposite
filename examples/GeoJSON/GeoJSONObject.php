@@ -4,7 +4,6 @@ namespace DataTree\examples\GeoJSON;
 use DataTree\DataTree;
 use DataTree\DataTreeElement;
 use DataTree\OpenDataTree;
-use DataTree\OpenDataTreeInterface;
 
 /**
  * Class GeoJSONObject

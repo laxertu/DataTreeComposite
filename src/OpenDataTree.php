@@ -7,7 +7,7 @@ namespace DataTree;
  * Class DataTree
  * @package DataTree
  */
-class OpenDataTree extends DataTree implements OpenDataTreeInterface
+class OpenDataTree extends DataTree
 {
     public function __construct($name)
     {
