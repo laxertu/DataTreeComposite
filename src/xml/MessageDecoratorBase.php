@@ -2,7 +2,6 @@
 namespace DataTree\xml;
 
 use DataTree\Formatter\xml\XMLFormattableInterface;
-use DataTree\xml\MessageInterface;
 
 abstract class MessageDecoratorBase implements XMLFormattableInterface
 {
