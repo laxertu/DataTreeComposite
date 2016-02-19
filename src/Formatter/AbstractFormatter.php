@@ -7,7 +7,7 @@ abstract class AbstractFormatter
     /**
      * Tells if a message has some inner content: raw text body or children.
      *
-     * @param MessageInterface $message
+     * @param FormattableInterface $message
      * @return bool
      */
     protected function hasInnerContent(FormattableInterface $message)
@@ -19,7 +19,7 @@ abstract class AbstractFormatter
     /**
      * Tells if a tree is a leaf
      *
-     * @param DataTreeInterface $message
+     * @param FormattableInterface $message
      * @return bool
      */
     protected function isLeaf(FormattableInterface $message)
