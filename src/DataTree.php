@@ -10,7 +10,7 @@ use DataTree\Formatter\FormattableInterface;
  * @package DataTree
  */
 
-abstract class DataTree implements DataTreeInterface, FormattableInterface
+abstract class DataTree implements FormattableInterface
 {
 
 
@@ -102,11 +102,11 @@ abstract class DataTree implements DataTreeInterface, FormattableInterface
      * This method is declared as protected as often we want to give control about how a tree is structured to
      * tree itself. If you want more flexibility you have to extend OpenDataTree.
      *
-     * @param DataTreeInterface $element
+     * @param FormattableInterface $element
      * @throws \InvalidArgumentException
      * @throws \Exception
      */
-    protected function setChild(DataTreeInterface $element, $pos)
+    protected function setChild(FormattableInterface $element, $pos)
     {
         if (!is_int($pos) || ($pos < 0)) {
 
@@ -121,7 +121,7 @@ abstract class DataTree implements DataTreeInterface, FormattableInterface
         }
     }
 
-    final public function setParent(DataTreeInterface $parent)
+    final public function setParent(FormattableInterface $parent)
     {
         $this->parent = $parent;
     }
@@ -151,7 +151,7 @@ abstract class DataTree implements DataTreeInterface, FormattableInterface
     }
 
     /**
-     * @return DataTreeInterface[]
+     * @return FormattableInterface[]
      */
     final public function getChildren()
     {
