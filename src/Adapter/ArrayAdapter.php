@@ -1,7 +1,7 @@
 <?php
 namespace DataTree\Adapter;
 
-
+use DataTree\Formatter\AbstractFormatter;
 use DataTree\Formatter\xml\XMLFormattableInterface;
 
 /**
@@ -13,7 +13,7 @@ use DataTree\Formatter\xml\XMLFormattableInterface;
  * only one is present, it will be returned as associative. @see DataTree\tests\adapters\ArrayAdapterTest
  *
  */
-class ArrayAdapter
+class ArrayAdapter extends AbstractFormatter
 {
     final public function toArray(XMLFormattableInterface $xmlTree)
     {
@@ -21,15 +21,11 @@ class ArrayAdapter
         $result = [];
         $msgName = $xmlTree->getName();
 
-
-        if (is_null($xmlTree->getValue())) {
-
-            $result = $this->compositeToArray($xmlTree);
-
-        } else {
+        if ($this->isLeaf($xmlTree)) {
             $result = $this->leafToArray($xmlTree);
+        } else {
+            $result = $this->compositeToArray($xmlTree);
         }
-
 
         return $result;
     }
