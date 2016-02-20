@@ -61,9 +61,6 @@ class ArrayAdapterTest extends \PHPUnit_Framework_TestCase
 
     }
 
-    /**
-     * When setting multiple child leafs with name name, a numeric array have to be returned. Useful with SOAP.
-     */
     public function testListOfValues()
     {
 
