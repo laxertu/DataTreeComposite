@@ -21,7 +21,16 @@ class ArrayAdapter
             $object[$msgName] = [];
             foreach ($message->getChildren() as $child) {
                 $childName = $child->getName();
-                $object[$msgName][$childName] = $this->toArray($child);
+
+                if (!array_key_exists($childName, $object[$msgName])) {
+                    $object[$msgName][$childName] = $this->toArray($child);
+                } else {
+                    $childToMove = $object[$msgName][$childName];
+                    $object[$msgName][$childName] = [];
+                    $object[$msgName][$childName][]=$childToMove;
+                    $object[$msgName][$childName][]=$this->toArray($child);
+
+                }
             }
 
         } else {

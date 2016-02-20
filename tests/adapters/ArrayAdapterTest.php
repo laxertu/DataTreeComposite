@@ -57,6 +57,29 @@ class ArrayAdapterTest extends \PHPUnit_Framework_TestCase
         $obtained = $this->sut->toArray($generic);
 
         $this->assertEquals('c', $obtained['a']['b']);
+        $this->assertEquals('e', $obtained['a']['d']);
+
+    }
+
+    /**
+     * When setting multiple child leafs with name name, a numeric array have to be returned. Useful with SOAP.
+     */
+    public function testListOfValues()
+    {
+
+        $generic = new GenericMessage('a');
+
+        $generic->setChild(new MessageElement('b', 'c1'), 0);
+        $generic->setChild(new MessageElement('b', 'c2'), 1);
+
+        $obtained = $this->sut->toArray($generic);
+
+        $expected = [
+
+            'a' => ['b' => ['c1', 'c2']]
+        ];
+
+        $this->assertEquals(serialize($expected), serialize($obtained));
 
     }
 

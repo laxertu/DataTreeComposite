@@ -9,7 +9,7 @@ abstract class Geometry extends GeoJSONObject
 
     abstract protected function validateCoordinates(array $coordinates);
 
-    final public function setCoordinates($coordinates)
+    final public function setCoordinates(array $coordinates)
     {
         try {
             $this->validateCoordinates($coordinates);

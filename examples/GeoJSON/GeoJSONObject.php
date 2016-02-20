@@ -1,7 +1,6 @@
 <?php
 namespace DataTree\examples\GeoJSON;
 
-use DataTree\DataTree;
 use DataTree\DataTreeElement;
 use DataTree\OpenDataTree;
 
@@ -13,7 +12,7 @@ use DataTree\OpenDataTree;
  */
 abstract class GeoJSONObject
 {
-    /** Type of Object, Point, LineString, etc */
+    /** @var String Type of Object, 'Point', 'LineString', etc */
     protected $type;
 
     /** @var  OpenDataTree */
