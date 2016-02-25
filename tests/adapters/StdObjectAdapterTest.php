@@ -56,6 +56,9 @@ class StdObjectAdapterTest extends \PHPUnit_Framework_TestCase
         $generic->setChild(new MessageElement('d', 'e'), 1);
 
         $obtained = $this->sut->toStdObject($generic);
+
+        //print_r($obtained);
+
         $this->assertInstanceOf('StdClass', $obtained);
         $this->assertEquals('c', $obtained->a->b);
 

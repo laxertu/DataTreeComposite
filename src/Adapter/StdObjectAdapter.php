@@ -2,6 +2,7 @@
 namespace DataTree\Adapter;
 
 
+use DataTree\Formatter\AbstractFormatter;
 use DataTree\Formatter\xml\XMLFormattableInterface;
 
 /**
@@ -9,30 +10,56 @@ use DataTree\Formatter\xml\XMLFormattableInterface;
  * @package DataTree\Adapter
  * @see DataTree\tests\adapters\StdObjectAdapterTest
  */
-class StdObjectAdapter
+class StdObjectAdapter extends AbstractFormatter
 {
-    final public function toStdObject(XMLFormattableInterface $message)
+    final public function toStdObject(XMLFormattableInterface $xmlTree)
     {
 
-        $object = new \StdClass();
-        $msgName = $message->getName();
+        $result = new \StdClass();
+        $msgName = $xmlTree->getName();
 
-        if (is_null($message->getValue())) {
-            $object->$msgName = new \StdClass();
-            foreach ($message->getChildren() as $child) {
-                $childName = $child->getName();
-                $object->$msgName->$childName = $this->toStdObject($child);
-            }
-
+        if ($this->isLeaf($xmlTree)) {
+            $result = $this->leafToStdObject($xmlTree);
         } else {
-            if (!$message->getParent()) {
-                $object->$msgName = $message->getValue();
-            } else {
-                $object = $message->getValue();
-            }
-
+            $result = $this->compositeToStdObject($xmlTree);
         }
 
-        return $object;
+        return $result;
+    }
+
+
+    private function compositeToStdObject(XMLFormattableInterface $xmlTree)
+    {
+
+        $result = new \StdClass();
+        $msgName = $xmlTree->getName();
+
+        $result->$msgName = new \StdClass();
+        foreach ($xmlTree->getChildren() as $child) {
+            $childName = $child->getName();
+            if (property_exists($result->$msgName, $childName)) {
+                $nodeToMove = $result->$msgName->$childName;
+                $resultContent = [];
+                $resultContent[]=$nodeToMove;
+                $leafContent = $this->toStdObject($child);
+                $resultContent[]=$leafContent;
+
+                $result->$childName = $resultContent;
+
+            } else {
+                $result->$msgName = $this->toStdObject($child);
+            }
+        }
+
+        return $result;
+    }
+
+    private function leafToStdObject(XMLFormattableInterface $xmlTree)
+    {
+        $result = new \StdClass();
+        $msgName = $xmlTree->getName();
+        $result->$msgName = $xmlTree->getValue();
+
+        return $result;
     }
 }
