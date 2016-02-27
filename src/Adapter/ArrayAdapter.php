@@ -38,14 +38,14 @@ class ArrayAdapter extends AbstractFormatter
 
         $result[$msgName] = [];
         foreach ($xmlTree->getChildren() as $child) {
-            $chldName = $child->getName();
-            if (array_key_exists($chldName, $result[$msgName])) {
+            $childName = $child->getName();
+            if (array_key_exists($childName, $result[$msgName])) {
 
-                $nodeToMove = $result[$msgName][$chldName];
-                $result[$msgName][$chldName] = [];
-                $result[$msgName][$chldName][]=$nodeToMove;
+                $nodeToMove = $result[$msgName][$childName];
+                $result[$msgName][$childName] = [];
+                $result[$msgName][$childName][]=$nodeToMove;
                 $leafContent = $this->toArray($child);
-                $result[$msgName][$chldName][]=$leafContent[$chldName];
+                $result[$msgName][$childName][]=$leafContent[$childName];
 
             } else {
                 $result[$msgName] = array_merge($result[$msgName], $this->toArray($child));

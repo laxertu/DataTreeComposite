@@ -40,7 +40,7 @@ abstract class DataTree implements FormattableInterface
 
 
     /**
-     * Returns node name
+     * Returns DataTree name
      *
      * @return string
      */

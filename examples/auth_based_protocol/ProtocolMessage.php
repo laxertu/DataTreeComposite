@@ -3,7 +3,7 @@ namespace DataTree\examples\auth_based_protocol;
 
 use DataTree\Formatter\xml\XMLFormattableInterface;
 use DataTree\xml\GenericMessage;
-use DataTree\xml\MessageDecoratorBase;
+use DataTree\xml\XMLFormattableDecoratorBase;
 use DataTree\xml\MessageElement;
 
 
@@ -15,7 +15,7 @@ use DataTree\xml\MessageElement;
  * @package DataTree\examples\auth_based_protocol
  * @see DataTree\tests\examples\AuthBasedProtocolTest
  */
-class ProtocolMessage extends MessageDecoratorBase
+class ProtocolMessage extends XMLFormattableDecoratorBase
 {
 
     /** @var  Credentials */
@@ -24,7 +24,7 @@ class ProtocolMessage extends MessageDecoratorBase
     public function __construct(Credentials $credentials, XMLFormattableInterface $messageInterface)
     {
         $this->credentials = $credentials;
-        $this->message = $messageInterface;
+        $this->setXMLFormattable($messageInterface);
     }
 
 
@@ -35,10 +35,11 @@ class ProtocolMessage extends MessageDecoratorBase
         $authNode->setChild(new MessageElement('Usr', $this->credentials->getUsr()), 0);
         $authNode->setChild(new MessageElement('Pwd', $this->credentials->getPwd()), 1);
 
-        $chidren = $this->message->getChildren();
-        $authNode->setParent($this->message);
-        array_unshift($chidren, $authNode);
+        $xml = $this->getXMLFormattable();
+        $children = $xml->getChildren();
+        $authNode->setParent($xml);
+        array_unshift($children, $authNode);
 
-        return $chidren;
+        return $children;
     }
 }
