@@ -1,10 +1,11 @@
 <?php
 namespace DataTree;
 
+use DataTree\Formatter\FormattableInterface;
 /**
  * Leaf classes.
  *
- * Class MessageElement
+ * Class DataTreeElement
  * @package DataTree
  */
 class DataTreeElement extends DataTree
@@ -25,7 +26,7 @@ class DataTreeElement extends DataTree
         }
     }
 
-    final protected function setChild(MessageInterface $element, $pos)
+    final protected function setChild(FormattableInterface $element, $pos)
     {
         throw new \Exception('MessageElement objects does not have children');
     }
