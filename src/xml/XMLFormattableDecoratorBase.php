@@ -3,6 +3,11 @@ namespace DataTree\xml;
 
 use DataTree\Formatter\xml\XMLFormattableInterface;
 
+/**
+ * Class XMLFormattableDecoratorBase
+ * @package DataTree\xml
+ * @see DataTree\examples\auth_based_protocol\ProtocolMessage
+ */
 abstract class XMLFormattableDecoratorBase implements XMLFormattableInterface
 {
 
