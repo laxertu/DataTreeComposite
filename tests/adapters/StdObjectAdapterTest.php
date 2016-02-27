@@ -62,5 +62,17 @@ class StdObjectAdapterTest extends \PHPUnit_Framework_TestCase
 
     }
 
+    public function testListOfValues()
+    {
+
+        $generic = new GenericMessage('a');
+
+        $generic->setChild(new MessageElement('b', 'c1'), 0);
+        $generic->setChild(new MessageElement('b', 'c2'), 1);
+
+        $obtained = $this->sut->toStdObject($generic);
+
+        $this->assertEquals(serialize(['c1', 'c2']), serialize($obtained->a->b));
+    }
 
 }

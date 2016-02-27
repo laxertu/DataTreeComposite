@@ -38,11 +38,12 @@ class StdObjectAdapter extends AbstractFormatter
         foreach ($xmlTree->getChildren() as $child) {
             $childName = $child->getName();
             if (property_exists($result->$msgName, $childName)) {
+
                 $nodeToMove = $result->$msgName->$childName;
                 $resultContent = [];
                 $resultContent[]=$nodeToMove;
                 $leafContent = $this->toStdObject($child);
-                $resultContent[]=$leafContent;
+                $resultContent[]=$leafContent->$childName;
 
                 $result->$msgName->$childName = $resultContent;
 
