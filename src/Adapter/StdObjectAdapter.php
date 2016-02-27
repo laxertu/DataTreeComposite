@@ -44,14 +44,23 @@ class StdObjectAdapter extends AbstractFormatter
                 $leafContent = $this->toStdObject($child);
                 $resultContent[]=$leafContent;
 
-                $result->$childName = $resultContent;
+                $result->$msgName->$childName = $resultContent;
 
             } else {
-                $result->$msgName = $this->toStdObject($child);
+                $result->$msgName = $this->mergeObjects($result->$msgName, $this->toStdObject($child));
             }
         }
 
         return $result;
+    }
+
+    private function mergeObjects(\StdClass $o1, \StdClass $o2)
+    {
+        foreach (get_object_vars($o2) as $name => $value) {
+            $o1->$name = $value;
+        }
+
+        return $o1;
     }
 
     private function leafToStdObject(XMLFormattableInterface $xmlTree)
