@@ -28,11 +28,11 @@ class DataTreeElement extends DataTree
 
     final protected function setChild(FormattableInterface $element, $pos)
     {
-        throw new \Exception('MessageElement objects does not have children');
+        throw new \Exception('DataTreeElement objects does not have children');
     }
 
     final protected function removeChild($pos)
     {
-        throw new \Exception('MessageElement objects does not have children');
+        throw new \Exception('DataTreeElement objects does not have children');
     }
 }

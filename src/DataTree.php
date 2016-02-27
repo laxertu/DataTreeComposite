@@ -114,7 +114,7 @@ abstract class DataTree implements FormattableInterface
 
         } elseif ($this->getValue()) {
 
-            throw new \Exception('Cannot set a child if child has a value');
+            throw new \Exception('Cannot set a child if tree is a leaf one');
         } else {
             $element->setParent($this);
             $this->elements[$pos] = $element;
