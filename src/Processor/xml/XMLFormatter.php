@@ -12,7 +12,7 @@ use DataTree\Processor\AbstractProcessor;
 class XMLFormatter extends AbstractProcessor
 {
 
-    public function buildContent(XMLFormattableInterface $message)
+    public function buildContent(XMLProcessableInterface $message)
     {
         if (!$this->haveToBuildHead($message)) {
             $content = $this->buildBody($message);
@@ -28,12 +28,12 @@ class XMLFormatter extends AbstractProcessor
      * @param MessageInterface $message
      * @return bool
      */
-    private function haveToBuildHead(XMLFormattableInterface $message)
+    private function haveToBuildHead(XMLProcessableInterface $message)
     {
         return !is_array($message->getValue());
     }
 
-    private function buildHead(XMLFormattableInterface $message)
+    private function buildHead(XMLProcessableInterface $message)
     {
         $arr = [];
         $content = $message->getName();
@@ -54,7 +54,7 @@ class XMLFormatter extends AbstractProcessor
     }
 
 
-    private function buildBody(XMLFormattableInterface $message)
+    private function buildBody(XMLProcessableInterface $message)
     {
         if ($this->isLeaf($message)) {
             $content = $this->buildLeafContent($message);
@@ -65,7 +65,7 @@ class XMLFormatter extends AbstractProcessor
         return $content;
     }
 
-    private function buildLeafContent(XMLFormattableInterface $message)
+    private function buildLeafContent(XMLProcessableInterface $message)
     {
 
         $content = '';
@@ -83,7 +83,7 @@ class XMLFormatter extends AbstractProcessor
         return $content;
     }
 
-    private function buildCompositeContent(XMLFormattableInterface $message)
+    private function buildCompositeContent(XMLProcessableInterface $message)
     {
         $content = '';
         foreach ($message->getChildren() as $child) {
@@ -93,7 +93,7 @@ class XMLFormatter extends AbstractProcessor
     }
 
 
-    private function buildFoot(XMLFormattableInterface $message)
+    private function buildFoot(XMLProcessableInterface $message)
     {
         $tag = ($this->hasInnerContent($message)) ? '</'.$message->getName().'>' : '';
         return $tag;

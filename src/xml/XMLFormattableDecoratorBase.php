@@ -1,20 +1,20 @@
 <?php
 namespace DataTree\xml;
 
-use DataTree\Processor\xml\XMLFormattableInterface;
+use DataTree\Processor\xml\XMLProcessableInterface;
 
 /**
  * Class XMLFormattableDecoratorBase
  * @package DataTree\xml
  * @see DataTree\examples\auth_based_protocol\ProtocolMessage
  */
-abstract class XMLFormattableDecoratorBase implements XMLFormattableInterface
+abstract class XMLFormattableDecoratorBase implements XMLProcessableInterface
 {
 
     /** @var  XMLFormattableInterface */
     private $xmlFormattable;
 
-    public function __construct(XMLFormattableInterface $xmlFormattable)
+    public function __construct(XMLProcessableInterface $xmlFormattable)
     {
         $this->xmlFormattable = $xmlFormattable;
     }
@@ -24,7 +24,7 @@ abstract class XMLFormattableDecoratorBase implements XMLFormattableInterface
         return $this->xmlFormattable;
     }
 
-    protected function setXMLFormattable(XMLFormattableInterface $formattableInterface)
+    protected function setXMLFormattable(XMLProcessableInterface $formattableInterface)
     {
         $this->xmlFormattable = $formattableInterface;
     }

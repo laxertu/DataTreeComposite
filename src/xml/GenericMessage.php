@@ -1,7 +1,7 @@
 <?php
 namespace DataTree\xml;
 use DataTree\DataTree;
-use DataTree\Processor\xml\XMLFormattableInterface;
+use DataTree\Processor\xml\XMLProcessableInterface;
 use DataTree\OpenDataTree;
 
 /**
@@ -15,7 +15,7 @@ class GenericMessage extends Message
         $this->setName($name);
     }
 
-    public function setChild(XMLFormattableInterface $element, $pos)
+    public function setChild(XMLProcessableInterface $element, $pos)
     {
         return parent::setChild($element, $pos);
     }

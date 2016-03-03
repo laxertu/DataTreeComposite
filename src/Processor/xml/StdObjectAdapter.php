@@ -3,7 +3,7 @@ namespace DataTree\Processor\xml;
 
 
 use DataTree\Processor\AbstractProcessor;
-use DataTree\Processor\xml\XMLFormattableInterface;
+use DataTree\Processor\xml\XMLProcessableInterface;
 
 /**
  * Class StdObjectAdapter
@@ -12,7 +12,7 @@ use DataTree\Processor\xml\XMLFormattableInterface;
  */
 class StdObjectAdapter extends AbstractProcessor
 {
-    final public function toStdObject(XMLFormattableInterface $xmlTree)
+    final public function toStdObject(XMLProcessableInterface$xmlTree)
     {
 
         $result = new \StdClass();
@@ -28,7 +28,7 @@ class StdObjectAdapter extends AbstractProcessor
     }
 
 
-    private function compositeToStdObject(XMLFormattableInterface $xmlTree)
+    private function compositeToStdObject(XMLProcessableInterface $xmlTree)
     {
 
         $result = new \StdClass();
@@ -64,7 +64,7 @@ class StdObjectAdapter extends AbstractProcessor
         return $o1;
     }
 
-    private function leafToStdObject(XMLFormattableInterface $xmlTree)
+    private function leafToStdObject(XMLProcessableInterface $xmlTree)
     {
         $result = new \StdClass();
         $msgName = $xmlTree->getName();

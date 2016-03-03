@@ -1,7 +1,7 @@
 <?php
 namespace DataTree\examples\auth_based_protocol;
 
-use DataTree\Processor\xml\XMLFormattableInterface;
+use DataTree\Processor\xml\XMLProcessableInterface;
 use DataTree\xml\GenericMessage;
 use DataTree\xml\XMLFormattableDecoratorBase;
 use DataTree\xml\MessageElement;
@@ -21,7 +21,7 @@ class ProtocolMessage extends XMLFormattableDecoratorBase
     /** @var  Credentials */
     private $credentials;
 
-    public function __construct(Credentials $credentials, XMLFormattableInterface $messageInterface)
+    public function __construct(Credentials $credentials, XMLProcessableInterface $messageInterface)
     {
         $this->credentials = $credentials;
         $this->setXMLFormattable($messageInterface);

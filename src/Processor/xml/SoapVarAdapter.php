@@ -2,7 +2,7 @@
 namespace DataTree\Processor\xml;
 
 
-use DataTree\Processor\xml\XMLFormattableInterface;
+use DataTree\Processor\xml\XMLProcessableInterface;
 
 /**
  * Class SoapVarAdapter
@@ -14,7 +14,7 @@ class SoapVarAdapter
 
     private $nodeName;
 
-    final public function toSoapVar(XMLFormattableInterface $message)
+    final public function toSoapVar(XMLProcessableInterface $message)
     {
         $stdObjectAdapter = new StdObjectAdapter();
         $soapVar = new \SoapVar($stdObjectAdapter->toStdObject($message), SOAP_ENC_OBJECT);

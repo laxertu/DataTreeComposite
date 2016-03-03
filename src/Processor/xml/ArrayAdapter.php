@@ -2,7 +2,7 @@
 namespace DataTree\Processor\xml;
 
 use DataTree\Processor\AbstractProcessor;
-use DataTree\Processor\xml\XMLFormattableInterface;
+use DataTree\Processor\xml\XMLProcessableInterface;
 
 /**
  * Class ArrayAdapter
@@ -15,7 +15,7 @@ use DataTree\Processor\xml\XMLFormattableInterface;
  */
 class ArrayAdapter extends AbstractProcessor
 {
-    final public function toArray(XMLFormattableInterface $xmlTree)
+    final public function toArray(XMLProcessableInterface $xmlTree)
     {
 
         $result = [];
@@ -30,7 +30,7 @@ class ArrayAdapter extends AbstractProcessor
         return $result;
     }
 
-    private function compositeToArray(XMLFormattableInterface $xmlTree)
+    private function compositeToArray(XMLProcessableInterface $xmlTree)
     {
 
         $result = [];
@@ -55,7 +55,7 @@ class ArrayAdapter extends AbstractProcessor
         return $result;
     }
 
-    private function leafToArray(XMLFormattableInterface $xmlTree)
+    private function leafToArray(XMLProcessableInterface $xmlTree)
     {
 
         return [$xmlTree->getName() => $xmlTree->getValue()];

@@ -1,6 +1,6 @@
 <?php
 namespace DataTree\xml;
-use DataTree\Processor\xml\XMLFormattableInterface;
+use DataTree\Processor\xml\XMLProcessableInterface;
 
 /**
  * Leaf classes.
@@ -26,7 +26,7 @@ class MessageElement extends Message
         }
     }
 
-    final protected function setChild(XMLFormattableInterface $element, $pos)
+    final protected function setChild(XMLProcessableInterface $element, $pos)
     {
         throw new \Exception('MessageElement objects does not have children');
     }

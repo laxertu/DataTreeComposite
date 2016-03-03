@@ -2,9 +2,9 @@
 namespace DataTree\xml;
 
 use DataTree\DataTree;
-use DataTree\Processor\xml\XMLFormattableInterface;
+use DataTree\Processor\xml\XMLProcessableInterface;
 
-abstract class Message extends DataTree implements XMLFormattableInterface
+abstract class Message extends DataTree implements XMLProcessableInterface
 {
     private $attrs = [];
 
