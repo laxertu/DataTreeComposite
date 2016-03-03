@@ -67,12 +67,12 @@ abstract class DataTree implements ProcessableInterface
      * Sets a DataTree raw value
      *
      * @param $value String | array
-     * @throws \InvalidArgumentException
+     * @throws \Exception
      */
     final public function setValue($value = '')
     {
         if ($this->getChildren()) {
-            throw new \InvalidArgumentException('Cannot set value of a composite DataTree');
+            throw new \Exception('Cannot set value of a composite DataTree');
         }
 
         #default to empty string as a null value means a leaf DataTree
@@ -104,7 +104,7 @@ abstract class DataTree implements ProcessableInterface
      * Sets $element as $pos child, overwrites existent if any
      *
      * This method is declared as protected as often we want to give control about how a tree is structured to
-     * tree itself. If you want more flexibility you have to extend OpenDataTree.
+     * tree itself. If you want more flexibility you have to use / extend OpenDataTree.
      *
      * @param ProcessableInterface $element
      * @throws \InvalidArgumentException
@@ -137,7 +137,7 @@ abstract class DataTree implements ProcessableInterface
 
     /**
      * This method is declared as protected as often we want to give control about how a tree is structured to
-     * tree itself. If you want more flexibility you have to extend OpenDataTree.
+     * tree itself. If you want more flexibility you have to use / extend OpenDataTree.
      *
      * @param Integer $pos
      */

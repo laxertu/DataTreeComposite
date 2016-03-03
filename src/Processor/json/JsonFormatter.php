@@ -42,8 +42,6 @@ class JsonFormatter extends AbstractProcessor
     }
 
     /**
-     * We want to allow clients declaring a message with a valid Json string as content.
-     *
      * @param $body
      * @return string
      */
@@ -60,9 +58,14 @@ class JsonFormatter extends AbstractProcessor
         return $body;
     }
 
+    /**
+     * @param $value
+     * @return string
+     */
     private function formatStringValue($value)
     {
-        #numbers and valid json strings comes without enclosure
+        # We want to allow clients to declare a message with a valid Json string as content.
+        # Numbers and valid json strings comes without enclosure.
         if ((@json_decode($value) === null) && !is_numeric($value)) {
             $value = '"'.$value.'"';
         }

@@ -21,7 +21,7 @@ class MessageElement extends Message
         try {
             $this->setName($name);
             $this->setValue($value);
-        } catch (\InvalidArgumentException $e) {
+        } catch (\Exception $e) {
             throw $e;
         }
     }
