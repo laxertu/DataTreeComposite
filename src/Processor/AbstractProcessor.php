@@ -5,15 +5,15 @@ namespace DataTree\Processor;
 abstract class AbstractProcessor
 {
     /**
-     * Tells if a message has some inner content: raw text body or children.
+     * Tells if a processable has some inner content: value or children.
      *
      * @param ProcessableInterface $message
      * @return bool
      */
-    protected function hasInnerContent(ProcessableInterface $message)
+    protected function hasInnerContent(ProcessableInterface $processableInterface)
     {
-        $messageValue = $message->getValue();
-        return (!is_null($messageValue) && $messageValue !== '') || $message->getChildren();
+        $messageValue = $processableInterface->getValue();
+        return (!is_null($messageValue) && $messageValue !== '') || $processableInterface->getChildren();
     }
 
     /**
@@ -22,8 +22,8 @@ abstract class AbstractProcessor
      * @param ProcessableInterface $message
      * @return bool
      */
-    protected function isLeaf(ProcessableInterface $message)
+    protected function isLeaf(ProcessableInterface $processableInterface)
     {
-        return !is_null($message->getValue());
+        return !is_null($processableInterface->getValue());
     }
 }

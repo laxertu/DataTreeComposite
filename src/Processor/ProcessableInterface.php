@@ -16,7 +16,7 @@ interface ProcessableInterface
     public function getName();
 
     /**
-     * Message raw content as array or raw text, null for composites.
+     * Element raw content as array or raw text, null for composites.
      *
      * @return null | array | String
      */
