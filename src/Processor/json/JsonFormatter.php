@@ -87,7 +87,7 @@ class JsonFormatter extends AbstractProcessor
 
 
     /**
-     * @param ProcessableInterface[] $message
+     * @param ProcessableInterface[] $children
      * @return array|string
      */
     private function buildCompositeMessageBody(array $children)
