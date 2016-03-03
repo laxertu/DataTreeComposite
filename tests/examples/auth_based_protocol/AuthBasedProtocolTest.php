@@ -3,8 +3,8 @@ namespace DataTree\tests\examples;
 
 use DataTree\examples\auth_based_protocol\Credentials;
 use DataTree\examples\auth_based_protocol\ProtocolMessage;
-use DataTree\Formatter\json\JsonFormatter;
-use DataTree\Formatter\xml\XMLFormatter;
+use DataTree\Processor\json\JsonFormatter;
+use DataTree\Processor\xml\XMLFormatter;
 use DataTree\xml\GenericMessage;
 
 class AuthBasedProtocolTest extends \PHPUnit_Framework_TestCase

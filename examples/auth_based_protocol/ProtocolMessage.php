@@ -1,7 +1,7 @@
 <?php
 namespace DataTree\examples\auth_based_protocol;
 
-use DataTree\Formatter\xml\XMLFormattableInterface;
+use DataTree\Processor\xml\XMLFormattableInterface;
 use DataTree\xml\GenericMessage;
 use DataTree\xml\XMLFormattableDecoratorBase;
 use DataTree\xml\MessageElement;

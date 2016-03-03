@@ -1,8 +1,8 @@
 <?php
-namespace DataTree\Adapter;
+namespace DataTree\Processor\xml;
 
 
-use DataTree\Formatter\xml\XMLFormattableInterface;
+use DataTree\Processor\xml\XMLFormattableInterface;
 
 /**
  * Class SoapVarAdapter

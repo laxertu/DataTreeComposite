@@ -3,7 +3,7 @@ namespace DataTree\tests\examples;
 
 use DataTree\examples\GeoJSON\GeoJSONObject;
 use DataTree\examples\GeoJSON\Point;
-use DataTree\Formatter\json\JsonFormatter;
+use DataTree\Processor\json\JsonFormatter;
 
 class GeoJSONPointTest extends \PHPUnit_Framework_TestCase
 {

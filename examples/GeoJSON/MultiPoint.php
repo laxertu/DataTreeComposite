@@ -2,7 +2,7 @@
 namespace DataTree\examples\GeoJSON;
 
 
-use DataTree\Formatter\FormattableInterface;
+use DataTree\Formatter\ProcessableInterface;
 
 class MultiPoint extends Geometry
 {

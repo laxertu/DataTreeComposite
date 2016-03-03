@@ -1,16 +1,16 @@
 <?php
-namespace DataTree\Adapter;
+namespace DataTree\Processor\xml;
 
 
-use DataTree\Formatter\AbstractFormatter;
-use DataTree\Formatter\xml\XMLFormattableInterface;
+use DataTree\Processor\AbstractProcessor;
+use DataTree\Processor\xml\XMLFormattableInterface;
 
 /**
  * Class StdObjectAdapter
  * @package DataTree\Adapter
  * @see DataTree\tests\adapters\StdObjectAdapterTest
  */
-class StdObjectAdapter extends AbstractFormatter
+class StdObjectAdapter extends AbstractProcessor
 {
     final public function toStdObject(XMLFormattableInterface $xmlTree)
     {

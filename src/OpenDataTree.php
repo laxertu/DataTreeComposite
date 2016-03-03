@@ -1,7 +1,7 @@
 <?php
 namespace DataTree;
 
-use DataTree\Formatter\FormattableInterface;
+use DataTree\Processor\ProcessableInterface;
 
 /**
  * This class is intended for those who wants a 100% composite implementation. It just opens setter methods to clients
@@ -16,7 +16,7 @@ class OpenDataTree extends DataTree
         $this->setName($name);
     }
 
-    public function setChild(FormattableInterface $element, $pos)
+    public function setChild(ProcessableInterface $element, $pos)
     {
         return parent::setChild($element, $pos);
     }

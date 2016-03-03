@@ -1,7 +1,7 @@
 <?php
 namespace DataTree\tests\formatters;
 
-use DataTree\Formatter\json\JsonFormatter;
+use DataTree\Processor\json\JsonFormatter;
 use DataTree\xml\GenericMessage;
 use DataTree\xml\MessageElement;
 

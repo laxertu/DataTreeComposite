@@ -1,8 +1,8 @@
 <?php
-namespace DataTree\Adapter;
+namespace DataTree\Processor\xml;
 
-use DataTree\Formatter\AbstractFormatter;
-use DataTree\Formatter\xml\XMLFormattableInterface;
+use DataTree\Processor\AbstractProcessor;
+use DataTree\Processor\xml\XMLFormattableInterface;
 
 /**
  * Class ArrayAdapter
@@ -13,7 +13,7 @@ use DataTree\Formatter\xml\XMLFormattableInterface;
  * only one is present, it will be returned as associative. @see DataTree\tests\adapters\ArrayAdapterTest
  *
  */
-class ArrayAdapter extends AbstractFormatter
+class ArrayAdapter extends AbstractProcessor
 {
     final public function toArray(XMLFormattableInterface $xmlTree)
     {

@@ -1,7 +1,7 @@
 <?php
 namespace DataTree\xml;
 
-use DataTree\Formatter\xml\XMLFormattableInterface;
+use DataTree\Processor\xml\XMLFormattableInterface;
 
 /**
  * Class XMLFormattableDecoratorBase

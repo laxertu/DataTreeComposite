@@ -2,7 +2,7 @@
 namespace DataTree\tests\adapters;
 
 
-use DataTree\Adapter\StdObjectAdapter;
+use DataTree\Processor\xml\StdObjectAdapter;
 use DataTree\xml\GenericMessage;
 use DataTree\xml\MessageElement;
 

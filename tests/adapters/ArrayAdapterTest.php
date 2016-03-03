@@ -2,7 +2,7 @@
 namespace DataTree\tests\adapters;
 
 
-use DataTree\Adapter\ArrayAdapter;
+use DataTree\Processor\xml\ArrayAdapter;
 use DataTree\xml\GenericMessage;
 use DataTree\xml\MessageElement;
 

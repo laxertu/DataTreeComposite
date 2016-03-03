@@ -1,7 +1,7 @@
 <?php
 
 namespace DataTree;
-use DataTree\Formatter\FormattableInterface;
+use DataTree\Processor\ProcessableInterface;
 
 /**
  * Composite implementation
@@ -10,7 +10,7 @@ use DataTree\Formatter\FormattableInterface;
  * @package DataTree
  */
 
-abstract class DataTree implements FormattableInterface
+abstract class DataTree implements ProcessableInterface
 {
 
 
@@ -102,11 +102,11 @@ abstract class DataTree implements FormattableInterface
      * This method is declared as protected as often we want to give control about how a tree is structured to
      * tree itself. If you want more flexibility you have to extend OpenDataTree.
      *
-     * @param FormattableInterface $element
+     * @param ProcessableInterface $element
      * @throws \InvalidArgumentException
      * @throws \Exception
      */
-    protected function setChild(FormattableInterface $element, $pos)
+    protected function setChild(ProcessableInterface $element, $pos)
     {
         if (!is_int($pos) || ($pos < 0)) {
 
@@ -121,7 +121,7 @@ abstract class DataTree implements FormattableInterface
         }
     }
 
-    final public function setParent(FormattableInterface $parent)
+    final public function setParent(ProcessableInterface $parent)
     {
         $this->parent = $parent;
     }
@@ -151,7 +151,7 @@ abstract class DataTree implements FormattableInterface
     }
 
     /**
-     * @return FormattableInterface[]
+     * @return ProcessableInterface[]
      */
     final public function getChildren()
     {

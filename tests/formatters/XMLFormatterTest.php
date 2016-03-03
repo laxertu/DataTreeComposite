@@ -1,7 +1,7 @@
 <?php
 namespace DataTree\tests\formatters;
 
-use DataTree\Formatter\xml\XMLFormatter;
+use DataTree\Processor\xml\XMLFormatter;
 use DataTree\xml\GenericMessage;
 use DataTree\xml\MessageElement;
 

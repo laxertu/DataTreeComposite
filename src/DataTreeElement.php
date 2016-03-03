@@ -1,7 +1,7 @@
 <?php
 namespace DataTree;
 
-use DataTree\Formatter\FormattableInterface;
+use DataTree\Processor\ProcessableInterface;
 /**
  * Leaf classes.
  *
@@ -26,7 +26,7 @@ class DataTreeElement extends DataTree
         }
     }
 
-    final protected function setChild(FormattableInterface $element, $pos)
+    final protected function setChild(ProcessableInterface $element, $pos)
     {
         throw new \Exception('DataTreeElement objects does not have children');
     }

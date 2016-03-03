@@ -2,7 +2,7 @@
 namespace DataTree\xml;
 
 use DataTree\DataTree;
-use DataTree\Formatter\xml\XMLFormattableInterface;
+use DataTree\Processor\xml\XMLFormattableInterface;
 
 abstract class Message extends DataTree implements XMLFormattableInterface
 {

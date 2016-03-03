@@ -1,14 +1,15 @@
 <?php
-namespace DataTree\Formatter\xml;
+namespace DataTree\Processor\xml;
 
-use DataTree\Formatter\AbstractFormatter;
+use DataTree\Processor\AbstractProcessor;
+
 
 /**
  * Class XMLFormatter
  * @package DataTree\Formatter
  * @see DataTree\tests\formatters\XMLFormatterTest
  */
-class XMLFormatter extends AbstractFormatter
+class XMLFormatter extends AbstractProcessor
 {
 
     public function buildContent(XMLFormattableInterface $message)

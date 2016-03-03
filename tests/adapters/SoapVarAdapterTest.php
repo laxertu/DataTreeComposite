@@ -1,6 +1,6 @@
 <?php
 namespace DataTree\tests\adapters;
-use DataTree\Adapter\SoapVarAdapter;
+use DataTree\Processor\xml\SoapVarAdapter;
 use DataTree\xml\GenericMessage;
 use DataTree\xml\MessageElement;
 

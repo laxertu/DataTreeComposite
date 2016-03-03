@@ -1,13 +1,13 @@
 <?php
-namespace DataTree\Formatter;
+namespace DataTree\Processor;
 
 /**
  * Contract for formattable objects: basically, the getters.
  *
- * Interface FormattableInterface
+ * Interface ProcessableInterface
  * @package DataTree\Formatter
  */
-interface FormattableInterface
+interface ProcessableInterface
 {
 
     /**
@@ -23,12 +23,12 @@ interface FormattableInterface
     public function getValue();
 
     /**
-     * @return FormattableInterface[]
+     * @return ProcessableInterface[]
      */
     public function getChildren();
 
     /**
-     * @return FormattableInterface
+     * @return ProcessableInterface
      */
     public function getParent();
 }

@@ -1,18 +1,18 @@
 <?php
-namespace DataTree\Formatter\json;
+namespace DataTree\Processor\json;
 
-use DataTree\Formatter\AbstractFormatter;
-use DataTree\Formatter\FormattableInterface;
+use DataTree\Processor\AbstractProcessor;
+use DataTree\Processor\ProcessableInterface;
 
 /**
- * Class JsonFormatter
- * @package DataTree\Formatter
+ * Class JsonProcessor
+ * @package DataTree\Processor
  * @see DataTree\tests\formatters\JsonFormatterTest
  */
-class JsonFormatter extends AbstractFormatter
+class JsonFormatter extends AbstractProcessor
 {
 
-    public function buildContent(FormattableInterface $message)
+    public function buildContent(ProcessableInterface $message)
     {
 
         $content = '"'.$message->getName().'":'.$this->buildBody($message);
@@ -24,7 +24,7 @@ class JsonFormatter extends AbstractFormatter
         return $content;
     }
 
-    private function buildBody(FormattableInterface $message)
+    private function buildBody(ProcessableInterface $message)
     {
 
         # a simple value
@@ -84,7 +84,7 @@ class JsonFormatter extends AbstractFormatter
 
 
     /**
-     * @param FormattableInterface[] $message
+     * @param ProcessableInterface[] $message
      * @return array|string
      */
     private function buildCompositeMessageBody(array $children)

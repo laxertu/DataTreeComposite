@@ -1,16 +1,16 @@
 <?php
-namespace DataTree\Formatter;
+namespace DataTree\Processor;
 
 
-abstract class AbstractFormatter
+abstract class AbstractProcessor
 {
     /**
      * Tells if a message has some inner content: raw text body or children.
      *
-     * @param FormattableInterface $message
+     * @param ProcessableInterface $message
      * @return bool
      */
-    protected function hasInnerContent(FormattableInterface $message)
+    protected function hasInnerContent(ProcessableInterface $message)
     {
         $messageValue = $message->getValue();
         return (!is_null($messageValue) && $messageValue !== '') || $message->getChildren();
@@ -19,10 +19,10 @@ abstract class AbstractFormatter
     /**
      * Tells if a tree is a leaf
      *
-     * @param FormattableInterface $message
+     * @param ProcessableInterface $message
      * @return bool
      */
-    protected function isLeaf(FormattableInterface $message)
+    protected function isLeaf(ProcessableInterface $message)
     {
         return !is_null($message->getValue());
     }
