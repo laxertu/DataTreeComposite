@@ -12,8 +12,6 @@ use DataTree\Processor\xml\XMLProcessableInterface;
 class SoapVarAdapter
 {
 
-    private $nodeName;
-
     final public function toSoapVar(XMLProcessableInterface $message)
     {
         $stdObjectAdapter = new StdObjectAdapter();
