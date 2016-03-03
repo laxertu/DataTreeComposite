@@ -24,6 +24,6 @@ abstract class AbstractProcessor
      */
     protected function isLeaf(ProcessableInterface $processableInterface)
     {
-        return !is_null($processableInterface->getValue());
+        return $processableInterface->isLeaf();
     }
 }

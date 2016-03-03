@@ -83,6 +83,10 @@ abstract class DataTree implements ProcessableInterface
         $this->value = $value;
     }
 
+    final public function isLeaf()
+    {
+        return !is_null($this->getValue());
+    }
 
     final public function getPathWithSeparator($separator = '/')
     {
@@ -97,7 +101,7 @@ abstract class DataTree implements ProcessableInterface
 
 
     /**
-     * Sets $element as $pos child, it overwrites existent if any
+     * Sets $element as $pos child, overwrites existent if any
      *
      * This method is declared as protected as often we want to give control about how a tree is structured to
      * tree itself. If you want more flexibility you have to extend OpenDataTree.

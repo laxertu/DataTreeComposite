@@ -10,7 +10,8 @@ use DataTree\Processor\xml\XMLProcessableInterface;
  *
  *
  * When some tree with multiple children with same name is processed, childen are returned as a numeric array, when
- * only one is present, it will be returned as associative. Useful for SOAP. @see DataTree\tests\adapters\ArrayAdapterTest
+ * only one is present, it will be returned as associative.
+ * Useful for SOAP. @see DataTree\tests\adapters\ArrayAdapterTest
  *
  */
 class ArrayAdapter extends AbstractProcessor

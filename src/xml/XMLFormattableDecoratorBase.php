@@ -19,6 +19,12 @@ abstract class XMLFormattableDecoratorBase implements XMLProcessableInterface
         $this->xmlFormattable = $xmlFormattable;
     }
 
+    public function isLeaf()
+    {
+        return $this->xmlFormattable->isLeaf();
+    }
+
+
     protected function getXMLFormattable()
     {
         return $this->xmlFormattable;
