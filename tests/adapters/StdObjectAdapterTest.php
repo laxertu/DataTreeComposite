@@ -48,20 +48,6 @@ class StdObjectAdapterTest extends \PHPUnit_Framework_TestCase
 
     }
 
-    public function testComposite2()
-    {
-        $generic = new GenericMessage('a');
-
-        $generic->setChild(new MessageElement('b', 'c'), 0);
-        $generic->setChild(new MessageElement('d', 'e'), 1);
-
-        $obtained = $this->sut->toStdObject($generic);
-
-        $this->assertInstanceOf('StdClass', $obtained);
-        $this->assertEquals('c', $obtained->a->b);
-
-    }
-
     public function testListOfValues()
     {
 
@@ -74,5 +60,23 @@ class StdObjectAdapterTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals(serialize(['c1', 'c2']), serialize($obtained->a->b));
     }
+
+
+    public function testComposite2()
+    {
+        $generic = new GenericMessage('a');
+
+        $generic->setChild(new MessageElement('b', 'c'), 0);
+        $generic->setChild(new MessageElement('d', 'e'), 1);
+        $generic->setChild(new MessageElement('b', 'f'), 2);
+
+        $obtained = $this->sut->toStdObject($generic);
+
+        $this->assertInstanceOf('StdClass', $obtained);
+        $this->assertEquals('e', $obtained->a->d);
+        $this->assertEquals(serialize(['c', 'f']), serialize($obtained->a->b));
+
+    }
+
 
 }
