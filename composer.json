@@ -5,6 +5,7 @@
     "keywords": ["XML"],
     "homepage": "https://github.com/laxertu/DataTreeComposite",
     "license": "MIT",
+    "minimum-stability": "dev",
     "authors": [
         {
             "name": "Luca Stretti",
