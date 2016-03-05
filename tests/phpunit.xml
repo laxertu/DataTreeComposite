@@ -9,8 +9,5 @@
         <testsuite name="adapters">
             <directory>adapters</directory>
         </testsuite>
-        <testsuite name="examples">
-            <directory>examples</directory>
-        </testsuite>
     </testsuites>
 </phpunit>
