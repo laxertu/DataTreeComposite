@@ -15,12 +15,6 @@ interface ProcessableInterface
      */
     public function getName();
 
-
-    /**
-     * @return Boolean
-     */
-    public function isLeaf();
-
     /**
      * Element raw content as array or raw text, null for composites.
      *

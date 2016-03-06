@@ -83,11 +83,6 @@ abstract class DataTree implements ProcessableInterface
         $this->value = $value;
     }
 
-    final public function isLeaf()
-    {
-        return !is_null($this->getValue());
-    }
-
     final public function getPathWithSeparator($separator = '/')
     {
 
