@@ -1,7 +1,7 @@
 <?php
-namespace DataTree;
+namespace laxertu\DataTree;
 
-use DataTree\Processor\ProcessableInterface;
+use laxertu\DataTree\Processor\ProcessableInterface;
 /**
  * Leaf classes.
  *

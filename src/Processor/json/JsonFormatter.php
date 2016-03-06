@@ -1,8 +1,8 @@
 <?php
-namespace DataTree\Processor\json;
+namespace laxertu\DataTree\Processor\json;
 
-use DataTree\Processor\AbstractProcessor;
-use DataTree\Processor\ProcessableInterface;
+use laxertu\DataTree\Processor\AbstractProcessor;
+use laxertu\DataTree\Processor\ProcessableInterface;
 
 /**
  * Class JsonProcessor

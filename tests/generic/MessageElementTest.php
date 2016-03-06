@@ -1,7 +1,7 @@
 <?php
-namespace DataTree\tests;
+namespace laxertu\DataTree\tests;
 
-use DataTree\xml\MessageElement;
+use laxertu\DataTree\xml\MessageElement;
 
 class MessageElementTest extends \PHPUnit_Framework_TestCase
 {

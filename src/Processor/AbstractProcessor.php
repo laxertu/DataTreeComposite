@@ -1,5 +1,5 @@
 <?php
-namespace DataTree\Processor;
+namespace laxertu\DataTree\Processor;
 
 
 abstract class AbstractProcessor

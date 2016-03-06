@@ -1,6 +1,6 @@
 <?php
-namespace DataTree\Processor\xml;
-use DataTree\Processor\ProcessableInterface;
+namespace laxertu\DataTree\Processor\xml;
+use laxertu\DataTree\Processor\ProcessableInterface;
 
 /**
  * Interface XMLFormattableInterface

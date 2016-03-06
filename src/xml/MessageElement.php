@@ -1,6 +1,6 @@
 <?php
-namespace DataTree\xml;
-use DataTree\Processor\xml\XMLProcessableInterface;
+namespace laxertu\DataTree\xml;
+use laxertu\DataTree\Processor\xml\XMLProcessableInterface;
 
 /**
  * Leaf classes.

@@ -1,7 +1,7 @@
 <?php
-namespace DataTree\tests\utils;
+namespace laxertu\DataTree\tests\utils;
 
-use DataTree\xml\Message;
+use laxertu\DataTree\xml\Message;
 
 class XMLCollector
 {

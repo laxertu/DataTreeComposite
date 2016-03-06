@@ -1,7 +1,7 @@
 <?php
-namespace DataTree\xml;
+namespace laxertu\DataTree\xml;
 
-use DataTree\Processor\xml\XMLProcessableInterface;
+use laxertu\DataTree\Processor\xml\XMLProcessableInterface;
 
 /**
  * Class XMLFormattableDecoratorBase

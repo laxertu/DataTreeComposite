@@ -1,7 +1,7 @@
 <?php
-namespace DataTree\Processor\xml;
+namespace laxertu\DataTree\Processor\xml;
 
-use DataTree\Processor\AbstractProcessor;
+use laxertu\DataTree\Processor\AbstractProcessor;
 
 
 /**

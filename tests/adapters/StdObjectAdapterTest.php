@@ -1,10 +1,10 @@
 <?php
-namespace DataTree\tests\adapters;
+namespace laxertu\DataTree\tests\adapters;
 
 
-use DataTree\Processor\xml\StdObjectAdapter;
-use DataTree\xml\GenericMessage;
-use DataTree\xml\MessageElement;
+use laxertu\DataTree\Processor\xml\StdObjectAdapter;
+use laxertu\DataTree\xml\GenericMessage;
+use laxertu\DataTree\xml\MessageElement;
 
 class StdObjectAdapterTest extends \PHPUnit_Framework_TestCase
 {

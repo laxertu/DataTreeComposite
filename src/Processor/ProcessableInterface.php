@@ -1,5 +1,5 @@
 <?php
-namespace DataTree\Processor;
+namespace laxertu\DataTree\Processor;
 
 /**
  * Contract for formattable objects: basically, the getters.

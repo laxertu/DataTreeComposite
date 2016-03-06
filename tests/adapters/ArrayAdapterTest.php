@@ -1,10 +1,10 @@
 <?php
-namespace DataTree\tests\adapters;
+namespace laxertu\DataTree\tests\adapters;
 
 
-use DataTree\Processor\xml\ArrayAdapter;
-use DataTree\xml\GenericMessage;
-use DataTree\xml\MessageElement;
+use laxertu\DataTree\Processor\xml\ArrayAdapter;
+use laxertu\DataTree\xml\GenericMessage;
+use laxertu\DataTree\xml\MessageElement;
 
 class ArrayAdapterTest extends \PHPUnit_Framework_TestCase
 {

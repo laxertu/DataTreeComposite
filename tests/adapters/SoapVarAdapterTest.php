@@ -1,8 +1,8 @@
 <?php
-namespace DataTree\tests\adapters;
-use DataTree\Processor\xml\SoapVarAdapter;
-use DataTree\xml\GenericMessage;
-use DataTree\xml\MessageElement;
+namespace laxertu\DataTree\tests\adapters;
+use laxertu\DataTree\Processor\xml\SoapVarAdapter;
+use laxertu\DataTree\xml\GenericMessage;
+use laxertu\DataTree\xml\MessageElement;
 
 
 class SoapVarAdapterTest extends \PHPUnit_Framework_TestCase

@@ -1,8 +1,8 @@
 <?php
-namespace DataTree\Processor\xml;
+namespace laxertu\DataTree\Processor\xml;
 
 
-use DataTree\Processor\xml\XMLProcessableInterface;
+use laxertu\DataTree\Processor\xml\XMLProcessableInterface;
 
 /**
  * Class SoapVarAdapter

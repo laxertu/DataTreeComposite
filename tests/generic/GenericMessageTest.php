@@ -1,10 +1,10 @@
 <?php
-namespace DataTree\tests;
+namespace laxertu\DataTree\tests;
 
-use DataTree\Processor\xml\XMLFormatter;
-use DataTree\xml\GenericMessage;
-use DataTree\xml\MessageElement;
-use DataTree\tests\utils\XMLCollector;
+use laxertu\DataTree\Processor\xml\XMLFormatter;
+use laxertu\DataTree\xml\GenericMessage;
+use laxertu\DataTree\xml\MessageElement;
+use laxertu\DataTree\tests\utils\XMLCollector;
 
 class GenericMessageTest extends \PHPUnit_Framework_TestCase
 {

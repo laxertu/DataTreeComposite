@@ -1,8 +1,8 @@
 <?php
-namespace DataTree\xml;
+namespace laxertu\DataTree\xml;
 
-use DataTree\DataTree;
-use DataTree\Processor\xml\XMLProcessableInterface;
+use laxertu\DataTree\DataTree;
+use laxertu\DataTree\Processor\xml\XMLProcessableInterface;
 
 abstract class Message extends DataTree implements XMLProcessableInterface
 {

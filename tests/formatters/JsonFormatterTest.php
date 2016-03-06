@@ -1,9 +1,9 @@
 <?php
-namespace DataTree\tests\formatters;
+namespace laxertu\DataTree\tests\formatters;
 
-use DataTree\Processor\json\JsonFormatter;
-use DataTree\xml\GenericMessage;
-use DataTree\xml\MessageElement;
+use laxertu\DataTree\Processor\json\JsonFormatter;
+use laxertu\DataTree\xml\GenericMessage;
+use laxertu\DataTree\xml\MessageElement;
 
 class JsonFormatterTest extends \PHPUnit_Framework_TestCase
 {
