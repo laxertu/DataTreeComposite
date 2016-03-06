@@ -16,6 +16,7 @@
     },
 
     "autoload": {
-        "classmap": ["src/"]
+        "classmap": ["src/"],
+        "exclude-from-classmap": ["/tests/"]
     }
 }
