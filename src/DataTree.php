@@ -66,7 +66,7 @@ abstract class DataTree implements ProcessableInterface
     /**
      * Sets a DataTree raw value
      *
-     * @param $value String | array
+     * @param $value String | array | null
      * @throws \Exception
      */
     final public function setValue($value = '')
@@ -75,10 +75,6 @@ abstract class DataTree implements ProcessableInterface
             throw new \Exception('Cannot set value of a composite DataTree');
         }
 
-        #default to empty string as a null value means a leaf DataTree
-        if (is_null($value)) {
-            $value = '';
-        }
 
         $this->value = $value;
     }

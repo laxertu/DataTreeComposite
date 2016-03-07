@@ -25,5 +25,14 @@ class SoapVarAdapterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('b', $obtained->enc_value->a);
     }
 
+    public function testNull()
+    {
+        $el = new MessageElement('a', null);
+        $obtained = $this->sut->toSoapVar($el);
+
+        $this->assertTrue(is_null($obtained->enc_value->a));
+
+    }
+
 
 }

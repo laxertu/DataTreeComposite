@@ -25,6 +25,18 @@ class JsonFormatterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('{"a":2}', $obtained);
     }
 
+
+    public function testNullValue()
+    {
+        $el = new MessageElement('a', null);
+        $sut = new JsonFormatter();
+        $obtained = $sut->buildContent($el);
+
+        $this->assertEquals('{"a":null}', $obtained);
+
+    }
+
+
     public function testNestedElements()
     {
         $msg = new GenericMessage('pack');

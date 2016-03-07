@@ -27,6 +27,16 @@ class StdObjectAdapterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('b', $obtained->a);
     }
 
+
+    public function testNull()
+    {
+        $el = new MessageElement('a', null);
+        $obtained = $this->sut->toStdObject($el);
+
+        $this->assertTrue(is_null($obtained->a));
+
+    }
+
     public function testArray()
     {
         $el = new MessageElement('a', ['b']);

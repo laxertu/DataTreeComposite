@@ -9,6 +9,6 @@ class MessageElementTest extends \PHPUnit_Framework_TestCase
     public function testNullValue()
     {
         $sut = new MessageElement('a', null);
-        $this->assertTrue($sut->getValue() === '');
+        $this->assertTrue(is_null($sut->getValue()));
     }
 }

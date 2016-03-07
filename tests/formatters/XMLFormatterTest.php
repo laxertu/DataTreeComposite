@@ -19,6 +19,16 @@ class XMLFormatterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $sut->buildContent($el));
     }
 
+    public function testNull()
+    {
+        $el = new MessageElement('a', null);
+        $expected = '<a />';
+
+        $sut = new XMLFormatter();
+
+        $this->assertEquals($expected, $sut->buildContent($el));
+    }
+
     public function testBodyLessMessage()
     {
         $el = new MessageElement('a');

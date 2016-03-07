@@ -66,8 +66,12 @@ class JsonFormatter extends AbstractProcessor
     {
         # We want to allow clients to declare a message with a valid Json string as content.
         # Numbers and valid json strings comes without enclosure.
-        if ((@json_decode($value) === null) && !is_numeric($value)) {
+        if ((@json_decode($value) === null) && !is_numeric($value) && !is_null($value)) {
             $value = '"'.$value.'"';
+        }
+
+        if(is_null($value)) {
+            $value = 'null';
         }
 
         return $value;
