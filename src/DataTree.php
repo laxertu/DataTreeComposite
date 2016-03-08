@@ -109,7 +109,7 @@ abstract class DataTree implements ProcessableInterface
 
         } elseif ($this->getValue()) {
 
-            throw new \Exception('Cannot set a child if tree is a leaf one');
+            throw new \InvalidArgumentException('Cannot set a child if tree is a leaf one');
         } else {
             $element->setParent($this);
             $this->elements[$pos] = $element;
