@@ -2,7 +2,7 @@
     "name": "laxertu/data-tree-composite",
     "type": "library",
     "description": "A composite based implementation of data strucutred in trees. Includes some classes for data transformation / presentation",
-    "keywords": ["XML", "Structured data"],
+    "keywords": ["XML","Json","SOAP","Structured data"],
     "homepage": "https://github.com/laxertu/DataTreeComposite",
     "license": "MIT",
     "authors": [
