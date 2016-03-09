@@ -41,10 +41,6 @@ class JsonFormatter extends AbstractProcessor
         return $content;
     }
 
-    /**
-     * @param $body
-     * @return string
-     */
     private function buildLeafMessageBody($messageValue)
     {
         if (is_array($messageValue)) {
@@ -58,10 +54,6 @@ class JsonFormatter extends AbstractProcessor
         return $body;
     }
 
-    /**
-     * @param $value
-     * @return string
-     */
     private function formatStringValue($value)
     {
         # We want to allow clients to declare a message with a valid Json string as content.
@@ -70,7 +62,7 @@ class JsonFormatter extends AbstractProcessor
             $value = '"'.$value.'"';
         }
 
-        if(is_null($value)) {
+        if (is_null($value)) {
             $value = 'null';
         }
 

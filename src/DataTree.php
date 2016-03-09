@@ -20,8 +20,8 @@ abstract class DataTree implements ProcessableInterface
     /**
      * "Special" values are:
      *
-     * NULL - means that class name will be used as node name
-     * ''   - means that DataTree has no node name
+     * NULL - means that class name will be used as tree name
+     * ''   - means that tree has no name
      *
      * @var null
      */
@@ -29,7 +29,7 @@ abstract class DataTree implements ProcessableInterface
 
 
     /**
-     * DataTree raw content as array or raw text, null for composites.
+     * DataTree raw content, it cannot be set with composite objects.
      *
      * @var null | array | String
      */
@@ -79,6 +79,12 @@ abstract class DataTree implements ProcessableInterface
         $this->value = $value;
     }
 
+    /**
+     * Useful -for example- for building xPath strings
+     *
+     * @param string $separator
+     * @return string
+     */
     final public function getPathWithSeparator($separator = '/')
     {
 

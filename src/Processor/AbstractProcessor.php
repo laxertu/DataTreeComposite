@@ -17,7 +17,7 @@ abstract class AbstractProcessor
     }
 
     /**
-     * Tells if a tree is a leaf
+     * Tells if a tree is a leaf one
      *
      * @param ProcessableInterface $message
      * @return bool

@@ -26,13 +26,19 @@ class DataTreeElement extends DataTree
         }
     }
 
+    /**
+     * @throws \InvalidArgumentException
+     */
     final protected function setChild(ProcessableInterface $element, $pos)
     {
-        throw new \Exception('DataTreeElement objects do not have children');
+        throw new \InvalidArgumentException('DataTreeElement objects do not have children');
     }
 
+    /**
+     * @throws \InvalidArgumentException
+     */
     final protected function removeChild($pos)
     {
-        throw new \Exception('DataTreeElement objects do not have children');
+        throw new \InvalidArgumentException('DataTreeElement objects do not have children');
     }
 }
