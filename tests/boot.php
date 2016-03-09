@@ -8,11 +8,8 @@ $autoload = function ($className) {
 
         if (substr($className, 0, 22) == 'laxertu\DataTree\tests') {
             $path = '../'.$path;
-        } elseif (substr($path, 0, 9) != 'examples/') {
-            $path = '../src/'.$path;
         } else {
-            $path = '../'.$path;
-
+            $path = '../src/'.$path;
         }
 
         include $path;
