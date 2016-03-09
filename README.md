@@ -10,7 +10,7 @@ I think that reading tests' sources is a good way to understand usage.
 
 In the same directory a sandbox.php is provided in order to allow starting with some experiment ;-)
 
-Coming soon: XML namespaces support, automatic generation from schemas,
+Coming soon: XML namespaces support, automatic generation from schemas.
 
 
 
