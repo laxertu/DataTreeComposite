@@ -7,12 +7,10 @@ use laxertu\DataTree\Processor\AbstractProcessor;
 /**
  * Class XMLFormatter
  * @package DataTree\Formatter
- * @see DataTree\tests\formatters\XMLFormatterTest
+ * @see laxertu\DataTree\tests\formatters\XMLFormatterTest
  */
 class XMLFormatter extends AbstractProcessor
 {
-
-    private $includeProlog = false;
 
     public function buildContent(XMLProcessableInterface $message)
     {
@@ -22,16 +20,15 @@ class XMLFormatter extends AbstractProcessor
             $content = $this->buildHead($message).$this->buildBody($message).$this->buildFoot($message);
         }
 
-        if ($this->includeProlog) {
-            $content = '<?xml version="1.0" encoding="UTF-8"?>'."\n".$content;
-        }
         return $content;
     }
 
-    final public function setIncludeProlog($val)
+    public function buildMessageWithProlog(XMLMessageInterface $message)
     {
-        $this->includeProlog = $val;
+        $content = '<?xml version="1.0" encoding="UTF-8"?>'."\n".$this->buildContent($message);
+        return $content;
     }
+
 
     /**
      * Lists of values do not have head

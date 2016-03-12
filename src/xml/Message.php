@@ -3,11 +3,13 @@ namespace laxertu\DataTree\xml;
 
 
 
-abstract class Message extends Node
+use laxertu\DataTree\Processor\xml\XMLMessageInterface;
+
+abstract class Message extends Node implements XMLMessageInterface
 {
 
-    private $version;
-    private $encoding;
+    private $version  = XMLConstants::VERSION_1_0;
+    private $encoding = XMLConstants::UTF8;
 
     public function setEncoding($encodind)
     {

@@ -7,41 +7,56 @@ use laxertu\DataTree\xml\MessageElement;
 
 class XMLFormatterTest extends \PHPUnit_Framework_TestCase
 {
+    /** @var  XMLFormatter */
+    private $sut;
 
+    public function setUp()
+    {
+        $this->sut = new XMLFormatter();
+    }
 
     public function testOne()
     {
         $el = new MessageElement('a', 'b');
         $expected = '<a>b</a>';
 
-        $sut = new XMLFormatter();
-
-        $this->assertEquals($expected, $sut->buildContent($el));
+        $this->assertEquals($expected, $this->sut->buildContent($el));
     }
+
+
+    public function testProlog()
+    {
+        $el = new MessageElement('a', 'b');
+        $expected = '<a>b</a>';
+
+        $splittedXML = explode("\n", $this->sut->buildMessageWithProlog($el));
+
+        $this->assertEquals('<?xml version="1.0" encoding="UTF-8"?>', $splittedXML[0]);
+        $this->assertEquals('<a>b</a>', $splittedXML[1]);
+    }
+
 
     public function testNull()
     {
         $el = new MessageElement('a', null);
         $expected = '<a />';
 
-        $sut = new XMLFormatter();
 
-        $this->assertEquals($expected, $sut->buildContent($el));
+        $this->assertEquals($expected, $this->sut->buildContent($el));
     }
 
     public function testBodyLessMessage()
     {
         $el = new MessageElement('a');
 
-        $sut = new XMLFormatter();
-        $this->assertEquals('<a />', $sut->buildContent($el));
+        $this->assertEquals('<a />', $this->sut->buildContent($el));
     }
 
 
     public function testListOfElements()
     {
         $list = new MessageElement('val', [1]);
-        $sut = new XMLFormatter();
+        $sut = $this->sut;
 
         $xml = $sut->buildContent($list);
         $this->assertEquals('<val>1</val>', $xml);
@@ -65,9 +80,8 @@ class XMLFormatterTest extends \PHPUnit_Framework_TestCase
     public function testZero()
     {
         $el = new MessageElement('a', 0);
-        $sut = new XMLFormatter();
 
-        $xml = $sut->buildContent($el);
+        $xml = $this->sut->buildContent($el);
         $this->assertEquals('<a>0</a>', $xml);
 
     }
