@@ -1,22 +1,33 @@
 <?php
 namespace laxertu\DataTree\xml;
 
-use laxertu\DataTree\DataTree;
-use laxertu\DataTree\Processor\xml\XMLProcessableInterface;
 
-abstract class Message extends DataTree implements XMLProcessableInterface
+
+abstract class Message extends Node
 {
-    private $attrs = [];
 
+    private $version;
+    private $encoding;
 
-    final public function getAttributes()
+    public function setEncoding($encodind)
     {
-        return $this->attrs;
+        $this->encoding = $encodind;
     }
 
-    final public function setAttributes(array $attributes)
+    public function getEncoding()
     {
-        $this->attrs = $attributes;
+        return $this->encoding;
     }
+
+    public function setVersion($version)
+    {
+        $this->version = $version;
+    }
+
+    public function getVersion()
+    {
+        return $this->version;
+    }
+
 
 }

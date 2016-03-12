@@ -12,6 +12,8 @@ use laxertu\DataTree\Processor\AbstractProcessor;
 class XMLFormatter extends AbstractProcessor
 {
 
+    private $includeProlog = false;
+
     public function buildContent(XMLProcessableInterface $message)
     {
         if (!$this->haveToBuildHead($message)) {
@@ -19,7 +21,16 @@ class XMLFormatter extends AbstractProcessor
         } else {
             $content = $this->buildHead($message).$this->buildBody($message).$this->buildFoot($message);
         }
+
+        if ($this->includeProlog) {
+            $content = '<?xml version="1.0" encoding="UTF-8"?>'."\n".$content;
+        }
         return $content;
+    }
+
+    final public function setIncludeProlog($val)
+    {
+        $this->includeProlog = $val;
     }
 
     /**
