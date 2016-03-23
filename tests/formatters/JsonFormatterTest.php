@@ -100,7 +100,8 @@ class JsonFormatterTest extends \PHPUnit_Framework_TestCase
     public function testChildrenSameName()
     {
 
-        $root = new DataTreeList('root');
+        $root = new DataTreeList();
+        $root->setName('root');
         $el1 = new MessageElement('a', 'b');
         $el2 = new MessageElement('a', 'b');
 

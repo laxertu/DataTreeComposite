@@ -11,11 +11,6 @@ class DataTreeList extends DataTree
     /** @var array DataTree */
     private $trees = [];
 
-    final public function __construct($name)
-    {
-        $this->setName($name);
-    }
-
 
     final public function addTree(DataTree $tree)
     {
