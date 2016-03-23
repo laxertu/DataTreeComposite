@@ -88,26 +88,41 @@ class JsonFormatter extends AbstractProcessor
      */
     private function buildCompositeMessageBody(ProcessableInterface $message)
     {
-        $content = '';
-        $contentArray = [];
 
         if ($message->isAListOfTrees()) {
 
-            foreach ($message->getChildren() as $child) {
-                $contentArray[]= '{'.$this->buildContent($child).'}';
-            }
-
-            $content = '['.implode(',', $contentArray).']';
+            $content = $this->buildListOfTreeBody($message);
 
         } else {
 
-            foreach ($message->getChildren() as $child) {
-                $contentArray[]= $this->buildContent($child);
-            }
-
-            $content = '{'.implode(',', $contentArray).'}';
+            $content = $this->buildChildrenTreeBody($message);
         }
 
         return $content;
     }
+
+    private function buildListOfTreeBody(ProcessableInterface $message)
+    {
+        $content = '';
+        $contentArray = [];
+        foreach ($message->getChildren() as $child) {
+            $contentArray[]= '{'.$this->buildContent($child).'}';
+        }
+
+        $content = '['.implode(',', $contentArray).']';
+        return $content;
+    }
+
+    private function buildChildrenTreeBody(ProcessableInterface $message)
+    {
+        $content = '';
+        $contentArray = [];
+        foreach ($message->getChildren() as $child) {
+            $contentArray[]= $this->buildContent($child);
+        }
+
+        $content = '{'.implode(',', $contentArray).'}';
+        return $content;
+    }
+
 }
