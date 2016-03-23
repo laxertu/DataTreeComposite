@@ -28,6 +28,9 @@ abstract class DataTree implements ProcessableInterface
     private $name = null;
 
 
+    protected $isAList = false;
+
+
     /**
      * DataTree raw content, it cannot be set with composite objects.
      *
@@ -54,6 +57,14 @@ abstract class DataTree implements ProcessableInterface
     }
 
     /**
+     * @return bool
+     */
+    final public function isAListOfTrees()
+    {
+        return $this->isAList;
+    }
+
+    /**
      * Sets DataTree name. See attribute documentation
      * @param $name
      */
@@ -71,7 +82,7 @@ abstract class DataTree implements ProcessableInterface
      */
     final public function setValue($value = '')
     {
-        if ($this->getChildren()) {
+        if ($this->getChildren() || $this->isAListOfTrees()) {
             throw new \InvalidArgumentException('Cannot set value of a composite DataTree');
         }
 

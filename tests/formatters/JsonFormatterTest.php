@@ -1,16 +1,25 @@
 <?php
 namespace laxertu\DataTree\tests\formatters;
 
+use laxertu\DataTree\DataTreeList;
 use laxertu\DataTree\Processor\json\JsonFormatter;
 use laxertu\DataTree\xml\GenericMessage;
 use laxertu\DataTree\xml\MessageElement;
 
 class JsonFormatterTest extends \PHPUnit_Framework_TestCase
 {
+    /** @var  JsonFormatter */
+    private $sut;
+
+    public function setUp()
+    {
+        $this->sut = new JsonFormatter();
+    }
+
     public function testElement()
     {
         $el = new MessageElement('a', 'b');
-        $sut = new JsonFormatter();
+        $sut = $this->sut;
         $obtained = $sut->buildContent($el);
 
         $this->assertEquals('{"a":"b"}', $obtained);
@@ -19,7 +28,7 @@ class JsonFormatterTest extends \PHPUnit_Framework_TestCase
     public function testNumericElement()
     {
         $el = new MessageElement('a', 2);
-        $sut = new JsonFormatter();
+        $sut = $this->sut;
         $obtained = $sut->buildContent($el);
 
         $this->assertEquals('{"a":2}', $obtained);
@@ -29,7 +38,7 @@ class JsonFormatterTest extends \PHPUnit_Framework_TestCase
     public function testNullValue()
     {
         $el = new MessageElement('a', null);
-        $sut = new JsonFormatter();
+        $sut = $this->sut;
         $obtained = $sut->buildContent($el);
 
         $this->assertEquals('{"a":null}', $obtained);
@@ -46,7 +55,7 @@ class JsonFormatterTest extends \PHPUnit_Framework_TestCase
         $msg->setChild($child1, 0);
         $msg->setChild($child2, 1);
 
-        $sut = new JsonFormatter();
+        $sut = $this->sut;
         $obtained = $sut->buildContent($msg);
 
         $parsed = json_decode($obtained);
@@ -60,7 +69,7 @@ class JsonFormatterTest extends \PHPUnit_Framework_TestCase
     {
 
         $el = new MessageElement('pack', '{"width":"2"}');
-        $sut = new JsonFormatter();
+        $sut = $this->sut;
 
         $obtained = $sut->buildContent($el);
         $this->assertJson($obtained);
@@ -72,7 +81,7 @@ class JsonFormatterTest extends \PHPUnit_Framework_TestCase
 
     public function testListOfElements()
     {
-        $sut = new JsonFormatter();
+        $sut = $this->sut;
         $list = new MessageElement('val', [1]);
 
         $json = $sut->buildContent($list);
@@ -87,4 +96,23 @@ class JsonFormatterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('{"val":["a"]}', $json);
 
     }
+
+    public function testChildrenSameName()
+    {
+
+        $root = new DataTreeList('root');
+        $el1 = new MessageElement('a', 'b');
+        $el2 = new MessageElement('a', 'b');
+
+        $root->addTree($el1);
+        $root->addTree($el2);
+
+        $expected = '{"root":[{"a":"b"},{"a":"b"}]}';
+        $obitained = $this->sut->buildContent($root);
+
+
+        $this->assertEquals($expected, $obitained);
+
+    }
+
 }

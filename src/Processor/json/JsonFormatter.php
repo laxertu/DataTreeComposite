@@ -34,7 +34,7 @@ class JsonFormatter extends AbstractProcessor
 
         } else {
 
-            $content = $this->buildCompositeMessageBody($message->getChildren());
+            $content = $this->buildCompositeMessageBody($message);
 
         }
 
@@ -83,17 +83,30 @@ class JsonFormatter extends AbstractProcessor
 
 
     /**
-     * @param ProcessableInterface[] $children
+     * @param ProcessableInterface $message
      * @return array|string
      */
-    private function buildCompositeMessageBody(array $children)
+    private function buildCompositeMessageBody(ProcessableInterface $message)
     {
-        $content = [];
-        foreach ($children as $child) {
-            $content[]= $this->buildContent($child);
+        $content = '';
+        $contentArray = [];
+
+        if ($message->isAListOfTrees()) {
+
+            foreach ($message->getChildren() as $child) {
+                $contentArray[]= '{'.$this->buildContent($child).'}';
+            }
+
+            $content = '['.implode(',', $contentArray).']';
+
+        } else {
+
+            foreach ($message->getChildren() as $child) {
+                $contentArray[]= $this->buildContent($child);
+            }
+
+            $content = '{'.implode(',', $contentArray).'}';
         }
-        #composites' children are surrounded by {}
-        $content = '{'.implode(',', $content).'}';
 
         return $content;
     }

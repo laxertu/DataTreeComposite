@@ -29,4 +29,9 @@ interface ProcessableInterface
      * @return ProcessableInterface
      */
     public function getParent();
+
+    /**
+     * @return bool
+     */
+    public function isAListOfTrees();
 }
