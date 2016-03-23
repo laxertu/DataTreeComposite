@@ -9,5 +9,5 @@ function oStr($s)
 
 function oJson($json)
 {
-    print_r(json_decode($json));
+    print_r(json_decode($json, true));
 }
