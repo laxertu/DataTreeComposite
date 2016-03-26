@@ -8,17 +8,15 @@ use laxertu\DataTree\Processor\ProcessableInterface;
  *
  * Base class for different kinds of tree
  *
+ * @see DataTree
+ * Use this class for defining trees that has a named set of children. Children can be one of the following, or another
+ * DataTree
+ *
  * @see DataTreeList
  * if you want to build a list of trees
  *
  * @see DataTreeElement
  * for simple values representation (arrays are supported too)
- *
- * @see OpenDataTree
- * for trees that can be modified by external clients
- *
- * You should extend this class when you want to implement a concrete one with some closed API, giving to class
- * itself responsibility about how related tree is structured.
  *
  * Class DataTree
  * @package DataTree

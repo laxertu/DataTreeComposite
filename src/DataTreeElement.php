@@ -3,7 +3,7 @@ namespace laxertu\DataTree;
 
 use laxertu\DataTree\Processor\ProcessableInterface;
 /**
- * Leaf classes.
+ * Leaf classes. @see DataTreeBase::setValue
  *
  * Class DataTreeElement
  * @package DataTree

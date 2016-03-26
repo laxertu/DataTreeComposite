@@ -3,6 +3,9 @@
 namespace laxertu\DataTree;
 
 /**
+ * Trees with a named set of children.
+ *
+ *
  * Class DataTree
  * @package DataTree
  */
