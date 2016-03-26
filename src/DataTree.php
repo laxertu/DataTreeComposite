@@ -33,7 +33,7 @@ class DataTree extends DataTreeBase
 
     public function setChildElement($name, $value)
     {
-        $this->setChildTree($name, new MessageElement($name, $value));
+        $this->setChildTree($name, new DataTreeElement($name, $value));
     }
 
 
