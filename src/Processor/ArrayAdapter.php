@@ -1,5 +1,5 @@
 <?php
-namespace laxertu\DataTree\Processor\xml;
+namespace laxertu\DataTree\Processor;
 
 use laxertu\DataTree\Processor\AbstractProcessor;
 use laxertu\DataTree\Processor\xml\XMLProcessableInterface;

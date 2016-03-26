@@ -2,7 +2,7 @@
 namespace laxertu\DataTree\tests\adapters;
 
 
-use laxertu\DataTree\Processor\xml\ArrayAdapter;
+use laxertu\DataTree\Processor\ArrayAdapter;
 use laxertu\DataTree\tests\generic\GenericMessage;
 use laxertu\DataTree\xml\MessageElement;
 
