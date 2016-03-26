@@ -7,7 +7,7 @@ use laxertu\DataTree\Processor\ProcessableInterface;
 /**
  * Class JsonProcessor
  * @package DataTree\Processor
- * @see DataTree\tests\formatters\JsonFormatterTest
+ * @see laxertu\DataTree\tests\formatters\JsonFormatterTest
  */
 class JsonFormatter extends AbstractProcessor
 {
