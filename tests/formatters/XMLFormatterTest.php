@@ -68,8 +68,8 @@ class XMLFormatterTest extends \PHPUnit_Framework_TestCase
 
         $nodeList = new NodeList();
         $nodeList->setName('list');
-        $nodeList->addTree(new MessageElement('val', '1'));
-        $nodeList->addTree(new MessageElement('val', '2'));
+        $nodeList->addNode(new MessageElement('val', '1'));
+        $nodeList->addNode(new MessageElement('val', '2'));
         $xml = $sut->buildContent($nodeList);
         $this->assertEquals('<list><val>1</val><val>2</val></list>', $xml);
 

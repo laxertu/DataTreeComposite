@@ -10,7 +10,7 @@ class NodeList extends Node implements XMLProcessableInterface
 
     protected $isAList = true;
 
-    final public function addTree(Node $node)
+    final public function addNode(Node $node)
     {
         $this->addChild($node);
     }
