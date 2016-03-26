@@ -8,7 +8,7 @@ use laxertu\DataTree\Processor\ProcessableInterface;
  * Class DataTreeElement
  * @package DataTree
  */
-class DataTreeElement extends DataTree
+class DataTreeElement extends DataTreeBase
 {
 
     /**

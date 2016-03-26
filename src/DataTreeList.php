@@ -3,14 +3,16 @@ namespace laxertu\DataTree;
 
 use laxertu\DataTree\DataTree;
 
-class DataTreeList extends DataTree
+/**
+ * List of trees implementation
+ *
+ * Class DataTreeList
+ * @package laxertu\DataTree
+ */
+class DataTreeList extends DataTreeBase
 {
 
     protected $isAList = true;
-
-    /** @var array DataTree */
-    private $trees = [];
-
 
     final public function addTree(DataTree $tree)
     {

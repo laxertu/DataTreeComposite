@@ -9,7 +9,7 @@ use laxertu\DataTree\Processor\ProcessableInterface;
  * Class DataTree
  * @package DataTree
  */
-class OpenDataTree extends DataTree
+class OpenDataTree extends DataTreeBase
 {
     public function __construct($name)
     {

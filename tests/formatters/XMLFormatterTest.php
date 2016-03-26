@@ -4,6 +4,7 @@ namespace laxertu\DataTree\tests\formatters;
 use laxertu\DataTree\Processor\xml\XMLFormatter;
 use laxertu\DataTree\xml\GenericMessage;
 use laxertu\DataTree\xml\MessageElement;
+use laxertu\DataTree\xml\NodeList;
 
 class XMLFormatterTest extends \PHPUnit_Framework_TestCase
 {
@@ -64,6 +65,13 @@ class XMLFormatterTest extends \PHPUnit_Framework_TestCase
         $list = new MessageElement('val', [1, 2]);
         $xml = $sut->buildContent($list);
         $this->assertEquals('<val>1</val><val>2</val>', $xml);
+
+        $nodeList = new NodeList();
+        $nodeList->setName('list');
+        $nodeList->addTree(new MessageElement('val', '1'));
+        $nodeList->addTree(new MessageElement('val', '2'));
+        $xml = $sut->buildContent($nodeList);
+        $this->assertEquals('<list><val>1</val><val>2</val></list>', $xml);
 
         $message = new GenericMessage('ListOfVals');
         $message->setChild($list, 0);
