@@ -11,7 +11,7 @@ I think that reading tests' sources is a good way to understand usage. A couple 
 https://github.com/laxertu/DataTreeComposite/wiki/Really-basic-usage and here: 
 https://github.com/laxertu/DataTreeComposite/wiki
 
-In the same directory a sandbox.php is provided in order to allow starting with some experiment ;-)
+In /test directory a sandbox.php is provided in order to allow starting with some experiment ;-)
 
 Coming soon:
 
