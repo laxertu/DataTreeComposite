@@ -9,7 +9,7 @@ use laxertu\DataTree\Processor\ProcessableInterface;
  * Base class for different kinds of tree
  *
  * @see DataTree
- * Use this class for defining trees that has a named set of children. Children can be one of the following, or another
+ * Use this class for defining trees that have a named set of children. Children can be one of the following, or another
  * DataTree
  *
  * @see DataTreeList
