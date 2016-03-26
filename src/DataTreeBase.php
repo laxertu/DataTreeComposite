@@ -18,7 +18,6 @@ use laxertu\DataTree\Processor\ProcessableInterface;
  * @see DataTreeElement
  * for simple values representation (arrays are supported too)
  *
- * Class DataTree
  * @package DataTree
  */
 
