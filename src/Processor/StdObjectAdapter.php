@@ -1,9 +1,9 @@
 <?php
-namespace laxertu\DataTree\Processor\xml;
+namespace laxertu\DataTree\Processor;
 
 
 use laxertu\DataTree\Processor\AbstractProcessor;
-use laxertu\DataTree\Processor\xml\XMLProcessableInterface;
+use laxertu\DataTree\Processor\ProcessableInterface;
 
 /**
  * Class StdObjectAdapter
@@ -12,30 +12,30 @@ use laxertu\DataTree\Processor\xml\XMLProcessableInterface;
  */
 class StdObjectAdapter extends AbstractProcessor
 {
-    final public function toStdObject(XMLProcessableInterface$xmlTree)
+    final public function toStdObject(ProcessableInterface $tree)
     {
 
         $result = new \StdClass();
-        $msgName = $xmlTree->getName();
+        $msgName = $tree->getName();
 
-        if ($this->isLeaf($xmlTree)) {
-            $result = $this->leafToStdObject($xmlTree);
+        if ($this->isLeaf($tree)) {
+            $result = $this->leafToStdObject($tree);
         } else {
-            $result = $this->compositeToStdObject($xmlTree);
+            $result = $this->compositeToStdObject($tree);
         }
 
         return $result;
     }
 
 
-    private function compositeToStdObject(XMLProcessableInterface $xmlTree)
+    private function compositeToStdObject(ProcessableInterface $tree)
     {
 
         $result = new \StdClass();
-        $msgName = $xmlTree->getName();
+        $msgName = $tree->getName();
 
         $result->$msgName = new \StdClass();
-        foreach ($xmlTree->getChildren() as $child) {
+        foreach ($tree->getChildren() as $child) {
             $childName = $child->getName();
             if (property_exists($result->$msgName, $childName)) {
 
@@ -64,11 +64,11 @@ class StdObjectAdapter extends AbstractProcessor
         return $o1;
     }
 
-    private function leafToStdObject(XMLProcessableInterface $xmlTree)
+    private function leafToStdObject(ProcessableInterface $tree)
     {
         $result = new \StdClass();
-        $msgName = $xmlTree->getName();
-        $result->$msgName = $xmlTree->getValue();
+        $msgName = $tree->getName();
+        $result->$msgName = $tree->getValue();
 
         return $result;
     }

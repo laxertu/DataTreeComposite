@@ -2,6 +2,8 @@
 namespace laxertu\DataTree\tests\adapters;
 
 
+use laxertu\DataTree\DataTreeElement;
+use laxertu\DataTree\DataTreeList;
 use laxertu\DataTree\Processor\ArrayAdapter;
 use laxertu\DataTree\tests\generic\GenericMessage;
 use laxertu\DataTree\xml\MessageElement;
@@ -86,6 +88,32 @@ class ArrayAdapterTest extends \PHPUnit_Framework_TestCase
         ];
 
         $this->assertEquals(serialize($expected), serialize($obtained));
+
+    }
+
+    public function testListFoTrees()
+    {
+
+        $list = new DataTreeList('list');
+        $list->addTree(new DataTreeElement('a', 'b'));
+        $obtained = $this->sut->toArray($list);
+
+        $expected = [
+            'list' => [0 => ['a' => 'b']]
+        ];
+        $this->assertEquals(serialize($expected), serialize($obtained));
+
+        $list->addTree(new DataTreeElement('a', 'b'));
+        $obtained = $this->sut->toArray($list);
+
+        $expected = [
+            'list' => [
+                0 => ['a' => 'b'],
+                1 => ['a' => 'b']
+            ]
+        ];
+        $this->assertEquals(serialize($expected), serialize($obtained));
+
 
     }
 

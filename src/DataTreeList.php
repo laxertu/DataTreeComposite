@@ -14,7 +14,14 @@ class DataTreeList extends DataTreeBase
 
     protected $isAList = true;
 
-    final public function addTree(DataTree $tree)
+    public function __construct($name = false)
+    {
+        if ($name !== false) {
+            $this->setName($name);
+        }
+    }
+
+    final public function addTree(DataTreeBase $tree)
     {
         $this->addChild($tree);
     }

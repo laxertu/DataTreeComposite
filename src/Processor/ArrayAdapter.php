@@ -1,8 +1,10 @@
 <?php
 namespace laxertu\DataTree\Processor;
 
+use laxertu\DataTree\DataTree;
+use laxertu\DataTree\DataTreeList;
 use laxertu\DataTree\Processor\AbstractProcessor;
-use laxertu\DataTree\Processor\xml\XMLProcessableInterface;
+use laxertu\DataTree\Processor\ProcessableInterface;
 
 /**
  * Class ArrayAdapter
@@ -11,34 +13,53 @@ use laxertu\DataTree\Processor\xml\XMLProcessableInterface;
  *
  * When some tree with multiple children with same name is processed, childen are returned as a numeric array, when
  * only one is present, it will be returned as associative.
- * Useful for SOAP. @see DataTree\tests\adapters\ArrayAdapterTest
+ * Useful for SOAP. @see laxertu\DataTree\tests\adapters\ArrayAdapterTest
  *
  */
 class ArrayAdapter extends AbstractProcessor
 {
-    final public function toArray(XMLProcessableInterface $xmlTree)
+    final public function toArray(ProcessableInterface $tree)
     {
 
         $result = [];
-        $msgName = $xmlTree->getName();
+        $msgName = $tree->getName();
 
-        if ($this->isLeaf($xmlTree)) {
-            $result = $this->leafToArray($xmlTree);
+        if ($this->isLeaf($tree)) {
+            $result = $this->leafToArray($tree);
         } else {
-            $result = $this->compositeToArray($xmlTree);
+            $result = $this->compositeToArray($tree);
         }
 
         return $result;
     }
 
-    private function compositeToArray(XMLProcessableInterface $xmlTree)
+    private function compositeToArray(ProcessableInterface $tree)
+    {
+        if ($tree->isAListOfTrees()) {
+            return $this->listOfTreesToArray($tree);
+        } else {
+            return $this->namedCompositeToArray($tree);
+        }
+    }
+
+    private function listOfTreesToArray(DataTreeList $list)
     {
 
+        $listName = $list->getName();
+        $result = [$listName => []];
+        foreach ($list->getChildren() as $child) {
+            $result[$listName][]=$this->toArray($child);
+        }
+        return $result;
+    }
+
+    private function namedCompositeToArray(DataTree $tree)
+    {
         $result = [];
-        $msgName = $xmlTree->getName();
+        $msgName = $tree->getName();
 
         $result[$msgName] = [];
-        foreach ($xmlTree->getChildren() as $child) {
+        foreach ($tree->getChildren() as $child) {
             $childName = $child->getName();
             if (array_key_exists($childName, $result[$msgName])) {
 
@@ -54,11 +75,12 @@ class ArrayAdapter extends AbstractProcessor
         }
 
         return $result;
+
     }
 
-    private function leafToArray(XMLProcessableInterface $xmlTree)
+    private function leafToArray(ProcessableInterface $tree)
     {
 
-        return [$xmlTree->getName() => $xmlTree->getValue()];
+        return [$tree->getName() => $tree->getValue()];
     }
 }

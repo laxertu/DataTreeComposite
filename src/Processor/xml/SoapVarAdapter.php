@@ -3,11 +3,12 @@ namespace laxertu\DataTree\Processor\xml;
 
 
 use laxertu\DataTree\Processor\xml\XMLProcessableInterface;
+use laxertu\DataTree\Processor\StdObjectAdapter;
 
 /**
  * Class SoapVarAdapter
  * @package DataTree\Adapter
- * @see DataTree\tests\adapters\SoapVarAdapterTest
+ * @see laxertu\DataTree\tests\adapters\SoapVarAdapterTest
  */
 class SoapVarAdapter
 {
