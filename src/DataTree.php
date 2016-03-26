@@ -18,20 +18,19 @@ class DataTree extends DataTreeBase
     public function setChildTree($name, DataTreeBase $dataTree)
     {
 
-        $treeIndex = $this->getIndex($name);
+        $childrenMapIndex = $this->getIndexByName($name);
 
-        if ($treeIndex === false) {
-            $treeIndex = $this->generateIndex();
+        if ($childrenMapIndex === false) {
+            $treeIndex = $this->addChild($dataTree);
+            $this->childrenMap[$name] = $treeIndex;
+        } else {
+            $this->setChild($dataTree, $childrenMapIndex);
         }
-
-        $this->childrenMap[$name] = $treeIndex;
-        $this->setChild($dataTree, $treeIndex);
 
     }
 
 
-
-    private function getIndex($name)
+    private function getIndexByName($name)
     {
         if (array_key_exists($name, $this->childrenMap)) {
             return $this->childrenMap[$name];
@@ -40,10 +39,5 @@ class DataTree extends DataTreeBase
         }
     }
 
-    private function generateIndex()
-    {
-        $children = $this->getChildren();
-        return ($children) ? count($children) + 1 : 0;
-    }
 
 }

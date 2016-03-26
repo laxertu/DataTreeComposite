@@ -5,27 +5,15 @@ use laxertu\DataTree\DataTreeList;
 use laxertu\DataTree\Processor\xml\XMLProcessableInterface;
 
 
-class NodeList extends DataTreeList implements XMLProcessableInterface
+class NodeList extends Node implements XMLProcessableInterface
 {
 
-    private $attrs = [];
+    protected $isAList = true;
 
-    final public function getAttributes()
+    final public function addTree(Node $node)
     {
-        return $this->attrs;
+        $this->addChild($node);
     }
-
-    final public function setAttributes(array $attributes)
-    {
-        $this->attrs = $attributes;
-    }
-
-    final public function setAttribute($name, $value)
-    {
-        $this->attrs[$name] = $value;
-    }
-
-
 
 }
 

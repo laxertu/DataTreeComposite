@@ -16,8 +16,7 @@ class DataTreeList extends DataTreeBase
 
     final public function addTree(DataTree $tree)
     {
-        $index = count($this->getChildren());
-        $this->setChild($tree, $index);
+        $this->addChild($tree);
     }
 
 }
