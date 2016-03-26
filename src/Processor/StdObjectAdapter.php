@@ -2,13 +2,14 @@
 namespace laxertu\DataTree\Processor;
 
 
+use laxertu\DataTree\DataTreeList;
 use laxertu\DataTree\Processor\AbstractProcessor;
 use laxertu\DataTree\Processor\ProcessableInterface;
 
 /**
  * Class StdObjectAdapter
  * @package DataTree\Adapter
- * @see DataTree\tests\adapters\StdObjectAdapterTest
+ * @see laxertu\DataTree\tests\adapters\StdObjectAdapterTest
  */
 class StdObjectAdapter extends AbstractProcessor
 {
@@ -29,6 +30,29 @@ class StdObjectAdapter extends AbstractProcessor
 
 
     private function compositeToStdObject(ProcessableInterface $tree)
+    {
+        if ($tree->isAListOfTrees()) {
+            return $this->listOfTreesToStdObject($tree);
+        } else {
+            return $this->namedTreeToStdObject($tree);
+        }
+    }
+
+    private function listOfTreesToStdObject(ProcessableInterface $tree)
+    {
+
+        $result = new \StdClass();
+        $treeName = $tree->getName();
+        $result->$treeName = [];
+        $resultContent = [];
+        foreach ($tree->getChildren() as $child) {
+            $resultContent[]=$this->toStdObject($child);
+        }
+        $result->$treeName = $resultContent;
+        return $result;
+    }
+
+    private function namedTreeToStdObject(ProcessableInterface $tree)
     {
 
         $result = new \StdClass();

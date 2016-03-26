@@ -5,6 +5,8 @@ namespace laxertu\DataTree\tests\adapters;
 use laxertu\DataTree\Processor\StdObjectAdapter;
 use laxertu\DataTree\tests\generic\GenericMessage;
 use laxertu\DataTree\xml\MessageElement;
+use laxertu\DataTree\DataTreeList;
+use laxertu\DataTree\DataTreeElement;
 
 class StdObjectAdapterTest extends \PHPUnit_Framework_TestCase
 {
@@ -88,5 +90,22 @@ class StdObjectAdapterTest extends \PHPUnit_Framework_TestCase
 
     }
 
+
+    public function testListFoTrees()
+    {
+
+        $list = new DataTreeList('list');
+        $list->addTree(new DataTreeElement('a', 'b'));
+        $obtained = $this->sut->toStdObject($list);
+
+        $this->assertEquals('b', $obtained->list[0]->a);
+
+
+        $list->addTree(new DataTreeElement('a', 'b'));
+        $obtained = $this->sut->toStdObject($list);
+
+        $this->assertEquals('b', $obtained->list[1]->a);
+
+    }
 
 }
