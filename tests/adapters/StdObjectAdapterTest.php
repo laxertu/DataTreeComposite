@@ -3,7 +3,7 @@ namespace laxertu\DataTree\tests\adapters;
 
 
 use laxertu\DataTree\Processor\xml\StdObjectAdapter;
-use laxertu\DataTree\xml\GenericMessage;
+use laxertu\DataTree\tests\generic\GenericMessage;
 use laxertu\DataTree\xml\MessageElement;
 
 class StdObjectAdapterTest extends \PHPUnit_Framework_TestCase

@@ -2,7 +2,7 @@
 namespace laxertu\DataTree\tests;
 
 use laxertu\DataTree\Processor\xml\XMLFormatter;
-use laxertu\DataTree\xml\GenericMessage;
+use laxertu\DataTree\tests\generic\GenericMessage;
 use laxertu\DataTree\xml\MessageElement;
 use laxertu\DataTree\tests\utils\XMLCollector;
 

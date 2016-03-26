@@ -3,7 +3,7 @@ namespace laxertu\DataTree\tests\formatters;
 
 use laxertu\DataTree\DataTreeList;
 use laxertu\DataTree\Processor\json\JsonFormatter;
-use laxertu\DataTree\xml\GenericMessage;
+use laxertu\DataTree\tests\generic\GenericMessage;
 use laxertu\DataTree\xml\MessageElement;
 
 class JsonFormatterTest extends \PHPUnit_Framework_TestCase

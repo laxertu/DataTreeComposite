@@ -1,8 +1,8 @@
 <?php
-namespace laxertu\DataTree\xml;
+namespace laxertu\DataTree\tests\generic;
 use laxertu\DataTree\DataTree;
 use laxertu\DataTree\Processor\xml\XMLProcessableInterface;
-use laxertu\DataTree\OpenDataTree;
+use laxertu\DataTree\xml\Message;
 
 /**
  * @package DataTree\xml
