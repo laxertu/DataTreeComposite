@@ -1,6 +1,7 @@
 <?php
 
 namespace laxertu\DataTree;
+use laxertu\DataTree\xml\MessageElement;
 
 /**
  * Trees with a named set of children.
@@ -28,6 +29,11 @@ class DataTree extends DataTreeBase
             $this->setChild($dataTree, $childrenMapIndex);
         }
 
+    }
+
+    public function setChildElement($name, $value)
+    {
+        $this->setChildTree($name, new MessageElement($name, $value));
     }
 
 

@@ -7,7 +7,7 @@ use laxertu\DataTree\Processor\xml\XMLProcessableInterface;
  * Defines an XML node
  * @package laxertu\DataTree\xml
  */
-abstract class Node extends DataTree implements XMLProcessableInterface
+class Node extends DataTree implements XMLProcessableInterface
 {
     private $attrs = [];
 
