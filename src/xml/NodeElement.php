@@ -5,10 +5,10 @@ use laxertu\DataTree\Processor\xml\XMLProcessableInterface;
 /**
  * Leaf classes.
  *
- * Class MessageElement
+ * Class NodeElement
  * @package DataTree
  */
-class MessageElement extends Message
+class NodeElement extends Message
 {
 
     /**
@@ -28,11 +28,11 @@ class MessageElement extends Message
 
     final protected function setChild(XMLProcessableInterface $element, $pos)
     {
-        throw new \Exception('MessageElement objects does not have children');
+        throw new \Exception('NodeElement objects does not have children');
     }
 
     final protected function removeChild($pos)
     {
-        throw new \Exception('MessageElement objects does not have children');
+        throw new \Exception('NodeElement objects does not have children');
     }
 }

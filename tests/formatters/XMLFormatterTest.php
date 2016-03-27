@@ -3,7 +3,7 @@ namespace laxertu\DataTree\tests\formatters;
 
 use laxertu\DataTree\Processor\xml\XMLFormatter;
 use laxertu\DataTree\tests\generic\GenericMessage;
-use laxertu\DataTree\xml\MessageElement;
+use laxertu\DataTree\xml\NodeElement;
 use laxertu\DataTree\xml\NodeList;
 
 class XMLFormatterTest extends \PHPUnit_Framework_TestCase
@@ -18,7 +18,7 @@ class XMLFormatterTest extends \PHPUnit_Framework_TestCase
 
     public function testOne()
     {
-        $el = new MessageElement('a', 'b');
+        $el = new NodeElement('a', 'b');
         $expected = '<a>b</a>';
 
         $this->assertEquals($expected, $this->sut->buildContent($el));
@@ -27,7 +27,7 @@ class XMLFormatterTest extends \PHPUnit_Framework_TestCase
 
     public function testProlog()
     {
-        $el = new MessageElement('a', 'b');
+        $el = new NodeElement('a', 'b');
         $expected = '<a>b</a>';
 
         $splittedXML = explode("\n", $this->sut->buildMessageWithProlog($el));
@@ -39,7 +39,7 @@ class XMLFormatterTest extends \PHPUnit_Framework_TestCase
 
     public function testNull()
     {
-        $el = new MessageElement('a', null);
+        $el = new NodeElement('a', null);
         $expected = '<a />';
 
 
@@ -48,7 +48,7 @@ class XMLFormatterTest extends \PHPUnit_Framework_TestCase
 
     public function testBodyLessMessage()
     {
-        $el = new MessageElement('a');
+        $el = new NodeElement('a');
 
         $this->assertEquals('<a />', $this->sut->buildContent($el));
     }
@@ -56,20 +56,20 @@ class XMLFormatterTest extends \PHPUnit_Framework_TestCase
 
     public function testListOfElements()
     {
-        $list = new MessageElement('val', [1]);
+        $list = new NodeElement('val', [1]);
         $sut = $this->sut;
 
         $xml = $sut->buildContent($list);
         $this->assertEquals('<val>1</val>', $xml);
 
-        $list = new MessageElement('val', [1, 2]);
+        $list = new NodeElement('val', [1, 2]);
         $xml = $sut->buildContent($list);
         $this->assertEquals('<val>1</val><val>2</val>', $xml);
 
         $nodeList = new NodeList();
         $nodeList->setName('list');
-        $nodeList->addNode(new MessageElement('val', '1'));
-        $nodeList->addNode(new MessageElement('val', '2'));
+        $nodeList->addNode(new NodeElement('val', '1'));
+        $nodeList->addNode(new NodeElement('val', '2'));
         $xml = $sut->buildContent($nodeList);
         $this->assertEquals('<list><val>1</val><val>2</val></list>', $xml);
 
@@ -79,7 +79,7 @@ class XMLFormatterTest extends \PHPUnit_Framework_TestCase
         $xml = $sut->buildContent($message);
         $this->assertEquals('<ListOfVals><val>1</val><val>2</val></ListOfVals>', $xml);
 
-        $param = new MessageElement('param', 'param1');
+        $param = new NodeElement('param', 'param1');
         $message->setChild($param, 1);
         $xml = $sut->buildContent($message);
         $this->assertEquals('<ListOfVals><val>1</val><val>2</val><param>param1</param></ListOfVals>', $xml);
@@ -87,7 +87,7 @@ class XMLFormatterTest extends \PHPUnit_Framework_TestCase
 
     public function testZero()
     {
-        $el = new MessageElement('a', 0);
+        $el = new NodeElement('a', 0);
 
         $xml = $this->sut->buildContent($el);
         $this->assertEquals('<a>0</a>', $xml);

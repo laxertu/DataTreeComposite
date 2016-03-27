@@ -4,7 +4,7 @@ namespace laxertu\DataTree\tests\adapters;
 
 use laxertu\DataTree\Processor\StdObjectAdapter;
 use laxertu\DataTree\tests\generic\GenericMessage;
-use laxertu\DataTree\xml\MessageElement;
+use laxertu\DataTree\xml\NodeElement;
 use laxertu\DataTree\DataTreeList;
 use laxertu\DataTree\DataTreeElement;
 
@@ -23,7 +23,7 @@ class StdObjectAdapterTest extends \PHPUnit_Framework_TestCase
 
     public function testSimple()
     {
-        $el = new MessageElement('a', 'b');
+        $el = new NodeElement('a', 'b');
         $obtained = $this->sut->toStdObject($el);
 
         $this->assertEquals('b', $obtained->a);
@@ -32,7 +32,7 @@ class StdObjectAdapterTest extends \PHPUnit_Framework_TestCase
 
     public function testNull()
     {
-        $el = new MessageElement('a', null);
+        $el = new NodeElement('a', null);
         $obtained = $this->sut->toStdObject($el);
 
         $this->assertTrue(is_null($obtained->a));
@@ -41,7 +41,7 @@ class StdObjectAdapterTest extends \PHPUnit_Framework_TestCase
 
     public function testArray()
     {
-        $el = new MessageElement('a', ['b']);
+        $el = new NodeElement('a', ['b']);
         $obtained = $this->sut->toStdObject($el);
 
         $this->assertEquals('b', $obtained->a[0]);
@@ -50,7 +50,7 @@ class StdObjectAdapterTest extends \PHPUnit_Framework_TestCase
     public function testComposite()
     {
         $generic = new GenericMessage('a');
-        $el = new MessageElement('b', 'c');
+        $el = new NodeElement('b', 'c');
         $generic->setChild($el, 0);
 
         $obtained = $this->sut->toStdObject($generic);
@@ -65,8 +65,8 @@ class StdObjectAdapterTest extends \PHPUnit_Framework_TestCase
 
         $generic = new GenericMessage('a');
 
-        $generic->setChild(new MessageElement('b', 'c1'), 0);
-        $generic->setChild(new MessageElement('b', 'c2'), 1);
+        $generic->setChild(new NodeElement('b', 'c1'), 0);
+        $generic->setChild(new NodeElement('b', 'c2'), 1);
 
         $obtained = $this->sut->toStdObject($generic);
 
@@ -78,9 +78,9 @@ class StdObjectAdapterTest extends \PHPUnit_Framework_TestCase
     {
         $generic = new GenericMessage('a');
 
-        $generic->setChild(new MessageElement('b', 'c'), 0);
-        $generic->setChild(new MessageElement('d', 'e'), 1);
-        $generic->setChild(new MessageElement('b', 'f'), 2);
+        $generic->setChild(new NodeElement('b', 'c'), 0);
+        $generic->setChild(new NodeElement('d', 'e'), 1);
+        $generic->setChild(new NodeElement('b', 'f'), 2);
 
         $obtained = $this->sut->toStdObject($generic);
 

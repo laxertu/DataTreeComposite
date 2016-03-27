@@ -1,7 +1,7 @@
 <?php
 
 namespace laxertu\DataTree;
-use laxertu\DataTree\xml\MessageElement;
+use laxertu\DataTree\xml\NodeElement;
 
 /**
  * Trees with a named set of children.

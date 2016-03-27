@@ -2,7 +2,7 @@
 namespace laxertu\DataTree\tests\adapters;
 use laxertu\DataTree\Processor\xml\SoapVarAdapter;
 use laxertu\DataTree\tests\generic\GenericMessage;
-use laxertu\DataTree\xml\MessageElement;
+use laxertu\DataTree\xml\NodeElement;
 
 
 class SoapVarAdapterTest extends \PHPUnit_Framework_TestCase
@@ -18,7 +18,7 @@ class SoapVarAdapterTest extends \PHPUnit_Framework_TestCase
 
     public function testSimple()
     {
-        $el = new MessageElement('a', 'b');
+        $el = new NodeElement('a', 'b');
         $obtained = $this->sut->toSoapVar($el);
 
 
@@ -27,7 +27,7 @@ class SoapVarAdapterTest extends \PHPUnit_Framework_TestCase
 
     public function testNull()
     {
-        $el = new MessageElement('a', null);
+        $el = new NodeElement('a', null);
         $obtained = $this->sut->toSoapVar($el);
 
         $this->assertTrue(is_null($obtained->enc_value->a));

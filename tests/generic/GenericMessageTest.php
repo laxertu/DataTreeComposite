@@ -3,7 +3,7 @@ namespace laxertu\DataTree\tests;
 
 use laxertu\DataTree\Processor\xml\XMLFormatter;
 use laxertu\DataTree\tests\generic\GenericMessage;
-use laxertu\DataTree\xml\MessageElement;
+use laxertu\DataTree\xml\NodeElement;
 use laxertu\DataTree\tests\utils\XMLCollector;
 
 class GenericMessageTest extends \PHPUnit_Framework_TestCase
@@ -15,7 +15,7 @@ class GenericMessageTest extends \PHPUnit_Framework_TestCase
         $formatter = new XMLFormatter();
         $contentBefore = $formatter->buildContent($sut);
 
-        $child = new MessageElement('b', 'c');
+        $child = new NodeElement('b', 'c');
         $sut->setChild($child, 0);
         $sut->removeChild(0);
 
@@ -31,7 +31,7 @@ class GenericMessageTest extends \PHPUnit_Framework_TestCase
 
         $sut = new GenericMessage('a');
 
-        $child = new MessageElement('b', 'c');
+        $child = new NodeElement('b', 'c');
         $sut->setChild($child, 0);
         $sut->setChild($child, 1);
 
@@ -49,7 +49,7 @@ class GenericMessageTest extends \PHPUnit_Framework_TestCase
         $sut = new GenericMessage('a');
         $this->assertEquals('/a', $sut->getPathWithSeparator('/'));
 
-        $child = new MessageElement('b', 'c');
+        $child = new NodeElement('b', 'c');
         $sut->setChild($child, 0);
 
         $this->assertEquals('-a-b', $child->getPathWithSeparator('-'));
