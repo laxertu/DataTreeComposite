@@ -23,7 +23,7 @@ class XMLFormatter extends AbstractProcessor
         return $content;
     }
 
-    public function buildMessageWithProlog(XMLProcessableInterface $message)
+    public function buildMessageWithProlog(XMLMessageInterface $message)
     {
         $version  = $message->getVersion();
         $encoding = $message->getEncoding();
