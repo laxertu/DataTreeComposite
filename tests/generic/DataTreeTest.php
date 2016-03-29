@@ -16,24 +16,24 @@ class DataTreeTest extends \PHPUnit_Framework_TestCase
         $this->sut = new DataTree();
     }
 
-    public function testSetChild()
+    public function testSetChildElement()
     {
         # first add test
-        $this->sut->addChildTree(new DataTreeElement('b', 'c'));
+        $this->sut->setChildElement('b', 'c');
         $children = $this->sut->getChildren();
         $firstChild = $children[0];
 
         $this->assertEquals('c', $firstChild->getValue());
 
         # overwrite test
-        $this->sut->addChildTree(new DataTreeElement('b', 'd'));
+        $this->sut->setChildElement('b', 'd');
         $children = $this->sut->getChildren();
         $firstChild = $children[0];
         $this->assertEquals('d', $firstChild->getValue());
 
     }
 
-    public function testAddChild()
+    public function testAddChildAndRemove()
     {
         $this->sut->addChildTree(new DataTreeElement('a', 'a1'));
         $this->sut->addChildTree(new DataTreeElement('b', 'b1'));
