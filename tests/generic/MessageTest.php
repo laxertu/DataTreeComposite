@@ -26,7 +26,7 @@ class MessageTest extends \PHPUnit_Framework_TestCase
         $contentBefore = $formatter->buildContent($sut);
 
         $child = new NodeElement('b', 'c');
-        $sut->setChildTree('b', $child);
+        $sut->setChildTree($child);
         $sut->removeChildTree('b');
 
         $contentAfter = $formatter->buildContent($sut);
@@ -71,7 +71,7 @@ class MessageTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('/a', $sut->getPathWithSeparator('/'));
 
         $child = new NodeElement('b', 'c');
-        $sut->setChildTree('b', $child);
+        $sut->setChildTree($child);
 
         $this->assertEquals('-a-b', $child->getPathWithSeparator('-'));
 

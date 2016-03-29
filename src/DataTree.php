@@ -17,9 +17,10 @@ class DataTree extends DataTreeBase
 
     private $childrenMap = [];
 
-    public function setChildTree($name, DataTreeBase $dataTree)
+    public function setChildTree(DataTreeBase $dataTree)
     {
 
+        $name = $dataTree->getName();
         $childrenMapIndex = $this->getIndexByName($name);
 
         if ($childrenMapIndex === false) {
@@ -33,7 +34,7 @@ class DataTree extends DataTreeBase
 
     public function setChildElement($name, $value)
     {
-        $this->setChildTree($name, new DataTreeElement($name, $value));
+        $this->setChildTree(new DataTreeElement($name, $value));
     }
 
     public function removeChildTree($name)
