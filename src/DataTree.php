@@ -17,7 +17,12 @@ class DataTree extends DataTreeBase
 
     private $childrenMap = [];
 
-    public function setChildTree(DataTreeBase $dataTree)
+    /**
+     * Adds a DataTree to children. Childen are inserted ordered
+     *
+     * @param DataTreeBase $dataTree
+     */
+    public function addChildTree(DataTreeBase $dataTree)
     {
 
         $name = $dataTree->getName();
@@ -34,7 +39,7 @@ class DataTree extends DataTreeBase
 
     public function setChildElement($name, $value)
     {
-        $this->setChildTree(new DataTreeElement($name, $value));
+        $this->addChildTree(new DataTreeElement($name, $value));
     }
 
     public function removeChildTree($name)
