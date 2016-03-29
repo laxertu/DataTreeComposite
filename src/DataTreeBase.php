@@ -122,9 +122,6 @@ abstract class DataTreeBase implements ProcessableInterface
     /**
      * Sets $element as $pos child, overwrites existent if any
      *
-     * This method is declared as protected as often we want to give control about how a tree is structured to
-     * tree itself. If you want more flexibility you have to use / extend OpenDataTree.
-     *
      * @param ProcessableInterface $element
      * @throws \InvalidArgumentException
      */
@@ -175,9 +172,6 @@ abstract class DataTreeBase implements ProcessableInterface
     }
 
     /**
-     * This method is declared as protected as often we want to give control about how a tree is structured to
-     * tree itself. If you want more flexibility you have to use / extend OpenDataTree.
-     *
      * @param Integer $pos
      */
     protected function removeChild($pos)
