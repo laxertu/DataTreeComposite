@@ -3,8 +3,10 @@ namespace laxertu\DataTree\tests\formatters;
 
 use laxertu\DataTree\Processor\xml\XMLFormatter;
 use laxertu\DataTree\tests\generic\GenericMessage;
+use laxertu\DataTree\xml\Message;
 use laxertu\DataTree\xml\NodeElement;
 use laxertu\DataTree\xml\NodeList;
+use laxertu\DataTree\xml\Node;
 
 class XMLFormatterTest extends \PHPUnit_Framework_TestCase
 {
@@ -34,6 +36,21 @@ class XMLFormatterTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals('<?xml version="1.0" encoding="UTF-8"?>', $splittedXML[0]);
         $this->assertEquals('<a>b</a>', $splittedXML[1]);
+    }
+
+    public function testPrologNode()
+    {
+        $el = new Message();
+        $el->setName('a');
+        $el->setValue('b');
+
+        $expected = '<a>b</a>';
+
+        $splittedXML = explode("\n", $this->sut->buildMessageWithProlog($el));
+
+        $this->assertEquals('<?xml version="1.0" encoding="UTF-8"?>', $splittedXML[0]);
+        $this->assertEquals('<a>b</a>', $splittedXML[1]);
+
     }
 
 

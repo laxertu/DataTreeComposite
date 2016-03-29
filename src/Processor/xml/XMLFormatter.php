@@ -33,6 +33,7 @@ class XMLFormatter extends AbstractProcessor
     }
 
 
+
     /**
      * Lists of values do not have head
      *

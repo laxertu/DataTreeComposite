@@ -2,13 +2,12 @@
 namespace laxertu\DataTree\tests;
 
 use laxertu\DataTree\Processor\xml\XMLFormatter;
-use laxertu\DataTree\tests\generic\GenericMessage;
 use laxertu\DataTree\xml\Message;
 use laxertu\DataTree\xml\Node;
 use laxertu\DataTree\xml\NodeElement;
 use laxertu\DataTree\tests\utils\XMLCollector;
 
-class GenericMessageTest extends \PHPUnit_Framework_TestCase
+class MessageTest extends \PHPUnit_Framework_TestCase
 {
     /** @var  Node */
     private $sut;
