@@ -35,9 +35,9 @@ class DataTreeTest extends \PHPUnit_Framework_TestCase
 
     public function testAddChildAndRemove()
     {
-        $this->sut->addChildTree(new DataTreeElement('a', 'a1'));
-        $this->sut->addChildTree(new DataTreeElement('b', 'b1'));
-        $this->sut->addChildTree(new DataTreeElement('c', 'c1'));
+        $this->sut->setChildTree(new DataTreeElement('a', 'a1'));
+        $this->sut->setChildTree(new DataTreeElement('b', 'b1'));
+        $this->sut->setChildTree(new DataTreeElement('c', 'c1'));
         $this->sut->removeChildTree('b');
 
         $obtained = [];
@@ -53,7 +53,7 @@ class DataTreeTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(serialize($expected), serialize($obtained));
 
         # add with existent name
-        $this->sut->addChildTree(new DataTreeElement('a', 'a2'));
+        $this->sut->setChildTree(new DataTreeElement('a', 'a2'));
         $obtained = [];
 
         $children = $this->sut->getChildren();

@@ -18,11 +18,14 @@ class DataTree extends DataTreeBase
     private $childrenMap = [];
 
     /**
-     * Adds a DataTree to children. Childen are inserted ordered
+     * Sets a DataTree as child. Children are returned in same order as first insertion.
+     * If composite already have a child with same name it will be overwritten
      *
      * @param DataTreeBase $dataTree
+     * @param string $placeMark if you want tree to be assigned to other key
+     *
      */
-    public function addChildTree(DataTreeBase $dataTree)
+    public function setChildTree(DataTreeBase $dataTree)
     {
 
         $name = $dataTree->getName();
@@ -39,7 +42,7 @@ class DataTree extends DataTreeBase
 
     public function setChildElement($name, $value)
     {
-        $this->addChildTree(new DataTreeElement($name, $value));
+        $this->setChildTree(new DataTreeElement($name, $value));
     }
 
     public function removeChildTree($name)
