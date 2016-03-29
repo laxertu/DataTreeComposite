@@ -40,29 +40,6 @@ class MessageTest extends \PHPUnit_Framework_TestCase
         $this->sut->removeChildTree('a');
     }
 
-
-    /*
-    public function testsetChild()
-    {
-        $collector = new XMLCollector();
-
-        $sut = $this->sut;
-        $sut->setName('a');
-
-        $child = new NodeElement('b', 'c');
-        $sut->setChildTree('b', $child);
-        $sut->setChildTree('b', $child);
-        $sut->setChild($child, 1);
-
-        $formatter = new XMLFormatter();
-        $xml = $formatter->buildContent($sut);
-
-        $this->assertEquals(1, $collector->getNumNodeOccurrences($xml, $sut));
-        $this->assertEquals(2, $collector->getNumNodeOccurrences($xml, $child));
-
-    }
-    */
-
     public function testBuildPath()
     {
 
