@@ -36,6 +36,17 @@ class DataTree extends DataTreeBase
         $this->setChildTree($name, new DataTreeElement($name, $value));
     }
 
+    public function removeChildTree($name)
+    {
+        $childrenMapIndex = $this->getIndexByName($name);
+
+        if ($childrenMapIndex === false) {
+            throw new \InvalidArgumentException('Unexistent '.$name.' tree name');
+        } else {
+            $this->removeChild($childrenMapIndex);
+        }
+    }
+
 
     private function getIndexByName($name)
     {
