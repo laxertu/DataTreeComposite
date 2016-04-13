@@ -4,7 +4,7 @@ namespace laxertu\DataTree;
 use laxertu\DataTree\xml\NodeElement;
 
 /**
- * Trees with a named set of children.
+ * Trees where children are indexed by name. @see DataTree::setChildTree
  *
  *
  * Class DataTree
@@ -52,6 +52,7 @@ class DataTree extends DataTreeBase
         if ($childrenMapIndex === false) {
             throw new \InvalidArgumentException('Unexistent '.$name.' tree name');
         } else {
+            unset($this->childrenMap[$name]);
             $this->removeChild($childrenMapIndex);
         }
     }
