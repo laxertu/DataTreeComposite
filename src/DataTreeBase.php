@@ -144,10 +144,10 @@ abstract class DataTreeBase implements ProcessableInterface
     /**
      * Adds a tree to children's list. Returns key generated
      *
-     * @param DataTree $tree
+     * @param ProcessableInterface $tree
      * @return int
      */
-    protected function addChild(DataTreeBase $tree)
+    protected function addChild(ProcessableInterface $tree)
     {
         $index = $this->generateIndex();
         $this->setChild($tree, $index);
