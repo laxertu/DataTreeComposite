@@ -1,6 +1,5 @@
 <?php
 namespace laxertu\DataTree\xml;
-use laxertu\DataTree\Processor\xml\XMLProcessableInterface;
 
 /**
  * Leaf classes.
@@ -8,7 +7,7 @@ use laxertu\DataTree\Processor\xml\XMLProcessableInterface;
  * Class NodeElement
  * @package DataTree
  */
-class NodeElement extends Message
+class NodeElement extends Node
 {
 
     /**
@@ -26,7 +25,7 @@ class NodeElement extends Message
         }
     }
 
-    final protected function setChild(XMLProcessableInterface $element, $pos)
+    final protected function setChild(Node $element, $pos)
     {
         throw new \Exception('NodeElement objects does not have children');
     }

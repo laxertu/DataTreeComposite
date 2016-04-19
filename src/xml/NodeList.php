@@ -2,7 +2,7 @@
 namespace laxertu\DataTree\xml;
 
 use laxertu\DataTree\DataTreeList;
-use laxertu\DataTree\Processor\xml\XMLProcessableInterface;
+
 
 /**
  * Class NodeList
@@ -14,7 +14,7 @@ class NodeList extends Node
 
     protected $isAList = true;
 
-    final public function addNode(XMLProcessableInterface $node)
+    final public function addNode(Node $node)
     {
         $this->addChild($node);
     }

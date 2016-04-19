@@ -122,10 +122,10 @@ abstract class DataTreeBase implements ProcessableInterface
     /**
      * Sets $element as $pos child, overwrites existent if any
      *
-     * @param ProcessableInterface $element
+     * @param DataTreeBase $element
      * @throws \InvalidArgumentException
      */
-    protected function setChild(ProcessableInterface $element, $pos)
+    protected function setChild(DataTreeBase $element, $pos)
     {
         if (!is_int($pos) || ($pos < 0)) {
 
@@ -144,10 +144,10 @@ abstract class DataTreeBase implements ProcessableInterface
     /**
      * Adds a tree to children's list. Returns key generated
      *
-     * @param ProcessableInterface $tree
+     * @param DataTreeBase $tree
      * @return int
      */
-    protected function addChild(ProcessableInterface $tree)
+    protected function addChild(DataTreeBase $tree)
     {
         $index = $this->generateIndex();
         $this->setChild($tree, $index);
@@ -161,7 +161,7 @@ abstract class DataTreeBase implements ProcessableInterface
     }
 
 
-    final public function setParent(ProcessableInterface $parent)
+    final public function setParent(DataTreeBase $parent)
     {
         $this->parent = $parent;
     }
@@ -188,7 +188,7 @@ abstract class DataTreeBase implements ProcessableInterface
     }
 
     /**
-     * @return ProcessableInterface[]
+     * @return DataTreeBase[]
      */
     final public function getChildren()
     {

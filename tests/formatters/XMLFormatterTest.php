@@ -27,17 +27,6 @@ class XMLFormatterTest extends \PHPUnit_Framework_TestCase
     }
 
 
-    public function testProlog()
-    {
-        $el = new NodeElement('a', 'b');
-        $expected = '<a>b</a>';
-
-        $splittedXML = explode("\n", $this->sut->buildMessageWithProlog($el));
-
-        $this->assertEquals('<?xml version="1.0" encoding="UTF-8"?>', $splittedXML[0]);
-        $this->assertEquals('<a>b</a>', $splittedXML[1]);
-    }
-
     public function testPrologNode()
     {
         $el = new Message();

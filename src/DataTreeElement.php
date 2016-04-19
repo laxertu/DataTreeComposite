@@ -1,7 +1,6 @@
 <?php
 namespace laxertu\DataTree;
 
-use laxertu\DataTree\Processor\ProcessableInterface;
 /**
  * Leaf classes. @see DataTreeBase::setValue
  *
@@ -29,7 +28,7 @@ class DataTreeElement extends DataTreeBase
     /**
      * @throws \InvalidArgumentException
      */
-    final protected function setChild(ProcessableInterface $element, $pos)
+    final protected function setChild(DataTreeBase $element, $pos)
     {
         throw new \InvalidArgumentException('DataTreeElement objects do not have children');
     }
