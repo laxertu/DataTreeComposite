@@ -1,8 +1,6 @@
 <?php
 namespace laxertu\DataTree;
 
-use laxertu\DataTree\DataTree;
-
 /**
  * List of trees implementation
  *

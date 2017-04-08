@@ -1,11 +1,6 @@
 <?php
 namespace laxertu\DataTree\Processor;
 
-
-use laxertu\DataTree\DataTreeList;
-use laxertu\DataTree\Processor\AbstractProcessor;
-use laxertu\DataTree\Processor\ProcessableInterface;
-
 /**
  * Class StdObjectAdapter
  * @package DataTree\Adapter
@@ -15,9 +10,6 @@ class StdObjectAdapter extends AbstractProcessor
 {
     final public function toStdObject(ProcessableInterface $tree)
     {
-
-        $result = new \StdClass();
-        $msgName = $tree->getName();
 
         if ($this->isLeaf($tree)) {
             $result = $this->leafToStdObject($tree);

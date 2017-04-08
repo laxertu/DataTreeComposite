@@ -1,7 +1,6 @@
 <?php
 
 namespace laxertu\DataTree;
-use laxertu\DataTree\xml\NodeElement;
 
 /**
  * Trees where children are indexed by name. @see DataTree::setChildTree

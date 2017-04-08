@@ -103,7 +103,6 @@ class JsonFormatter extends AbstractProcessor
 
     private function buildListOfTreeBody(ProcessableInterface $message)
     {
-        $content = '';
         $contentArray = [];
         foreach ($message->getChildren() as $child) {
             $contentArray[]= '{'.$this->buildContent($child).'}';
@@ -115,7 +114,6 @@ class JsonFormatter extends AbstractProcessor
 
     private function buildChildrenTreeBody(ProcessableInterface $message)
     {
-        $content = '';
         $contentArray = [];
         foreach ($message->getChildren() as $child) {
             $contentArray[]= $this->buildContent($child);
