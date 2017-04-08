@@ -4,7 +4,6 @@ namespace laxertu\DataTree\Processor;
 /**
  * Class StdObjectAdapter
  * @package DataTree\Adapter
- * @see laxertu\DataTree\tests\adapters\StdObjectAdapterTest
  */
 class StdObjectAdapter extends AbstractProcessor
 {

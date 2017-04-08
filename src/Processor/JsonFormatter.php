@@ -1,13 +1,10 @@
 <?php
-namespace laxertu\DataTree\Processor\json;
+namespace laxertu\DataTree\Processor;
 
-use laxertu\DataTree\Processor\AbstractProcessor;
-use laxertu\DataTree\Processor\ProcessableInterface;
 
 /**
  * Class JsonProcessor
  * @package DataTree\Processor
- * @see laxertu\DataTree\tests\formatters\JsonFormatterTest
  */
 class JsonFormatter extends AbstractProcessor
 {

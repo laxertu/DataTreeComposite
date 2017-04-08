@@ -13,16 +13,13 @@ use laxertu\DataTree\Processor\ProcessableInterface;
  *
  * When some tree with multiple children with same name is processed, childen are returned as a numeric array, when
  * only one is present, it will be returned as associative.
- * Useful for SOAP. @see laxertu\DataTree\tests\adapters\ArrayAdapterTest
+ * Useful for SOAP.
  *
  */
 class ArrayAdapter extends AbstractProcessor
 {
     final public function toArray(ProcessableInterface $tree)
     {
-
-        $result = [];
-        $msgName = $tree->getName();
 
         if ($this->isLeaf($tree)) {
             $result = $this->leafToArray($tree);
