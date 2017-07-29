@@ -50,7 +50,7 @@ class ArrayAdapter extends AbstractProcessor
         return $result;
     }
 
-    private function namedCompositeToArray(DataTree $tree)
+    private function namedCompositeToArray(ProcessableInterface $tree)
     {
         $result = [];
         $msgName = $tree->getName();

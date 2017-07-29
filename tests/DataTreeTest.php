@@ -1,5 +1,5 @@
 <?php
-namespace laxertu\DataTree\tests\generic;
+namespace laxertu\DataTree\tests;
 
 use laxertu\DataTree\DataTree;
 use laxertu\DataTree\DataTreeElement;

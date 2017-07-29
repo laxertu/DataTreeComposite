@@ -1,8 +1,7 @@
 <?php
 $autoload = function ($className) {
 
-    if(substr($className, 0, 16) == 'laxertu\DataTree')
-    {
+    if (substr($className, 0, 16) == 'laxertu\DataTree') {
         $path = str_replace('laxertu\DataTree\\', '', $className);
         $path = str_replace('\\', '/', $path) . '.php';
 
