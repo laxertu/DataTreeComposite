@@ -5,6 +5,7 @@ namespace laxertu\DataTree\Processor;
 /**
  * Class JsonProcessor
  * @package DataTree\Processor
+ * @see \laxertu\DataTree\tests\JsonFormatterTest
  */
 class JsonFormatter extends AbstractProcessor
 {

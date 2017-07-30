@@ -115,4 +115,10 @@ class JsonFormatterTest extends \PHPUnit_Framework_TestCase
 
     }
 
+    public function testMatrixAsNodeValue()
+    {
+        $e = new DataTreeElement('a', [[1,2,3], [4,5,6]]);
+        $this->assertEquals('{"a":[[1,2,3],[4,5,6]]}', $this->sut->buildContent($e));
+    }
+
 }

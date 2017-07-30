@@ -61,7 +61,7 @@ abstract class DataTreeBase implements ProcessableInterface
     final public function getName()
     {
         if (is_null($this->name)) {
-            $this->name = end(explode('\\', get_class($this)));
+            $this->name = end(explode('\\', get_called_class()));
         }
 
         return $this->name;
